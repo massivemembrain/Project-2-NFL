@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-78ab73dd98fcab07d7e6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project-2-NFL",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Project-2-NFL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project-2-NFL-Debug-ef5deaea59fab1797418.json",
+					"name" : "Project-2-NFL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project-2-NFL_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project-2-NFL_autogen-Debug-1f4ea5d4ef228dc64bd0.json",
+					"name" : "Project-2-NFL_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project-2-NFL_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project-2-NFL_autogen_timestamp_deps-Debug-f307271dc911c0526976.json",
+					"name" : "Project-2-NFL_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Trazler McGrath/source/repos/Project-2-NFL/Project-2-NFL"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

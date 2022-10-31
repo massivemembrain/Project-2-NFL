@@ -1,0 +1,9 @@
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Project-2-NFL.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Project-2-NFL_autogen_timestamp_deps.dir
+C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Project-2-NFL_autogen.dir

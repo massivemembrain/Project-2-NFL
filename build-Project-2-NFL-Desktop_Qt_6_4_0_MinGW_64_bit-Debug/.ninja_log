@@ -1,0 +1,9 @@
+# ninja log v5
+2	2355	6889626284926010	Project-2-NFL_autogen/timestamp	d2d3e275934c7b48
+2	2355	6889626284926010	Project-2-NFL_autogen/mocs_compilation.cpp	d2d3e275934c7b48
+2	2355	6889626284926010	C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Project-2-NFL_autogen/timestamp	d2d3e275934c7b48
+2	2355	6889626284926010	C:/Users/Trazler McGrath/source/repos/Project-2-NFL/build-Project-2-NFL-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Project-2-NFL_autogen/mocs_compilation.cpp	d2d3e275934c7b48
+2357	5992	6889626325450972	CMakeFiles/Project-2-NFL.dir/Project-2-NFL_autogen/mocs_compilation.cpp.obj	f1910006511fdd78
+2395	6003	6889626325582103	CMakeFiles/Project-2-NFL.dir/main.cpp.obj	a00dc2989a4cd9c2
+2388	6045	6889626325962366	CMakeFiles/Project-2-NFL.dir/mainwindow.cpp.obj	1b1487e9e85f6229
+6046	6628	6889626331712969	Project-2-NFL.exe	5dabeb72d0fab33f
