@@ -1,11 +1,17 @@
 #include "qsqlfootball.h"
 #include <QSqlQuery>
-#include <QDebug>
 
 QSqlFootball::QSqlFootball()
 {
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./NFLProject.db");
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+    {
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    }
+    else
+    {
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    }
+    db.setDatabaseName("../NFLProject.db");
     if(db.open())
     {
         qDebug("Database opened.");
@@ -42,18 +48,17 @@ QSqlQueryModel* QSqlFootball::getTeams(const QString SEARCH_TERM,  const QString
     qDebug() << SEARCH_TERM;
     // Prepare query
 //    QSqlQuery query;
-//    query.prepare("SELECT :search_term FROM :filter_term ORDER BY :soprt_term");
+//    query.prepare("SELECT :search_term FROM Teams ORDER BY :sort_term");
 //    query.bindValue(":search_term", SEARCH_TERM);
-//    query.bindValue(":filter_term", FILTER_TERM);
+//    //query.bindValue(":filter_term", FILTER_TERM);
 //    query.bindValue(":sort_term", SORT_TERM);
 //    query.exec();
+    QString query("SELECT :search_term FROM Teams ORDER BY :sort_term");
+    query.replace(":search_term", SEARCH_TERM);
+    query.replace(":sort_term", SORT_TERM);
 
-//    while(query.next()){
-//        QString obj = query.value(0).toString();
-//        qDebug() << obj;
-//    }
     QSqlQueryModel* team_table = new QSqlQueryModel;
-    team_table->setQuery("SELECT * FROM Team(s)");//query.executedQuery());
+    team_table->setQuery(query);//"SELECT * FROM Teams ORDER BY Team");//query.executedQuery());
     //team_table->setHeaderData(0, Qt::Horizontal, "Name");
 
     qDebug("Finished search.");

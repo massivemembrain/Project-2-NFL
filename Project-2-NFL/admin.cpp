@@ -53,7 +53,7 @@ Admin::Admin(QWidget *parent) :
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
-    myDb.setDatabaseName("C:/Users/James Flanagan/Project-2-NFL/NFLProject.db");
+    myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";

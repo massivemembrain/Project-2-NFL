@@ -10,6 +10,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     QSqlFootball db_wrapper;
+    /*
+     * db_wrapper.getTeams(); => all teams
+     * db_wrapper.getTeams("SoFi Stadium", "Name");
+     * db_wrapper.getTeams("NFC North", "Division");
+     * db_wrapper.getTeams("American Football", "Conference");
+     *
+     * db_wrapper.getStadiums(); => all stadiums
+     * db_wrapper.getStadiums("Retractable", "Roof Type");
+     * db_wrapper.getStadiums("Bermuda Grass", "Surface");
+     */
+
     QTableView* team_view = new QTableView(parent);
     team_view->setModel(db_wrapper.getTeams());
     team_view->show();
