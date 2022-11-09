@@ -4,10 +4,9 @@
 #include <vector>
 #include <QString>
 #include <QSqlDatabase>
-#include <QWidget>
+#include <QSqlQueryModel>
 
 using namespace std;
-
 
 
 class QSqlFootball
@@ -22,27 +21,27 @@ public:
      * Story #2
      * Return all info for one team in a QWidget
      */
-    const QWidget getTeamInfo(const QString TEAM_NAME) const;
+    const QSqlQueryModel* getTeamInfo(const QString TEAM_NAME) const;
     /** getAllTeams
-     * Story #3
+     * Story #3, 5, 7
      * Teams are sorted alphabetically.
      */
-    const QWidget getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
+    QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
     /** getAllStadiums
-     * Story #4
+     * Story #4, 8
      * Stadiums are sorted alphabetically. Each stadium's corresponding team(s) are stored in
      */
-    const QWidget getStadiums(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
+    const QSqlQueryModel* getStadiums(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
     /** getAllTeams
      * Story #9
      * Teams are sorted alphabetically. Each team's corresponding stars
      */
-    const QWidget getAllTeamsStars() const;
+    const QSqlQueryModel* getAllTeamsStars() const;
     /** getAllTeams
      * Story #9
      * Teams are sorted alphabetically. Each team's corresponding stars
      */
-    const QWidget getAllTeamsSouveniers() const;
+    const QSqlQueryModel* getAllTeamsSouveniers() const;
 
 };
 

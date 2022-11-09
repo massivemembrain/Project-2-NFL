@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "qsqlfootball.h"
+#include <QTableView>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,7 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    QSqlFootball db_wrapper;
+    QTableView* team_view = new QTableView(parent);
+    team_view->setModel(db_wrapper.getTeams());
+    team_view->show();
 }
 
 MainWindow::~MainWindow()
