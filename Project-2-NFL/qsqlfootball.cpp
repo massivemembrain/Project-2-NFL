@@ -5,7 +5,7 @@
 QSqlFootball::QSqlFootball()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:\\Users\\Trazler McGrath\\source\\repos\\Project-2-NFL\\NFLProject.db");
+    db.setDatabaseName("./NFLProject.db");
     if(db.open())
     {
         qDebug("Database opened.");
