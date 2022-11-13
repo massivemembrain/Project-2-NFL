@@ -26,12 +26,17 @@ public:
      * Story #3, 5, 7
      * Teams are sorted alphabetically.
      */
-    QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
+    QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team", const QString SORT_TERM = "Team") const;
+    /** getInfo
+     * Story #2
+     * Return all info for one team in a QWidget
+     */
+    const QSqlQueryModel* getStadiumInfo(const QString STADIUM_NAME) const;
     /** getAllStadiums
      * Story #4, 8
      * Stadiums are sorted alphabetically. Each stadium's corresponding team(s) are stored in
      */
-    const QSqlQueryModel* getStadiums(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team(s)", const QString SORT_TERM = "team_name") const;
+    QSqlQueryModel* getStadiums(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Name", const QString SORT_TERM = "Name") const;
     /** getAllTeams
      * Story #9
      * Teams are sorted alphabetically. Each team's corresponding stars
