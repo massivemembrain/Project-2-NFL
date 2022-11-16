@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>displayWindow</class>
+ <widget class="QWidget" name="displayWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>818</width>
+    <height>535</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>171</y>
+     <width>771</width>
+     <height>351</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>103</width>
+     <height>32</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_selectTeam">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>101</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(88, 142, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>select team</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_displayStadium">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>111</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>display Stadium </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_displayTeam">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>111</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>display Teams</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_stadiumByCapacity">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>130</y>
+     <width>141</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>stadium by Capacity</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_NFC">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>130</y>
+     <width>201</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>National Football Conference</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_teamsByConf">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>80</y>
+     <width>141</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>Teams by Conference</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_stadiumByDate">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>80</y>
+     <width>151</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>stadium by date opened</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_AFC">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>80</y>
+     <width>201</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string> American Football Conference</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_NFCNORTH">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>80</y>
+     <width>121</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>NFC North</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_openRoof">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>130</y>
+     <width>121</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>open Roof stadium</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
