@@ -43,7 +43,7 @@ QSqlFootball::~QSqlFootball()
  *
  */
 
-QSqlQueryModel* QSqlFootball::getTeams(const QString SEARCH_TERM,  const QString FILTER_TERM, const QString SORT_TERM) const
+const QSqlQueryModel* QSqlFootball::getTeams(const QString SEARCH_TERM,  const QString FILTER_TERM, const QString SORT_TERM) const
 {
     // Prepare query
     QString query;

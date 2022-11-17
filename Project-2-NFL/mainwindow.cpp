@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     QSqlFootball db_wrapper;
     /*
      * db_wrapper.getTeams(); => all teams
+     * * db_wrapper.getTeams("Chargers", "Team"); => all teams
      * db_wrapper.getTeams("SoFi Stadium", "Name");
      * db_wrapper.getTeams("NFC North", "Division");
      * db_wrapper.getTeams("American Football", "Conference");

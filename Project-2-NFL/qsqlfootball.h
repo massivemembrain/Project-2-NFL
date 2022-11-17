@@ -26,7 +26,7 @@ public:
      * Story #3, 5, 7
      * Teams are sorted alphabetically.
      */
-    QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team", const QString SORT_TERM = "Team") const;
+    const QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team", const QString SORT_TERM = "Team") const;
     /** getInfo
      * Story #2
      * Return all info for one team in a QWidget
