@@ -39,3 +39,9 @@ void MainWindow::on_pushButton_clicked()
     adminWindow->show();
 }
 
+void MainWindow::on_pushButton_displayWindow_clicked()
+{
+    d = new class::displayWindow;
+    d->show();
+
+}

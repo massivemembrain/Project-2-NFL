@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    displayWindow.cpp \
     main.cpp \
     mainwindow.cpp \
     qsqlfootball.cpp
 
 HEADERS += \
     admin.h \
+    displayWindow.h \
     mainwindow.h \
     qsqlfootball.h
 
 FORMS += \
     admin.ui \
+    displayWindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.
