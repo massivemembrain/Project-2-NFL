@@ -23,8 +23,11 @@ MainWindow::MainWindow(QWidget *parent)
      */
 
     QTableView* team_view = new QTableView(parent);
-    team_view->setModel(db_wrapper.getTeams());
+    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("");
+    team_view->setModel(souvenirModel);
     team_view->show();
+    //delete souvenirModel;
+    //delete team_view;
 }
 
 MainWindow::~MainWindow()

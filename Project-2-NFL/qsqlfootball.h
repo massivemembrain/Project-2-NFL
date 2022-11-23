@@ -26,7 +26,7 @@ public:
      * Story #3, 5, 7
      * Teams are sorted alphabetically.
      */
-    const QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team", const QString SORT_TERM = "Team") const;
+    QSqlQueryModel* getTeams(const QString SEARCH_TERM = "*",  const QString FILTER_TERM = "Team", const QString SORT_TERM = "Team") const;
     /** getInfo
      * Story #2
      * Return all info for one team in a QWidget
@@ -41,13 +41,20 @@ public:
      * Story #9
      * Teams are sorted alphabetically. Each team's corresponding stars
      */
-    const QSqlQueryModel* getAllTeamsStars() const;
+    QSqlQueryModel* getAllTeamsStars() const;
     /** getAllTeams
      * Story #9
      * Teams are sorted alphabetically. Each team's corresponding stars
      */
-    const QSqlQueryModel* getAllTeamsSouveniers() const;
+    QSqlQueryModel* getTeamSouvenirs(const QString TEAM_NAME = "*") const;
 
+    // Setters
+    //void addSouvenir(const QString NAME, const QString PRICE = "0.00", const QString TEAM = "*");
+    void modifySouvenirPrice(QString NAME, const QString NEW_PRICE, QString TEAM = "*");
+    //void removeSouvenir(const QString NAME, const QString TEAM = "*");
+    // import
+    void importCSV();
+    void importCSV(QString path);
 };
 
 #endif // QSQLFOOTBALL_H
