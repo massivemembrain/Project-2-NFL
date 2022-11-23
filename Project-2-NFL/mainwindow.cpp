@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
      */
 
     QTableView* team_view = new QTableView(parent);
-    team_view->setModel(db_wrapper.getTeams());
+   // team_view->setModel(db_wrapper.getTeams());
     team_view->show();
 }
 
