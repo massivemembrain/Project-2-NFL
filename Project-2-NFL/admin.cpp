@@ -1,5 +1,6 @@
 #include "admin.h"
 #include "ui_admin.h"
+#include "qsqlfootball.h"
 
 Admin::Admin(QWidget *parent) :
     QWidget(parent),
@@ -42,33 +43,34 @@ Admin::Admin(QWidget *parent) :
 
 
 
-    QSqlDatabase myDb;
+//    QSqlDatabase myDb;
 
-    if(QSqlDatabase::contains("qt_sql_default_connection"))
-    {
-        myDb = QSqlDatabase::database("qt_sql_default_connection");
-    }
-    else
-    {
-        myDb = QSqlDatabase::addDatabase("QSQLITE");
-    }
+//    if(QSqlDatabase::contains("qt_sql_default_connection"))
+//    {
+//        myDb = QSqlDatabase::database("qt_sql_default_connection");
+//    }
+//    else
+//    {
+//        myDb = QSqlDatabase::addDatabase("QSQLITE");
+//    }
 
-    myDb.setDatabaseName("../NFLProject.db");
-    if (myDb.open())
-    {
-        qDebug().noquote() << "db found and open";
-    }
-    else
-    {
-        qDebug().noquote() << "db not found";
-    }
+//    myDb.setDatabaseName("../NFLProject.db");
+//    if (myDb.open())
+//    {
+//        qDebug().noquote() << "db found and open";
+//    }
+//    else
+//    {
+//        qDebug().noquote() << "db not found";
+//    }
 
-    QSqlQueryModel* qryModel = new QSqlQueryModel();
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableView->setAlternatingRowColors(true);
+//    QSqlQueryModel* qryModel = new QSqlQueryModel();
+//    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//    ui->tableView->setAlternatingRowColors(true);
 
-    qryModel->setQuery("SELECT * FROM Teams");
-    ui->tableView->setModel(qryModel);
+//    qryModel->setQuery("SELECT * FROM Teams");
+    QSqlFootball db_wrapper;
+    ui->tableView->setModel(db_wrapper.getTeams());//qryModel);
 }
 
 Admin::~Admin()
@@ -80,4 +82,6 @@ void Admin::on_comboBox_activated(int index)
 {
 
 }
+
+
 
