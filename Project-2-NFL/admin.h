@@ -17,12 +17,16 @@ public:
     ~Admin();
 
 private slots:
-    void on_comboBox_activated(int index);
 
+    void on_addButton_clicked();
+
+    void on_deleteButton_clicked();
+
+    void on_editButton_clicked();
 
 private:
     Ui::Admin *ui;
-
+    QSqlDatabase myDb;
 };
 
 #endif // ADMIN_H

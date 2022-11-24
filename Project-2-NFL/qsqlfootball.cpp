@@ -139,7 +139,7 @@ QSqlQueryModel* QSqlFootball::getTeamSouvenirs(const QString TEAM_NAME) const
 
     }
 
-    qDebug() << "Query:" << query;
+    qDebug() << "Query:" << query_default;
 
 
     //team_table->setHeaderData(0, Qt::Horizontal, "Name");

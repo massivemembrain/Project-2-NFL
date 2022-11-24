@@ -11,9 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -28,10 +28,13 @@ public:
     QVBoxLayout *verticalLayout;
     QTableView *tableView;
     QHBoxLayout *horizontalLayout;
-    QComboBox *comboBox;
     QPushButton *addButton;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_2;
+    QPushButton *editButton;
+    QPushButton *deleteButton;
+    QLineEdit *teamLineEdit;
+    QLineEdit *souvenirLineEdit;
+    QLineEdit *priceLineEdit;
+    QHBoxLayout *horizontalLayout_2;
 
     void setupUi(QWidget *Admin)
     {
@@ -40,7 +43,7 @@ public:
         Admin->resize(793, 464);
         verticalLayoutWidget = new QWidget(Admin);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(30, 20, 741, 191));
+        verticalLayoutWidget->setGeometry(QRect(30, 20, 741, 281));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -51,28 +54,43 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        comboBox = new QComboBox(verticalLayoutWidget);
-        comboBox->setObjectName("comboBox");
-
-        horizontalLayout->addWidget(comboBox);
-
         addButton = new QPushButton(verticalLayoutWidget);
         addButton->setObjectName("addButton");
 
         horizontalLayout->addWidget(addButton);
 
-        pushButton_3 = new QPushButton(verticalLayoutWidget);
-        pushButton_3->setObjectName("pushButton_3");
+        editButton = new QPushButton(verticalLayoutWidget);
+        editButton->setObjectName("editButton");
 
-        horizontalLayout->addWidget(pushButton_3);
+        horizontalLayout->addWidget(editButton);
 
-        pushButton_2 = new QPushButton(verticalLayoutWidget);
-        pushButton_2->setObjectName("pushButton_2");
+        deleteButton = new QPushButton(verticalLayoutWidget);
+        deleteButton->setObjectName("deleteButton");
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(deleteButton);
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+        teamLineEdit = new QLineEdit(verticalLayoutWidget);
+        teamLineEdit->setObjectName("teamLineEdit");
+
+        verticalLayout->addWidget(teamLineEdit);
+
+        souvenirLineEdit = new QLineEdit(verticalLayoutWidget);
+        souvenirLineEdit->setObjectName("souvenirLineEdit");
+
+        verticalLayout->addWidget(souvenirLineEdit);
+
+        priceLineEdit = new QLineEdit(verticalLayoutWidget);
+        priceLineEdit->setObjectName("priceLineEdit");
+
+        verticalLayout->addWidget(priceLineEdit);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
         retranslateUi(Admin);
@@ -84,8 +102,12 @@ public:
     {
         Admin->setWindowTitle(QCoreApplication::translate("Admin", "Form", nullptr));
         addButton->setText(QCoreApplication::translate("Admin", "Add", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("Admin", "Edit", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("Admin", "Delete", nullptr));
+        editButton->setText(QCoreApplication::translate("Admin", "Edit", nullptr));
+        deleteButton->setText(QCoreApplication::translate("Admin", "Delete", nullptr));
+        teamLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Team Name", nullptr));
+        souvenirLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Souvenir Name", nullptr));
+        priceLineEdit->setText(QString());
+        priceLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Price", nullptr));
     } // retranslateUi
 
 };

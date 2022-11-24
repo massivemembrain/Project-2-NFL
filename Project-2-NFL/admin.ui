@@ -19,7 +19,7 @@
      <x>30</x>
      <y>20</y>
      <width>741</width>
-     <height>191</height>
+     <height>281</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -29,9 +29,6 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QComboBox" name="comboBox"/>
-      </item>
-      <item>
        <widget class="QPushButton" name="addButton">
         <property name="text">
          <string>Add</string>
@@ -39,20 +36,47 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="editButton">
         <property name="text">
          <string>Edit</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="deleteButton">
         <property name="text">
          <string>Delete</string>
         </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="teamLineEdit">
+      <property name="placeholderText">
+       <string>Team Name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="souvenirLineEdit">
+      <property name="placeholderText">
+       <string>Souvenir Name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="priceLineEdit">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Price</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
     </item>
    </layout>
   </widget>

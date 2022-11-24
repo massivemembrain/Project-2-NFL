@@ -16,6 +16,7 @@ SOURCES += \
     qsqlfootball.cpp
 
 HEADERS += \
+    GraphClass.h \
     admin.h \
     displayWindow.h \
     mainwindow.h \
