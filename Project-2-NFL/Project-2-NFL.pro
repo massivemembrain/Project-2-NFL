@@ -13,18 +13,21 @@ SOURCES += \
     displayWindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    mst.cpp \
     qsqlfootball.cpp
 
 HEADERS += \
     admin.h \
     displayWindow.h \
     mainwindow.h \
+    mst.h \
     qsqlfootball.h
 
 FORMS += \
     admin.ui \
     displayWindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    mst.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

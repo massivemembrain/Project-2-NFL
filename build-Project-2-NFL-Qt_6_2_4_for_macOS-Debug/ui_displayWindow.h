@@ -34,15 +34,16 @@ public:
     QPushButton *pushButton_AFC;
     QPushButton *pushButton_NFCNORTH;
     QPushButton *pushButton_openRoof;
+    QTableView *tableView_2;
 
     void setupUi(QWidget *displayWindow)
     {
         if (displayWindow->objectName().isEmpty())
             displayWindow->setObjectName(QString::fromUtf8("displayWindow"));
-        displayWindow->resize(818, 535);
+        displayWindow->resize(1008, 578);
         tableView = new QTableView(displayWindow);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(20, 171, 771, 351));
+        tableView->setGeometry(QRect(10, 171, 831, 351));
         comboBox = new QComboBox(displayWindow);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setGeometry(QRect(30, 10, 103, 32));
@@ -136,6 +137,9 @@ public:
 "    border-width: 2px;\n"
 "    border-color: beige;\n"
 "}"));
+        tableView_2 = new QTableView(displayWindow);
+        tableView_2->setObjectName(QString::fromUtf8("tableView_2"));
+        tableView_2->setGeometry(QRect(850, 170, 151, 61));
 
         retranslateUi(displayWindow);
 

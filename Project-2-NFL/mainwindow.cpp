@@ -3,6 +3,7 @@
 #include "qsqlfootball.h"
 #include <QTableView>
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -12,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     QSqlFootball db_wrapper;
     /*
      * db_wrapper.getTeams(); => all teams
-     * * db_wrapper.getTeams("Chargers", "Team"); => all teams
      * db_wrapper.getTeams("SoFi Stadium", "Name");
      * db_wrapper.getTeams("NFC North", "Division");
      * db_wrapper.getTeams("American Football", "Conference");
@@ -23,8 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
      */
 
     QTableView* team_view = new QTableView(parent);
-    team_view->setModel(db_wrapper.getTeams());
+    //team_view->setModel(db_wrapper.getTeams());
     team_view->show();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -45,3 +47,11 @@ void MainWindow::on_pushButton_displayWindow_clicked()
     d->show();
 
 }
+
+void MainWindow::on_pushButton_MST_clicked()
+{
+    mst = new class::MST;
+    mst -> show();
+
+}
+
