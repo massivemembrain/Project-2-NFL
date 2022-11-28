@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "qsqlfootball.h"
+#include "qsqlfootballClass.h"
 #include <QTableView>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Initialize football database
+    QSqlFootball::initDB();
     QSqlFootball db_wrapper;
     /*
      * db_wrapper.getTeams(); => all teams

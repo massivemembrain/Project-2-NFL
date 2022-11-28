@@ -14,15 +14,17 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
-    qsqlfootball.cpp
+    qsqlfootballClass.cpp \
+    travelplanClass.cpp
 
 HEADERS += \
-    GraphClass.h \
     admin.h \
     displayWindow.h \
+    graphClass.h \
     mainwindow.h \
     mst.h \
-    qsqlfootball.h
+    qsqlfootballClass.h \
+    travelplanClass.h
 
 FORMS += \
     admin.ui \

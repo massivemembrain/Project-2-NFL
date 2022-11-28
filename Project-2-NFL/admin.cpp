@@ -1,6 +1,6 @@
 #include "admin.h"
 #include "ui_admin.h"
-#include "qsqlfootball.h"
+#include "qsqlfootballClass.h"
 #include <QSqlQuery>
 #include <QMessageBox>
 

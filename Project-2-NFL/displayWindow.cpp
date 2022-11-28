@@ -19,7 +19,7 @@ displayWindow::displayWindow(QWidget *parent)
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
-    myDb.setDatabaseName("/Users/nedamohseni/Documents/Github/Project-2-NFL/Project-2-NFL//NFLProject.db");
+    myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";
