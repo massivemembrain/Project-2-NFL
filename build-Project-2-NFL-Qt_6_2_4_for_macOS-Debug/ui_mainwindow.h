@@ -25,6 +25,7 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton;
     QPushButton *pushButton_displayWindow;
+    QPushButton *pushButton_MST;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -47,6 +48,9 @@ public:
 "    border-width: 2px;\n"
 "    border-color: beige;\n"
 "}"));
+        pushButton_MST = new QPushButton(centralwidget);
+        pushButton_MST->setObjectName(QString::fromUtf8("pushButton_MST"));
+        pushButton_MST->setGeometry(QRect(40, 150, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -66,6 +70,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
         pushButton_displayWindow->setText(QCoreApplication::translate("MainWindow", "display", nullptr));
+        pushButton_MST->setText(QCoreApplication::translate("MainWindow", "M S T ", nullptr));
     } // retranslateUi
 
 };

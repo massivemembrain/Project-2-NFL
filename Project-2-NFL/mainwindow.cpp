@@ -50,3 +50,9 @@ void MainWindow::on_pushButton_displayWindow_clicked()
     d->show();
 
 }
+void MainWindow::on_pushButton_MST_clicked()
+{
+    mst = new class::MST;
+    mst->show();
+
+}

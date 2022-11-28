@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "admin.h"
 #include"displayWindow.h"
+#include"mst.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,10 +24,13 @@ private slots:
 
     void on_pushButton_displayWindow_clicked();
 
+    void on_pushButton_MST_clicked();
+
 private:
     Ui::MainWindow *ui;
     Admin* adminWindow = NULL;
     displayWindow* d = NULL;
+    MST* mst= NULL;
 
 };
 #endif // MAINWINDOW_H
