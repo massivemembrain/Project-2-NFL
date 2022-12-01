@@ -129,11 +129,11 @@ QSqlQueryModel* QSqlFootball::getTeamSouvenirs(const QString TEAM_NAME) const
 
         int name_field = 0;//query_default.record().indexOf("Name");
         int price_field = 1;//query_default.record().indexOf("Name");
-        while(query_override.next())
-        {
-            //query_default.value("Name").toString();
-        }
-          //      qDebug() << result.lastError();
+//        while(query_override.next())
+//        {
+//            //query_default.value("Name").toString();
+//        }
+//          //      qDebug() << result.lastError();
         /*int team_field = 2;//result.record().indexOf("Team");
         while (result.next()) {
             QString country = result.value(team_field).toString();

@@ -6,6 +6,7 @@
 #include "admin.h"
 #include"displayWindow.h"
 #include"mst.h"
+#include "tripdialogue.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,11 +27,13 @@ private slots:
 
     void on_pushButton_MST_clicked();
 
+    void on_pushButton_trip_clicked();
+
 private:
     Ui::MainWindow *ui;
     Admin* adminWindow = NULL;
     displayWindow* d = NULL;
     MST* mst= NULL;
-
+    TripDialogue* tripWindow = NULL;
 };
 #endif // MAINWINDOW_H

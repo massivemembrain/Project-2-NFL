@@ -9,8 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Initialize football database
-    QSqlFootball::initDB();
+
     QSqlFootball db_wrapper;
     /*
      * db_wrapper.getTeams(); => all teams
@@ -26,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QTableView* team_view = new QTableView(parent);
 
-    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("");
+    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("*");
     team_view->setModel(souvenirModel);
 
     team_view->show();
@@ -58,3 +57,10 @@ void MainWindow::on_pushButton_MST_clicked()
     mst->show();
 
 }
+
+void MainWindow::on_pushButton_trip_clicked()
+{
+    tripWindow = new class::TripDialogue;
+    tripWindow->show();
+}
+

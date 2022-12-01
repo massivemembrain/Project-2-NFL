@@ -4,3 +4,7 @@ TravelPlan::TravelPlan()
 {
 
 }
+TravelPlan::~TravelPlan()
+{
+
+}
