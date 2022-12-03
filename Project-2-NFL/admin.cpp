@@ -73,6 +73,8 @@ Admin::Admin(QWidget *parent) :
 
     ui->tableView->setModel(qryModel);
 
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 
 }
 

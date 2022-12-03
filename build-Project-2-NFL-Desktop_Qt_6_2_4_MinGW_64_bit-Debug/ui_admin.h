@@ -104,6 +104,10 @@ public:
         addButton->setText(QCoreApplication::translate("Admin", "Add", nullptr));
         editButton->setText(QCoreApplication::translate("Admin", "Edit", nullptr));
         deleteButton->setText(QCoreApplication::translate("Admin", "Delete", nullptr));
+        teamLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Team Name", nullptr));
+        souvenirLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Souvenir Name", nullptr));
+        priceLineEdit->setText(QString());
+        priceLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Price", nullptr));
     } // retranslateUi
 
 };
