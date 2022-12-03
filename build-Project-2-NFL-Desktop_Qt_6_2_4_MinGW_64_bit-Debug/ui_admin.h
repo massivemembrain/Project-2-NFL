@@ -41,9 +41,15 @@ public:
     QTableView *tableView_2;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *editStadiumButton;
+    QPushButton *editCapacityButton;
     QLineEdit *teamLineEdit2;
     QLineEdit *stadiumLineEdit2;
     QLineEdit *capacityLineEdit2;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_5;
+    QPushButton *pushButton;
+    QPushButton *importButton_2;
+    QPushButton *importButton_3;
 
     void setupUi(QWidget *Admin)
     {
@@ -121,6 +127,11 @@ public:
 
         horizontalLayout_4->addWidget(editStadiumButton);
 
+        editCapacityButton = new QPushButton(horizontalLayoutWidget);
+        editCapacityButton->setObjectName(QString::fromUtf8("editCapacityButton"));
+
+        horizontalLayout_4->addWidget(editCapacityButton);
+
 
         verticalLayout_2->addLayout(horizontalLayout_4);
 
@@ -142,6 +153,27 @@ public:
 
         horizontalLayout_3->addLayout(verticalLayout_2);
 
+        horizontalLayoutWidget_2 = new QWidget(Admin);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(410, 340, 381, 80));
+        horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        pushButton = new QPushButton(horizontalLayoutWidget_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        horizontalLayout_5->addWidget(pushButton);
+
+        importButton_2 = new QPushButton(horizontalLayoutWidget_2);
+        importButton_2->setObjectName(QString::fromUtf8("importButton_2"));
+
+        horizontalLayout_5->addWidget(importButton_2);
+
+        importButton_3 = new QPushButton(horizontalLayoutWidget_2);
+        importButton_3->setObjectName(QString::fromUtf8("importButton_3"));
+
+        horizontalLayout_5->addWidget(importButton_3);
+
 
         retranslateUi(Admin);
 
@@ -158,10 +190,14 @@ public:
         souvenirLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Souvenir Name", nullptr));
         priceLineEdit->setText(QString());
         priceLineEdit->setPlaceholderText(QCoreApplication::translate("Admin", "Price", nullptr));
-        editStadiumButton->setText(QCoreApplication::translate("Admin", "Edit", nullptr));
+        editStadiumButton->setText(QCoreApplication::translate("Admin", "Edit Stadium", nullptr));
+        editCapacityButton->setText(QCoreApplication::translate("Admin", "Edit Capacity", nullptr));
         teamLineEdit2->setPlaceholderText(QCoreApplication::translate("Admin", "Team Name", nullptr));
         stadiumLineEdit2->setPlaceholderText(QCoreApplication::translate("Admin", "Stadium Name", nullptr));
         capacityLineEdit2->setPlaceholderText(QCoreApplication::translate("Admin", "Capacity", nullptr));
+        pushButton->setText(QCoreApplication::translate("Admin", "Import Souvenirs", nullptr));
+        importButton_2->setText(QCoreApplication::translate("Admin", "Import Teams", nullptr));
+        importButton_3->setText(QCoreApplication::translate("Admin", "Import Distances", nullptr));
     } // retranslateUi
 
 };

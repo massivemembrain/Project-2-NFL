@@ -100,7 +100,14 @@
         <item>
          <widget class="QPushButton" name="editStadiumButton">
           <property name="text">
-           <string>Edit</string>
+           <string>Edit Stadium</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="editCapacityButton">
+          <property name="text">
+           <string>Edit Capacity</string>
           </property>
          </widget>
         </item>
@@ -128,6 +135,39 @@
        </widget>
       </item>
      </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>340</y>
+     <width>381</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Import Souvenirs</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="importButton_2">
+      <property name="text">
+       <string>Import Teams</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="importButton_3">
+      <property name="text">
+       <string>Import Distances</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
