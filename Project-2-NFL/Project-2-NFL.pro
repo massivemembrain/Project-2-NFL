@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    bfs.cpp \
     displayWindow.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     admin.h \
+    bfs.h \
     displayWindow.h \
     graphClass.h \
     mainwindow.h \
@@ -30,6 +32,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    bfs.ui \
     displayWindow.ui \
     mainwindow.ui \
     mst.ui \

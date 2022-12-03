@@ -1,0 +1,15 @@
+debug/admin.o
+debug/bfs.o
+debug/displayWindow.o
+debug/main.o
+debug/mainwindow.o
+debug/mst.o
+debug/qsqlfootballClass.o
+debug/travelplanClass.o
+debug/tripdialogue.o
+debug/moc_admin.o
+debug/moc_bfs.o
+debug/moc_displayWindow.o
+debug/moc_mainwindow.o
+debug/moc_mst.o
+debug/moc_tripdialogue.o
