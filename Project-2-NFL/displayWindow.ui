@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
-    <height>578</height>
+    <width>1055</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,19 +16,19 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>171</y>
-     <width>831</width>
-     <height>351</height>
+     <x>230</x>
+     <y>90</y>
+     <width>821</width>
+     <height>531</height>
     </rect>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>12</x>
      <y>10</y>
-     <width>103</width>
+     <width>141</width>
      <height>32</height>
     </rect>
    </property>
@@ -36,7 +36,7 @@
   <widget class="QPushButton" name="pushButton_selectTeam">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>150</x>
      <y>10</y>
      <width>101</width>
      <height>32</height>
@@ -58,7 +58,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>100</y>
      <width>111</width>
      <height>32</height>
     </rect>
@@ -79,7 +79,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
+     <y>50</y>
      <width>111</width>
      <height>32</height>
     </rect>
@@ -99,8 +99,8 @@
   <widget class="QPushButton" name="pushButton_stadiumByCapacity">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>130</y>
+     <x>20</x>
+     <y>400</y>
      <width>141</width>
      <height>32</height>
     </rect>
@@ -120,8 +120,8 @@
   <widget class="QPushButton" name="pushButton_NFC">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>130</y>
+     <x>20</x>
+     <y>200</y>
      <width>201</width>
      <height>32</height>
     </rect>
@@ -141,8 +141,8 @@
   <widget class="QPushButton" name="pushButton_teamsByConf">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>80</y>
+     <x>20</x>
+     <y>450</y>
      <width>141</width>
      <height>32</height>
     </rect>
@@ -162,8 +162,8 @@
   <widget class="QPushButton" name="pushButton_stadiumByDate">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>80</y>
+     <x>20</x>
+     <y>350</y>
      <width>151</width>
      <height>32</height>
     </rect>
@@ -183,8 +183,8 @@
   <widget class="QPushButton" name="pushButton_AFC">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>80</y>
+     <x>20</x>
+     <y>150</y>
      <width>201</width>
      <height>32</height>
     </rect>
@@ -204,8 +204,8 @@
   <widget class="QPushButton" name="pushButton_NFCNORTH">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>80</y>
+     <x>20</x>
+     <y>250</y>
      <width>121</width>
      <height>32</height>
     </rect>
@@ -225,8 +225,8 @@
   <widget class="QPushButton" name="pushButton_openRoof">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>130</y>
+     <x>20</x>
+     <y>300</y>
      <width>121</width>
      <height>32</height>
     </rect>
@@ -246,11 +246,74 @@
   <widget class="QTableView" name="tableView_2">
    <property name="geometry">
     <rect>
-     <x>850</x>
-     <y>170</y>
-     <width>151</width>
-     <height>61</height>
+     <x>300</x>
+     <y>10</y>
+     <width>161</width>
+     <height>71</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_displaySouvenir">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>500</y>
+     <width>141</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>Team Souvenir</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_totalseatcapacity">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>550</y>
+     <width>161</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>total seating capacaity</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_bermudaGrass">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>600</y>
+     <width>151</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    background-color: rgb(192, 214, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+   </property>
+   <property name="text">
+    <string>bermuda grass</string>
    </property>
   </widget>
  </widget>

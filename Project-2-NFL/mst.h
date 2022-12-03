@@ -11,6 +11,7 @@ using namespace std;
 #include <QDebug>
 #include<QString>
 
+
 const int NUMBER_CITIES = 12;
 
 
@@ -73,13 +74,10 @@ public:
     void printMST(int parent[], int graph[NUMBER_CITIES][NUMBER_CITIES]);
     void primMST(int graph[NUMBER_CITIES][NUMBER_CITIES]);
 
-
 private:
     Ui::MST *ui;
 
-
 };
-
 
 
 #endif // MST_H
