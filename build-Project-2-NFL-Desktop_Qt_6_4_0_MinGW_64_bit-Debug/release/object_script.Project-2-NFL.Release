@@ -1,0 +1,13 @@
+release/admin.o
+release/displayWindow.o
+release/main.o
+release/mainwindow.o
+release/mst.o
+release/qsqlfootballClass.o
+release/travelplanClass.o
+release/tripdialogue.o
+release/moc_admin.o
+release/moc_displayWindow.o
+release/moc_mainwindow.o
+release/moc_mst.o
+release/moc_tripdialogue.o

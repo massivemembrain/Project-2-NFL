@@ -22,20 +22,22 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Admin_t {
-    const uint offsetsAndSize[8];
-    char stringdata0[35];
+    const uint offsetsAndSize[10];
+    char stringdata0[74];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Admin_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_Admin_t qt_meta_stringdata_Admin = {
     {
 QT_MOC_LITERAL(0, 5), // "Admin"
-QT_MOC_LITERAL(6, 21), // "on_comboBox_activated"
-QT_MOC_LITERAL(28, 0), // ""
-QT_MOC_LITERAL(29, 5) // "index"
+QT_MOC_LITERAL(6, 20), // "on_addButton_clicked"
+QT_MOC_LITERAL(27, 0), // ""
+QT_MOC_LITERAL(28, 23), // "on_deleteButton_clicked"
+QT_MOC_LITERAL(52, 21) // "on_editButton_clicked"
 
     },
-    "Admin\0on_comboBox_activated\0\0index"
+    "Admin\0on_addButton_clicked\0\0"
+    "on_deleteButton_clicked\0on_editButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,7 +47,7 @@ static const uint qt_meta_data_Admin[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -53,10 +55,14 @@ static const uint qt_meta_data_Admin[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x08,    1 /* Private */,
+       1,    0,   32,    2, 0x08,    1 /* Private */,
+       3,    0,   33,    2, 0x08,    2 /* Private */,
+       4,    0,   34,    2, 0x08,    3 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -67,10 +73,13 @@ void Admin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<Admin *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_comboBox_activated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 0: _t->on_addButton_clicked(); break;
+        case 1: _t->on_deleteButton_clicked(); break;
+        case 2: _t->on_editButton_clicked(); break;
         default: ;
         }
     }
+    (void)_a;
 }
 
 const QMetaObject Admin::staticMetaObject = { {
@@ -81,7 +90,7 @@ const QMetaObject Admin::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Admin_t
 , QtPrivate::TypeAndForceComplete<Admin, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -108,13 +117,13 @@ int Admin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

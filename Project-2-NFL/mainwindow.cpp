@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "qsqlfootball.h"
+#include "qsqlfootballClass.h"
 #include <QTableView>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 
     QSqlFootball db_wrapper;
     /*
@@ -23,8 +24,13 @@ MainWindow::MainWindow(QWidget *parent)
      */
 
     QTableView* team_view = new QTableView(parent);
-   // team_view->setModel(db_wrapper.getTeams());
+
+    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("*");
+    team_view->setModel(souvenirModel);
+
     team_view->show();
+    //delete souvenirModel;
+    //delete team_view;
 }
 
 MainWindow::~MainWindow()
@@ -45,3 +51,16 @@ void MainWindow::on_pushButton_displayWindow_clicked()
     d->show();
 
 }
+void MainWindow::on_pushButton_MST_clicked()
+{
+    mst = new class::MST;
+    mst->show();
+
+}
+
+void MainWindow::on_pushButton_trip_clicked()
+{
+    tripWindow = new class::TripDialogue;
+    tripWindow->show();
+}
+

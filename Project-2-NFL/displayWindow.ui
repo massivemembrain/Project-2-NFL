@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
-    <height>535</height>
+    <width>1008</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>171</y>
-     <width>771</width>
+     <width>831</width>
      <height>351</height>
     </rect>
    </property>
@@ -241,6 +241,16 @@
    </property>
    <property name="text">
     <string>open Roof stadium</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView_2">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>170</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
    </property>
   </widget>
  </widget>

@@ -26,7 +26,7 @@ private slots:
 
 private:
     Ui::Admin *ui;
-
+    QSqlDatabase myDb;
 };
 
 #endif // ADMIN_H

@@ -24,6 +24,9 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *pushButton;
+    QPushButton *pushButton_displayWindow;
+    QPushButton *pushButton_MST;
+    QPushButton *pushButton_trip;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -37,10 +40,25 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(390, 160, 111, 31));
+        pushButton_displayWindow = new QPushButton(centralwidget);
+        pushButton_displayWindow->setObjectName("pushButton_displayWindow");
+        pushButton_displayWindow->setGeometry(QRect(40, 70, 100, 32));
+        pushButton_displayWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background-color: rgb(201, 236, 255);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: beige;\n"
+"}"));
+        pushButton_MST = new QPushButton(centralwidget);
+        pushButton_MST->setObjectName("pushButton_MST");
+        pushButton_MST->setGeometry(QRect(40, 150, 100, 32));
+        pushButton_trip = new QPushButton(centralwidget);
+        pushButton_trip->setObjectName("pushButton_trip");
+        pushButton_trip->setGeometry(QRect(390, 70, 111, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -55,6 +73,9 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
+        pushButton_displayWindow->setText(QCoreApplication::translate("MainWindow", "display", nullptr));
+        pushButton_MST->setText(QCoreApplication::translate("MainWindow", "M S T ", nullptr));
+        pushButton_trip->setText(QCoreApplication::translate("MainWindow", "Plan a Trip", nullptr));
     } // retranslateUi
 
 };

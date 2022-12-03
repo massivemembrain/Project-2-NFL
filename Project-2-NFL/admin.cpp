@@ -1,6 +1,6 @@
 #include "admin.h"
 #include "ui_admin.h"
-#include "qsqlfootball.h"
+#include "qsqlfootballClass.h"
 #include <QSqlQuery>
 #include <QMessageBox>
 
@@ -45,7 +45,6 @@ Admin::Admin(QWidget *parent) :
 
 
 
-    QSqlDatabase myDb;
 
     if(QSqlDatabase::contains("qt_sql_default_connection"))
     {
@@ -155,7 +154,7 @@ void Admin::on_editButton_clicked()
     QSqlQuery query;
     QSqlQueryModel* qryModel = new QSqlQueryModel();
 
-    query.prepare("Update Souvenirs SET Price = (:Price) WHERE Team = (:Team) AND Souvenir = (:Souvenir) ");
+    query.prepare("UPDATE Souvenirs SET Price = :Price WHERE Team = :Team AND Souvenir = :Souvenir ");
     query.bindValue(":Price", priceString);
     query.bindValue(":Team", teamString);
     query.bindValue(":Souvenir", souvenirString);

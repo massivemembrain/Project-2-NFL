@@ -52,13 +52,28 @@
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="teamLineEdit"/>
+     <widget class="QLineEdit" name="teamLineEdit">
+      <property name="placeholderText">
+       <string>Team Name</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="souvenirLineEdit"/>
+     <widget class="QLineEdit" name="souvenirLineEdit">
+      <property name="placeholderText">
+       <string>Souvenir Name</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="priceLineEdit"/>
+     <widget class="QLineEdit" name="priceLineEdit">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Price</string>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
