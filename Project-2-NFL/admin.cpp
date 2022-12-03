@@ -3,48 +3,13 @@
 #include "qsqlfootballClass.h"
 #include <QSqlQuery>
 #include <QMessageBox>
+#include <QSqlError>
 
 Admin::Admin(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Admin)
 {
     ui->setupUi(this);
-//    ui->comboBox->addItem("None");
-//    ui->comboBox->addItem("Arizona Cardinals");
-//    ui->comboBox->addItem("Atlanta Falcons");
-//    ui->comboBox->addItem("Baltimore Ravens");
-//    ui->comboBox->addItem("Buffalo Bills");
-//    ui->comboBox->addItem("Carolina Panthers");
-//    ui->comboBox->addItem("Chicago Bears");
-//    ui->comboBox->addItem("Cincinnati Bengals");
-//    ui->comboBox->addItem("Cleveland Browns");
-//    ui->comboBox->addItem("Dallas Cowboys");
-//    ui->comboBox->addItem("Denver Broncos");
-//    ui->comboBox->addItem("Detroit Lions");
-//    ui->comboBox->addItem("Green Bay Packers");
-//    ui->comboBox->addItem("Houston Texans");
-//    ui->comboBox->addItem("Indianapolis Colts");
-//    ui->comboBox->addItem("Jacksonville Jaguars");
-//    ui->comboBox->addItem("Kansas City Chiefs");
-//    ui->comboBox->addItem("Las Vegas Raiders");
-//    ui->comboBox->addItem("Los Angeles Chargers");
-//    ui->comboBox->addItem("Los Angeles Rams");
-//    ui->comboBox->addItem("Miami Dolphins");
-//    ui->comboBox->addItem("Minnesota Vikings");
-//    ui->comboBox->addItem("New England Patriots");
-//    ui->comboBox->addItem("New Orleans Saints");
-//    ui->comboBox->addItem("New York Giants");
-//    ui->comboBox->addItem("New York Jets");
-//    ui->comboBox->addItem("Philadelphia Eagles");
-//    ui->comboBox->addItem("Pittsburgh Steelers");
-//    ui->comboBox->addItem("San Francisco 49ers");
-//    ui->comboBox->addItem("Seattle Seahawks");
-//    ui->comboBox->addItem("Tampa Bay Buccaneers");
-//    ui->comboBox->addItem("Tennessee Titans");
-//    ui->comboBox->addItem("Washington Commanders");
-
-
-
 
     if(QSqlDatabase::contains("qt_sql_default_connection"))
     {
@@ -74,6 +39,16 @@ Admin::Admin(QWidget *parent) :
     ui->tableView->setModel(qryModel);
 
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    QSqlQueryModel* qryModel2 = new QSqlQueryModel();
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_2->setAlternatingRowColors(true);
+
+    qryModel2->setQuery("SELECT Team, Name, Capacity FROM Teams");
+
+    ui->tableView_2->setModel(qryModel2);
+
+    ui->tableView_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 
 }
@@ -175,5 +150,37 @@ void Admin::on_editButton_clicked()
 
     qryModel->setQuery("SELECT * FROM Souvenirs");
     ui->tableView->setModel(qryModel);
+}
+
+
+void Admin::on_editStadiumButton_clicked()
+{
+    QString teamString = ui->teamLineEdit2->text();
+    QString stadiumString = ui->stadiumLineEdit2->text();
+    QString capacityString = ui->capacityLineEdit2->text();
+
+    QSqlQuery query;
+    QSqlQueryModel* qryModel = new QSqlQueryModel();
+
+    query.prepare("UPDATE Teams SET Name = ? , Capacity = ? WHERE Team = ?");
+    query.addBindValue(stadiumString);
+    query.addBindValue(capacityString);
+    query.addBindValue(teamString);
+    query.lastError();
+    if (!query.exec() )
+    {
+         QMessageBox::warning(this, "Query Error", "Query Not Executed");
+    }
+    else
+    {
+         QMessageBox::information(this, "Stadium Successfully Updated", "Success");
+
+    }
+
+    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_2->setAlternatingRowColors(true);
+
+    qryModel->setQuery("SELECT Team, Name, Capacity FROM Teams");
+    ui->tableView_2->setModel(qryModel);
 }
 

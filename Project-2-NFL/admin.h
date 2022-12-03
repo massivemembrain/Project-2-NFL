@@ -24,6 +24,8 @@ private slots:
 
     void on_editButton_clicked();
 
+    void on_editStadiumButton_clicked();
+
 private:
     Ui::Admin *ui;
     QSqlDatabase myDb;
