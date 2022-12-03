@@ -58,6 +58,12 @@ void MainWindow::on_pushButton_MST_clicked()
 
 }
 
+void MainWindow::on_pushButton_BFS_clicked()
+{
+    bfs = new class::BFS;
+    bfs->show();
+}
+
 void MainWindow::on_pushButton_trip_clicked()
 {
     tripWindow = new class::TripDialogue;
