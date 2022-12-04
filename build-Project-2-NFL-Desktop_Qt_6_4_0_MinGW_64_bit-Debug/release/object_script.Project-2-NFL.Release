@@ -8,6 +8,8 @@ release/mst.o
 release/qsqlfootballClass.o
 release/travelplanClass.o
 release/tripcreateWidget.o
+release/tripprogressWidget.o
+release/tripsummaryWidget.o
 release/moc_admin.o
 release/moc_bfs.o
 release/moc_displayWindow.o
@@ -15,3 +17,5 @@ release/moc_form.o
 release/moc_mainwindow.o
 release/moc_mst.o
 release/moc_tripcreateWidget.o
+release/moc_tripprogressWidget.o
+release/moc_tripsummaryWidget.o

@@ -23,18 +23,19 @@ MainWindow::MainWindow(QWidget *parent)
      * db_wrapper.getStadiums("Bermuda Grass", "Surface");
      */
 
-    QTableView* team_view = new QTableView(parent);
+//    QTableView* team_view = new QTableView(parent);
 
-    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("*");
-    team_view->setModel(souvenirModel);
+//    QSqlQueryModel* souvenirModel = db_wrapper.getTeamSouvenirs("*");
+//    team_view->setModel(souvenirModel);
 
-    team_view->show();
+//    team_view->show();
     //delete souvenirModel;
     //delete team_view;
 }
 
 MainWindow::~MainWindow()
 {
+    delete plan;
     delete ui;
 }
 
@@ -66,7 +67,8 @@ void MainWindow::on_pushButton_BFS_clicked()
 
 void MainWindow::on_pushButton_trip_clicked()
 {
-    tripWindow = new QStackedWidget;
-    tripWindow->show();
+    plan = new TravelPlan;
+    //tripWindow = new QStackedWidget;
+    //tripWindow->show();
 }
 

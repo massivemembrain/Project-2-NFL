@@ -8,6 +8,7 @@
 #include"displayWindow.h"
 #include"mst.h"
 #include "bfs.h"
+#include "travelplanClass.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -38,7 +39,10 @@ private:
     Admin* adminWindow = NULL;
     displayWindow* d = NULL;
     MST* mst= NULL;
-    QStackedWidget* tripWindow = NULL;
+
     BFS* bfs = NULL;
+
+    QStackedWidget* tripWindow = NULL;
+    TravelPlan* plan = nullptr;
 };
 #endif // MAINWINDOW_H

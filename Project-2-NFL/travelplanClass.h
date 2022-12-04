@@ -3,6 +3,7 @@
 
 #include <QSqlQueryModel>
 #include <QString>
+#include <QStackedWidget>
 #include "graphClass.h"
 
 
@@ -24,13 +25,14 @@ public:
     //Receipt receipt;
     TravelPlan();
     ~TravelPlan();
-    void tripWindow();
+    void tripContinue();
     QSqlQueryModel getReceipt();
     int getTotalExpense();
 
-    Graph<int> stadiumGraph;
+    Graph<int> stadium_graph;
 private:
     Receipt receipt;
+    QStackedWidget* window;
 };
 
 #endif // TRAVELPLAN_H

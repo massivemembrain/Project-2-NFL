@@ -34,7 +34,6 @@ public:
     QLabel *label_souvenir;
     QLabel *stadiumName;
     QProgressBar *progressBar;
-    QLabel *teamName;
     QLabel *totalExpenses;
     QLabel *label_expenses;
     QLabel *label_souvenir_quantity;
@@ -47,7 +46,7 @@ public:
         TripCreateWidget->resize(640, 480);
         label_home = new QLabel(TripCreateWidget);
         label_home->setObjectName("label_home");
-        label_home->setGeometry(QRect(30, 50, 71, 16));
+        label_home->setGeometry(QRect(30, 50, 181, 16));
         label_proceed = new QLabel(TripCreateWidget);
         label_proceed->setObjectName("label_proceed");
         label_proceed->setGeometry(QRect(330, 370, 161, 16));
@@ -78,9 +77,6 @@ public:
         progressBar->setGeometry(QRect(0, 450, 641, 20));
         progressBar->setValue(24);
         progressBar->setTextVisible(false);
-        teamName = new QLabel(TripCreateWidget);
-        teamName->setObjectName("teamName");
-        teamName->setGeometry(QRect(110, 50, 49, 16));
         totalExpenses = new QLabel(TripCreateWidget);
         totalExpenses->setObjectName("totalExpenses");
         totalExpenses->setGeometry(QRect(430, 170, 71, 21));
@@ -105,12 +101,11 @@ public:
     void retranslateUi(QWidget *TripCreateWidget)
     {
         TripCreateWidget->setWindowTitle(QCoreApplication::translate("TripCreateWidget", "Form", nullptr));
-        label_home->setText(QCoreApplication::translate("TripCreateWidget", "Home of the", nullptr));
+        label_home->setText(QCoreApplication::translate("TripCreateWidget", "Your dream vacation starts here.", nullptr));
         label_proceed->setText(QCoreApplication::translate("TripCreateWidget", "Proceed to next destination?", nullptr));
         souvenirQuantity->setSpecialValueText(QCoreApplication::translate("TripCreateWidget", "Quantity", nullptr));
         label_souvenir->setText(QCoreApplication::translate("TripCreateWidget", "Souvenirs", nullptr));
-        stadiumName->setText(QCoreApplication::translate("TripCreateWidget", "## cityName", nullptr));
-        teamName->setText(QCoreApplication::translate("TripCreateWidget", "TEAM", nullptr));
+        stadiumName->setText(QCoreApplication::translate("TripCreateWidget", "## My Plan", nullptr));
         totalExpenses->setText(QCoreApplication::translate("TripCreateWidget", "$ ", nullptr));
         label_expenses->setText(QCoreApplication::translate("TripCreateWidget", "### Expenses:", nullptr));
         label_souvenir_quantity->setText(QCoreApplication::translate("TripCreateWidget", "x", nullptr));

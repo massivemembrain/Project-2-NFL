@@ -8,6 +8,8 @@ debug/mst.o
 debug/qsqlfootballClass.o
 debug/travelplanClass.o
 debug/tripcreateWidget.o
+debug/tripprogressWidget.o
+debug/tripsummaryWidget.o
 debug/moc_admin.o
 debug/moc_bfs.o
 debug/moc_displayWindow.o
@@ -15,3 +17,5 @@ debug/moc_form.o
 debug/moc_mainwindow.o
 debug/moc_mst.o
 debug/moc_tripcreateWidget.o
+debug/moc_tripprogressWidget.o
+debug/moc_tripsummaryWidget.o

@@ -10,6 +10,7 @@
 #include <queue>
 #include <QSqlDatabase>
 #include <QString>
+#include <QTextBrowser>
 
 using namespace std;
 
@@ -59,14 +60,14 @@ public:
         {
             sqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
         }
-        sqlDatabase.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+        sqlDatabase.setDatabaseName("C:/Users/Trazler McGrath/source/repos/Project-2-NFL/Project-2-NFL/NFLProject.db");
         if(sqlDatabase.open())
         {
-            qDebug("Database opened.");
+            qDebug("Graph: Database opened.");
         }
         else
         {
-            qDebug("Database not opened.");
+            qDebug("Graph: Database not opened.");
         }
         // PULL IN SQL
         const int TEAM_FIELD = 0;
@@ -141,7 +142,7 @@ public:
 }
   void addVertex(const QString vertex)
 {
-
+    qDebug() << vertex;
   vertex_name_array.push_back(vertex);
   for(auto itWeight = weight_matrix.begin(); itWeight != weight_matrix.end(); itWeight++)
   {
@@ -162,8 +163,9 @@ public:
 }
   const int INF = 9999;
   typedef pair<int, int> iPair;
-  void displayDijkstra(const QString START_VERTEX)
+  QTextBrowser* constructDijkstra(const QString START_VERTEX)
 {
+      QTextBrowser* output = new QTextBrowser;
       const int START_INDEX = getIndexFromValue(START_VERTEX);
 
       // Create a priority queue to store vertices that
@@ -219,16 +221,17 @@ public:
       }
 
       // Print shortest distances stored in dist[]
-      cout << "\n\nCity Distance from " << vertex_name_array[START_INDEX].toStdString() << " to\n";
+      output->append( "\n\nCity Distance from " + vertex_name_array[START_INDEX] + " to\n");
       for (int i = 0; i < vertex_name_array.size(); ++i)
       {
-          cout << left << setw(14) << vertex_name_array[i].toStdString() << ": " << dist[i] << " km\n";
+          output->append(  "\t" + vertex_name_array[i] + ": " + static_cast<QChar>(dist[i]) + " km\n");
       }
 //  priority_queue<int> city_queue;
 //  for(int i = 0; i < NUMBER_VERTICES; i++)
 //    {
 
 //    }
+      return output;
 }
   void displayMST(const QString start_vertex)
 {

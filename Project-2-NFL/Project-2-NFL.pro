@@ -18,7 +18,9 @@ SOURCES += \
     mst.cpp \
     qsqlfootballClass.cpp \
     travelplanClass.cpp \
-    tripcreateWidget.cpp
+    tripcreateWidget.cpp \
+    tripprogressWidget.cpp \
+    tripsummaryWidget.cpp
 
 HEADERS += \
     admin.h \
@@ -30,7 +32,9 @@ HEADERS += \
     mst.h \
     qsqlfootballClass.h \
     travelplanClass.h \
-    tripcreateWidget.h
+    tripcreateWidget.h \
+    tripprogressWidget.h \
+    tripsummaryWidget.h
 
 FORMS += \
     admin.ui \
@@ -39,7 +43,9 @@ FORMS += \
     form.ui \
     mainwindow.ui \
     mst.ui \
-    tripcreateWidget.ui
+    tripcreateWidget.ui \
+    tripprogressWidget.ui \
+    tripsummaryWidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
