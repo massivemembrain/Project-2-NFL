@@ -2,6 +2,7 @@
 #define GRAPHCLASS_H
 
 #include <string>
+#include <list>
 #include <vector>
 #include <iostream>
 #include <queue>
@@ -17,6 +18,13 @@ class Graph
 {
 public:
 // Constructor
+  Graph()
+    : NUMBER_VERTICES{0}, vertex_name_array{vertex_name_array},
+    weight_matrix{weight_matrix}
+    {
+
+    }
+
   Graph(
     int number_vertices,
     string vertex_name_array[],
@@ -34,6 +42,13 @@ public:
         is_directed = false;
       }
     }
+  Graph(QSqlDatabase& SqlDatabase, QString SqlTable)
+    : NUMBER_VERTICES{number_vertices}, vertex_name_array{vertex_name_array},
+    weight_matrix{weight_matrix}
+    {
+
+    }
+
 // Destructor
   ~Graph()
   {
@@ -70,13 +85,73 @@ public:
 {
 
 }
+  const int INF = 9999;
+  typedef pair<int, int> iPair;
   void displayDijkstra(const string start_vertex)
 {
-  priority_queue<int> city_queue;
-  for(int i = 0; i < NUMBER_VERTICES; i++)
-    {
+      // Create a priority queue to store vertices that
+      // are being preprocessed. This is weird syntax in C++.
+      priority_queue<iPair, vector<iPair>, greater<iPair> pq;
+      // Container for every vertice traversed from src to destination
+      vector<int> vertices_to_destination;
 
-    }
+      // Create a vector for distances and initialize all
+      // distances as infinite (INF)
+      vector<int> dist(V, INF);
+
+      // Insert source itself in priority queue and initialize
+      // its distance as 0.
+      pq.push(make_pair(0, src));
+      dist[src] = 0;
+      vertices_to_destination.push_back(src);
+
+      /* Looping till priority queue becomes empty (or all
+         distances are not finalized) */
+      while (!pq.empty()) {
+
+          // The first vertex in pair is the minimum distance
+          // vertex, extract it from priority queue.
+          // vertex label is stored in second of pair (it
+          // has to be done this way to keep the vertices
+          // sorted distance (distance must be first item
+          // in pair)
+          int u = pq.top().second;
+          pq.pop();
+
+          // 'i' is used to get all adjacent vertices of a
+          // vertex
+          list<pair<int, int> >::iterator i;
+          int save_v = 0;
+          for (i = adj[u].begin(); i != adj[u].end(); ++i) {
+              // Get vertex label and weight of current
+              // adjacent of u.
+              int v = (*i).first;
+              int weight = (*i).second;
+
+              // If there is a shorter path to v through u.
+              if (dist[v] > dist[u] + weight) {
+                  // Updating distance of v
+                  dist[v] = dist[u] + weight;
+                  pq.push(make_pair(dist[v], v));
+
+                  save_v = v;
+              }
+          }
+          vertices_to_destination.push_back(save_v);
+
+      }
+
+      // Print shortest distances stored in dist[]
+      cout << "\n\nCity Distance from " << CityToStr[src] << " to\n";
+      for (int i = 0; i < V; ++i)
+      {
+          cout << left << setw(14) << CityToStr[i] << ": " << dist[i] << " km\n";
+      }
+//  priority_queue<int> city_queue;
+//  for(int i = 0; i < NUMBER_VERTICES; i++)
+//    {
+
+//    }
 }
   void displayMST(const string start_vertex)
 {
@@ -90,6 +165,8 @@ public:
 {
   return true;
 }
+  void operator()()
+  {}
 // Member vars
 private:
   int NUMBER_VERTICES;
@@ -102,7 +179,7 @@ private:
   {
     return vertex_name_array[index];
   }
-  const int getIndexFromValue( string value )
+  int getIndexFromValue( string value )
   {
     for(int i = 0; i < NUMBER_VERTICES; i++)
     {

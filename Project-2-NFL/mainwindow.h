@@ -6,7 +6,7 @@
 #include "admin.h"
 #include"displayWindow.h"
 #include"mst.h"
-#include "tripdialogue.h"
+#include "tripprogressDialogue.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,6 +34,6 @@ private:
     Admin* adminWindow = NULL;
     displayWindow* d = NULL;
     MST* mst= NULL;
-    TripDialogue* tripWindow = NULL;
+    TripProgressDialogue* tripWindow = NULL;
 };
 #endif // MAINWINDOW_H

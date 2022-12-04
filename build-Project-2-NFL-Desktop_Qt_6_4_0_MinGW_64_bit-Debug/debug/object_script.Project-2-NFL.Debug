@@ -1,13 +1,15 @@
 debug/admin.o
 debug/displayWindow.o
+debug/form.o
 debug/main.o
 debug/mainwindow.o
 debug/mst.o
 debug/qsqlfootballClass.o
 debug/travelplanClass.o
-debug/tripdialogue.o
+debug/tripprogressDialogue.o
 debug/moc_admin.o
 debug/moc_displayWindow.o
+debug/moc_form.o
 debug/moc_mainwindow.o
 debug/moc_mst.o
-debug/moc_tripdialogue.o
+debug/moc_tripprogressDialogue.o

@@ -11,29 +11,32 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     displayWindow.cpp \
+    form.cpp \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
     qsqlfootballClass.cpp \
     travelplanClass.cpp \
-    tripdialogue.cpp
+    tripcreateWidget.cpp
 
 HEADERS += \
     admin.h \
     displayWindow.h \
+    form.h \
     graphClass.h \
     mainwindow.h \
     mst.h \
     qsqlfootballClass.h \
     travelplanClass.h \
-    tripdialogue.h
+    tripcreateWidget.h
 
 FORMS += \
     admin.ui \
     displayWindow.ui \
+    form.ui \
     mainwindow.ui \
     mst.ui \
-    tripdialogue.ui
+    tripcreateWidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

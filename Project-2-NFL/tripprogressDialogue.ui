@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TripDialogue</class>
- <widget class="QDialog" name="TripDialogue">
+ <class>TripProgressDialogue</class>
+ <widget class="QDialog" name="TripProgressDialogue">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -218,7 +218,7 @@
   <connection>
    <sender>proceedButtons</sender>
    <signal>accepted()</signal>
-   <receiver>TripDialogue</receiver>
+   <receiver>TripProgressDialogue</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -234,7 +234,7 @@
   <connection>
    <sender>proceedButtons</sender>
    <signal>rejected()</signal>
-   <receiver>TripDialogue</receiver>
+   <receiver>TripProgressDialogue</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
