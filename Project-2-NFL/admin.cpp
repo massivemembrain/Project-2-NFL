@@ -309,7 +309,7 @@ void Admin::on_importButton_2_clicked()
         while(!inFile.atEnd())
         {
              QSqlQuery query;
-             query.prepare("INSERT INTO Souvenirs(Team, Name, Capacity, Location, RoofType, Surface, Opened, Conference, Division) VALUES (:Team, :Name, :Capacity, :Location, :RoofType, :Surface, :Opened, :Conference, :Division)");
+             query.prepare("INSERT INTO Teams(Team, Name, Capacity, Location, RoofType, Surface, Opened, Conference, Division) VALUES (:Team, :Name, :Capacity, :Location, :RoofType, :Surface, :Opened, :Conference, :Division)");
 
              teamString = inFile.readLine();
              nameString = inFile.readLine();
@@ -331,7 +331,15 @@ void Admin::on_importButton_2_clicked()
              query.bindValue(":Conference", conferenceString);
              query.bindValue(":Division", divisionString);
              qDebug() << teamString << nameString << capacityString << locationString << roofTypeString << surfaceString << openedString << conferenceString << divisionString;
-             query.exec();
+             if (!query.exec() )
+             {
+                  QMessageBox::warning(this, "Query Error", "Query Not Executed");
+             }
+             else
+             {
+                  QMessageBox::information(this, "Stadium Successfully Updated", "Success");
+
+             }
 
          }
          file.close();
