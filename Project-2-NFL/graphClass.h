@@ -1,6 +1,8 @@
 #ifndef GRAPHCLASS_H
 #define GRAPHCLASS_H
 
+#include <algorithm>
+#include <QSqlQuery>
 #include <list>
 #include <vector>
 #include <iostream>
@@ -20,43 +22,101 @@ class Graph
 {
 public:
 // Constructor
-  Graph()
-    : vertex_name_array{vector<QString>()}, is_directed{false},
-      weight_matrix{vector<vector<T>>(0, vector<bool>(0, false))}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
-    {
-
-    }
-  // Undirected constructor
-  Graph(
-    vector<QString> vertex_name_array,
-    vector<vector<T>> weight_matrix)
-    : vertex_name_array{vertex_name_array}, is_directed{false},
-      weight_matrix{weight_matrix}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
-    {
-        //direction_matrix = vector<vector<bool>>(0, vector<bool>(0, false));
-    }
-  // Directed constructor
-  Graph(
-    vector<QString> vertex_name_array,
-    vector<vector<T>> weight_matrix,
-    vector<vector<bool>> direction_matrix)
-    : vertex_name_array{vertex_name_array}, is_directed{true},
-      weight_matrix{weight_matrix}, direction_matrix{direction_matrix}
-    {}
+//  Graph()
+//    : vertex_name_array{vector<QString>()}, is_directed{false},
+//      weight_matrix{vector<vector<T>>(0, vector<bool>(0, false))}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))},
+//    {}
+//  // Undirected constructor
+//  Graph(
+//    vector<QString> vertex_name_array,
+//    vector<vector<T>> weight_matrix)
+//    : vertex_name_array{vertex_name_array}, is_directed{false},
+//      weight_matrix{weight_matrix}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
+//    {
+//        //direction_matrix = vector<vector<bool>>(0, vector<bool>(0, false));
+//    }
+//  // Directed constructor
+//  Graph(
+//    vector<QString> vertex_name_array,
+//    vector<vector<T>> weight_matrix,
+//    vector<vector<bool>> direction_matrix)
+//    : vertex_name_array{vertex_name_array}, is_directed{true},
+//      weight_matrix{weight_matrix}, direction_matrix{direction_matrix}
+//    {}
   // DB undirected constructor
-  Graph(QSqlDatabase& SqlDatabase, QString SqlTable)
-      : is_directed{false}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
+  Graph(QString sqlTable)
+      : is_directed{false}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))},
+        sqlTable{sqlTable}
     {
         vertex_name_array = vector<QString>();
         weight_matrix = vector<vector<int>>();
-
+        // init db
+        if(QSqlDatabase::contains("qt_sql_default_connection"))
+        {
+            sqlDatabase = QSqlDatabase::database("qt_sql_default_connection");
+        }
+        else
+        {
+            sqlDatabase = QSqlDatabase::addDatabase("QSQLITE");
+        }
+        sqlDatabase.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+        if(sqlDatabase.open())
+        {
+            qDebug("Database opened.");
+        }
+        else
+        {
+            qDebug("Database not opened.");
+        }
         // PULL IN SQL
+        const int TEAM_FIELD = 0;
+        const int ORIGIN_FIELD = 1;
+        const int DESTINATION_FIELD = 2;
+        const int DISTANCE_FIELD = 3;
+        QSqlQuery query("SELECT * FROM :table");
+        query.bindValue(":table", sqlTable);
+        //
+        QString team_name;
+        QString stadium_origin_name;
+        QString stadium_destination_name;
+        int stadium_origin_index = -1;
+        int stadium_destination_index = -1;
+        query.next();
+        // 1st dimension matrix access
+        do
+        {
+            team_name = query.value(TEAM_FIELD).toString();
+            stadium_origin_name = query.value(ORIGIN_FIELD).toString();
+            // if stadium has not yet been added to matrix
+            if( !contains(stadium_origin_name) )
+            {
+                 addVertex(stadium_origin_name);
+            }
+            stadium_origin_index = getIndexFromValue(stadium_origin_name);
+            // 2nd dimension matrix access
+            do
+            {
+                stadium_destination_name = query.value(DESTINATION_FIELD).toString();
+                if( !contains(stadium_destination_name) )
+                {
+                    addVertex(stadium_destination_name);
+                }
+                stadium_destination_index = getIndexFromValue(stadium_destination_name);
+                // Assign db weight to matrix
+                weight_matrix[stadium_origin_index][stadium_destination_index] = query.value(DISTANCE_FIELD).toInt();
 
+                query.next();
+            } while(query.isValid() && query.value(TEAM_FIELD).toString() == team_name);
+            //if()
+            //QString country = query.value(0).toString();
+            //doSomething(country);
+        } while(query.isValid());
     }
 
 // Destructor
   ~Graph()
   {
+      sqlDatabase.close();
       // Not needed b/c vectors
 //    for(int i = 0; i < NUMBER_VERTICES; i++)
 //    {
@@ -210,6 +270,10 @@ private:
     }
     cout << "Value " << value.toStdString() << " not in array.";
     return -1;
+  }
+  bool contains(QString& vertex)
+  {
+      return count(vertex_name_array.begin(), vertex_name_array.end(), vertex);
   }
 };
 
