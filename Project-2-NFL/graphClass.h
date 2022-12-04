@@ -1,11 +1,13 @@
 #ifndef GRAPHCLASS_H
 #define GRAPHCLASS_H
 
-#include <string>
 #include <list>
 #include <vector>
 #include <iostream>
+#include <iomanip>
 #include <queue>
+#include <QSqlDatabase>
+#include <QString>
 
 using namespace std;
 
@@ -19,91 +21,106 @@ class Graph
 public:
 // Constructor
   Graph()
-    : NUMBER_VERTICES{0}, vertex_name_array{vertex_name_array},
-    weight_matrix{weight_matrix}
+    : vertex_name_array{vector<QString>()}, is_directed{false},
+      weight_matrix{vector<vector<T>>(0, vector<bool>(0, false))}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
     {
 
     }
-
+  // Undirected constructor
   Graph(
-    int number_vertices,
-    string vertex_name_array[],
-    T* weight_matrix[],
-    bool* direction_matrix[] = nullptr)
-    : NUMBER_VERTICES{number_vertices}, vertex_name_array{vertex_name_array},
-    weight_matrix{weight_matrix}
+    vector<QString> vertex_name_array,
+    vector<vector<T>> weight_matrix)
+    : vertex_name_array{vertex_name_array}, is_directed{false},
+      weight_matrix{weight_matrix}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
     {
-      if(direction_matrix != nullptr)
-      {
-        this->direction_matrix = direction_matrix;
-      }
-      else
-      {
-        is_directed = false;
-      }
+        //direction_matrix = vector<vector<bool>>(0, vector<bool>(0, false));
     }
+  // Directed constructor
+  Graph(
+    vector<QString> vertex_name_array,
+    vector<vector<T>> weight_matrix,
+    vector<vector<bool>> direction_matrix)
+    : vertex_name_array{vertex_name_array}, is_directed{true},
+      weight_matrix{weight_matrix}, direction_matrix{direction_matrix}
+    {}
+  // DB undirected constructor
   Graph(QSqlDatabase& SqlDatabase, QString SqlTable)
-    : NUMBER_VERTICES{number_vertices}, vertex_name_array{vertex_name_array},
-    weight_matrix{weight_matrix}
+      : is_directed{false}, direction_matrix{vector<vector<bool>>(0, vector<bool>(0, false))}
     {
+        vertex_name_array = vector<QString>();
+        weight_matrix = vector<vector<int>>();
+
+        // PULL IN SQL
 
     }
 
 // Destructor
   ~Graph()
   {
-    for(int i = 0; i < NUMBER_VERTICES; i++)
-    {
-      delete[] weight_matrix[i];
-    }
-    if(direction_matrix != nullptr)
-    {
-      for(int i = 0; i < NUMBER_VERTICES; i++)
-      {
-          delete[] direction_matrix[i];
-      }
-    }
+      // Not needed b/c vectors
+//    for(int i = 0; i < NUMBER_VERTICES; i++)
+//    {
+//      delete[] weight_matrix[i];
+//    }
+//    if(direction_matrix != nullptr)
+//    {
+//      for(int i = 0; i < NUMBER_VERTICES; i++)
+//      {
+//          delete[] direction_matrix[i];
+//      }
+//    }
   }
 // Member functions
   void modEdge(const int start_vertex, const int end_vertex, const T weight, const bool is_directional = false)
 {
   weight_matrix[start_vertex][end_vertex] = weight;
+  // if is_directional == false
+  weight_matrix[end_vertex][end_vertex] = weight;
+
+  // UPDATE IN SQL
 }
-  void addVertex(const string vertex)
+  void addVertex(const QString vertex)
 {
-  NUMBER_VERTICES++;
-  vertex_name_array = new string[NUMBER_VERTICES];
-  int** new_matrix = new T[NUMBER_VERTICES][NUMBER_VERTICES];
-  for(int i = 0; i < NUMBER_VERTICES - 1; i++)
-    {}
+
+  vertex_name_array.push_back(vertex);
+  for(auto itWeight = weight_matrix.begin(); itWeight != weight_matrix.end(); itWeight++)
+  {
+    // same as .pushback(0), but more efficient
+    itWeight->emplace_back();
+  }
+  weight_matrix.emplace_back();
+
+  // CREATE IN SQL
 }
-  void displayDFS(const string start_vertex)
+  void displayDFS(const QString start_vertex)
 {
 
 }
-  void displayBFS(const string start_vertex)
+  void displayBFS(const QString start_vertex)
 {
 
 }
   const int INF = 9999;
   typedef pair<int, int> iPair;
-  void displayDijkstra(const string start_vertex)
+  void displayDijkstra(const QString START_VERTEX)
 {
+      const int START_INDEX = getIndexFromValue(START_VERTEX);
+
       // Create a priority queue to store vertices that
       // are being preprocessed. This is weird syntax in C++.
-      priority_queue<iPair, vector<iPair>, greater<iPair> pq;
+      priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
       // Container for every vertice traversed from src to destination
       vector<int> vertices_to_destination;
 
       // Create a vector for distances and initialize all
       // distances as infinite (INF)
-      vector<int> dist(V, INF);
+      vector<int> dist(vertex_name_array.size(), INF);
 
       // Insert source itself in priority queue and initialize
       // its distance as 0.
-      pq.push(make_pair(0, src));
-      dist[src] = 0;
-      vertices_to_destination.push_back(src);
+      pq.push(make_pair(0, START_INDEX));
+      dist[START_INDEX] = 0;
+      vertices_to_destination.push_back(START_INDEX);
 
       /* Looping till priority queue becomes empty (or all
          distances are not finalized) */
@@ -122,7 +139,7 @@ public:
           // vertex
           list<pair<int, int> >::iterator i;
           int save_v = 0;
-          for (i = adj[u].begin(); i != adj[u].end(); ++i) {
+          for (i = weight_matrix[u].begin(); i != weight_matrix[u].end(); ++i) {
               // Get vertex label and weight of current
               // adjacent of u.
               int v = (*i).first;
@@ -142,10 +159,10 @@ public:
       }
 
       // Print shortest distances stored in dist[]
-      cout << "\n\nCity Distance from " << CityToStr[src] << " to\n";
-      for (int i = 0; i < V; ++i)
+      cout << "\n\nCity Distance from " << vertex_name_array[START_INDEX].toStdString() << " to\n";
+      for (int i = 0; i < vertex_name_array.size(); ++i)
       {
-          cout << left << setw(14) << CityToStr[i] << ": " << dist[i] << " km\n";
+          cout << left << setw(14) << vertex_name_array[i].toStdString() << ": " << dist[i] << " km\n";
       }
 //  priority_queue<int> city_queue;
 //  for(int i = 0; i < NUMBER_VERTICES; i++)
@@ -153,11 +170,11 @@ public:
 
 //    }
 }
-  void displayMST(const string start_vertex)
+  void displayMST(const QString start_vertex)
 {
 
 }
-  void displayASMST(const string start_vertex)
+  void displayASMST(const QString start_vertex)
 {
 
 }
@@ -169,26 +186,29 @@ public:
   {}
 // Member vars
 private:
-  int NUMBER_VERTICES;
-  string* vertex_name_array;
-  T** weight_matrix;
-  bool** direction_matrix;
+  // implicit: vertex_name_array.size()
+  //int NUMBER_VERTICES;
+  vector<QString> vertex_name_array;
+  vector<vector<T>> weight_matrix;
+  vector<vector<bool>> direction_matrix;
   bool is_directed;
+  QSqlDatabase sqlDatabase;
+  QString sqlTable;
 // Helper functions
-  const string& getValueFromIndex( int index )
+  const QString& getValueFromIndex( int index )
   {
     return vertex_name_array[index];
   }
-  int getIndexFromValue( string value )
+  int getIndexFromValue( QString value )
   {
-    for(int i = 0; i < NUMBER_VERTICES; i++)
+    for(int i = 0; i < vertex_name_array.size(); i++)
     {
       if(vertex_name_array[i] == value)
       {
         return i;
       }
     }
-    cout << "Value " << value << " not in array.";
+    cout << "Value " << value.toStdString() << " not in array.";
     return -1;
   }
 };

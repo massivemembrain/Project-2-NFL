@@ -24,6 +24,16 @@ private slots:
 
     void on_editButton_clicked();
 
+    void on_editStadiumButton_clicked();
+
+    void on_editCapacityButton_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_importButton_2_clicked();
+
+    void on_importButton_3_clicked();
+
 private:
     Ui::Admin *ui;
     QSqlDatabase myDb;

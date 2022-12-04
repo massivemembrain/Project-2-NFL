@@ -32,6 +32,9 @@ private slots:
     void on_pushButton_stadiumByDate_clicked();
     void on_pushButton_stadiumByCapacity_clicked();
     void on_pushButton_teamsByConf_clicked();
+    void on_pushButton_displaySouvenir_clicked();
+    void on_pushButton_totalseatcapacity_clicked();
+    void on_pushButton_bermudaGrass_clicked();
 };
 
 #endif // DISPLAYWINDOW_H

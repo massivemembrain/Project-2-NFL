@@ -24,8 +24,13 @@ public:
     //Receipt receipt;
     TravelPlan();
     ~TravelPlan();
+    void tripWindow();
     QSqlQueryModel getReceipt();
     int getTotalExpense();
+
+    Graph<int> stadiumGraph;
+private:
+    Receipt receipt;
 };
 
 #endif // TRAVELPLAN_H

@@ -27,6 +27,7 @@ public:
     QPushButton *pushButton_displayWindow;
     QPushButton *pushButton_MST;
     QPushButton *pushButton_trip;
+    QPushButton *pushButton_BFS;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -55,6 +56,9 @@ public:
         pushButton_trip = new QPushButton(centralwidget);
         pushButton_trip->setObjectName("pushButton_trip");
         pushButton_trip->setGeometry(QRect(390, 70, 111, 31));
+        pushButton_BFS = new QPushButton(centralwidget);
+        pushButton_BFS->setObjectName("pushButton_BFS");
+        pushButton_BFS->setGeometry(QRect(40, 230, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -76,6 +80,7 @@ public:
         pushButton_displayWindow->setText(QCoreApplication::translate("MainWindow", "display", nullptr));
         pushButton_MST->setText(QCoreApplication::translate("MainWindow", "M S T ", nullptr));
         pushButton_trip->setText(QCoreApplication::translate("MainWindow", "Plan a Trip", nullptr));
+        pushButton_BFS->setText(QCoreApplication::translate("MainWindow", "B F S", nullptr));
     } // retranslateUi
 
 };

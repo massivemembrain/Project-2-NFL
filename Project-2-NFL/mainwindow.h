@@ -3,10 +3,12 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include <QStackedWidget>
 #include "admin.h"
 #include"displayWindow.h"
 #include"mst.h"
-#include "tripprogressDialogue.h"
+#include "bfs.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +29,8 @@ private slots:
 
     void on_pushButton_MST_clicked();
 
+    void on_pushButton_BFS_clicked();
+
     void on_pushButton_trip_clicked();
 
 private:
@@ -34,6 +38,7 @@ private:
     Admin* adminWindow = NULL;
     displayWindow* d = NULL;
     MST* mst= NULL;
-    TripProgressDialogue* tripWindow = NULL;
+    QStackedWidget* tripWindow = NULL;
+    BFS* bfs = NULL;
 };
 #endif // MAINWINDOW_H
