@@ -8,6 +8,7 @@
 #include"displayWindow.h"
 #include"mst.h"
 #include "bfs.h"
+#include "dfs.h"
 #include "travelplanClass.h"
 #include "login_mainwindow.h"
 
@@ -38,13 +39,17 @@ private slots:
 
     void on_pushButton_trip_clicked();
 
+
+    void on_pushButton_DFS_clicked();
+
 private:
     Ui::MainWindow *ui;
     //Admin* adminWindow = NULL;
     displayWindow* d = NULL;
-    MST* mst= NULL;
 
+    MST* mst= NULL;
     BFS* bfs = NULL;
+    DFS* dfs = NULL;
 
     Login* login = NULL;
 

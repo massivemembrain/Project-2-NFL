@@ -80,3 +80,9 @@ void MainWindow::on_pushButton_trip_clicked()
     //tripWindow->show();
 }
 
+void MainWindow::on_pushButton_DFS_clicked()
+{
+    dfs = new class::DFS;
+    dfs->show();
+}
+

@@ -21,6 +21,7 @@ Admin::Admin(QWidget *parent) :
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
+
     myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
