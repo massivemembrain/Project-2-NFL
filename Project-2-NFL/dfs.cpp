@@ -21,7 +21,7 @@ DFS::DFS(QWidget *parent) :
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
-    myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+    myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";
@@ -237,7 +237,8 @@ void DFS::on_pushButton_clicked()
     // Will perform the DFS starting at chosen vertex and store the vertecies
     // while also calculating the total distance
 
-     //int totalDistance = G.DFSFunction("U.S. Bank Stadium", dfsVertexList);
+
+     //int totalDistance = G.DFSFunction("U.S. Bank Stadium", dfsVertexList);           // this line crashing
 
      // Will loop around the dfsvertexlist vector and display the elements
      //in the correct order of the dfs
