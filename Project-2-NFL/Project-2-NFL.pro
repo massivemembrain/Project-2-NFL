@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     mst.cpp \
     qsqlfootballClass.cpp \
+    travelgraphClass.cpp \
     travelplanClass.cpp \
     tripcreateWidget.cpp \
     tripprogressWidget.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     mainwindow.h \
     mst.h \
     qsqlfootballClass.h \
+    travelgraphClass.h \
     travelplanClass.h \
     tripcreateWidget.h \
     tripprogressWidget.h \

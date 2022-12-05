@@ -33,6 +33,8 @@ public:
 private:
     Receipt receipt;
     QStackedWidget* window;
+    vector<QString> team_destinations;
+    vector<QString>::iterator current_team;
 };
 
 #endif // TRAVELPLAN_H

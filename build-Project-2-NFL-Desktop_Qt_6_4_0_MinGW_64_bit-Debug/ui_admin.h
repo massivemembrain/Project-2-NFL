@@ -50,6 +50,7 @@ public:
     QPushButton *pushButton;
     QPushButton *importButton_2;
     QPushButton *importButton_3;
+    QPushButton *testingButton;
 
     void setupUi(QWidget *Admin)
     {
@@ -155,7 +156,7 @@ public:
 
         horizontalLayoutWidget_2 = new QWidget(Admin);
         horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
-        horizontalLayoutWidget_2->setGeometry(QRect(410, 340, 381, 80));
+        horizontalLayoutWidget_2->setGeometry(QRect(410, 340, 458, 80));
         horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -173,6 +174,11 @@ public:
         importButton_3->setObjectName("importButton_3");
 
         horizontalLayout_5->addWidget(importButton_3);
+
+        testingButton = new QPushButton(horizontalLayoutWidget_2);
+        testingButton->setObjectName("testingButton");
+
+        horizontalLayout_5->addWidget(testingButton);
 
 
         retranslateUi(Admin);
@@ -198,6 +204,7 @@ public:
         pushButton->setText(QCoreApplication::translate("Admin", "Import Souvenirs", nullptr));
         importButton_2->setText(QCoreApplication::translate("Admin", "Import Teams", nullptr));
         importButton_3->setText(QCoreApplication::translate("Admin", "Import Distances", nullptr));
+        testingButton->setText(QCoreApplication::translate("Admin", "Testing", nullptr));
     } // retranslateUi
 
 };
