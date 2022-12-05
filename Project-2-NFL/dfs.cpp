@@ -22,7 +22,7 @@ DFS::DFS(QWidget *parent) :
     }
 
 
-    myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+    myDb.setDatabaseName("../NFLProject.db");
     //myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {

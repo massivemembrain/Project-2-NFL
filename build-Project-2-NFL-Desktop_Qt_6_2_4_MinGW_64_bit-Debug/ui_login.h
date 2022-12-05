@@ -38,9 +38,11 @@ public:
         if (Login->objectName().isEmpty())
             Login->setObjectName(QString::fromUtf8("Login"));
         Login->resize(640, 480);
+        Login->setStyleSheet(QString::fromUtf8(""));
         loginContainer = new QWidget(Login);
         loginContainer->setObjectName(QString::fromUtf8("loginContainer"));
         loginContainer->setGeometry(QRect(10, 10, 621, 461));
+        loginContainer->setStyleSheet(QString::fromUtf8(""));
         pushButton_login = new QPushButton(loginContainer);
         pushButton_login->setObjectName(QString::fromUtf8("pushButton_login"));
         pushButton_login->setGeometry(QRect(220, 300, 191, 61));
