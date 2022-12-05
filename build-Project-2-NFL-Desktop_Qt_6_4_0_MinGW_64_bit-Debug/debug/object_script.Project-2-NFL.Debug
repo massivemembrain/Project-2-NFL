@@ -2,10 +2,12 @@ debug/admin.o
 debug/bfs.o
 debug/displayWindow.o
 debug/form.o
+debug/login.o
 debug/main.o
 debug/mainwindow.o
 debug/mst.o
 debug/qsqlfootballClass.o
+debug/travelgraphClass.o
 debug/travelplanClass.o
 debug/tripcreateWidget.o
 debug/tripprogressWidget.o
@@ -14,6 +16,7 @@ debug/moc_admin.o
 debug/moc_bfs.o
 debug/moc_displayWindow.o
 debug/moc_form.o
+debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_mst.o
 debug/moc_tripcreateWidget.o

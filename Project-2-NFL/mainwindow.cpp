@@ -39,6 +39,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//void MainWindow::on_login()
+//{
+//    adminWindow = new class::Admin;
+//    adminWindow->show();
+//}
 
 void MainWindow::on_pushButton_clicked()
 {

@@ -9,7 +9,7 @@
 #include"mst.h"
 #include "bfs.h"
 #include "travelplanClass.h"
-#include "login.h"
+#include "login_mainwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -24,6 +24,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+//public slots:
+//    void on_login();
+
 private slots:
     void on_pushButton_clicked();
 
@@ -37,7 +40,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Admin* adminWindow = NULL;
+    //Admin* adminWindow = NULL;
     displayWindow* d = NULL;
     MST* mst= NULL;
 

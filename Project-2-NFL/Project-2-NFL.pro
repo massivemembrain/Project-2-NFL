@@ -14,6 +14,7 @@ SOURCES += \
     displayWindow.cpp \
     form.cpp \
     login.cpp \
+    #login_mainwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     form.h \
     graphClass.h \
     login.h \
+    #login_mainwindow.h \
     mainwindow.h \
     mst.h \
     qsqlfootballClass.h \
@@ -46,6 +48,7 @@ FORMS += \
     displayWindow.ui \
     form.ui \
     login.ui \
+    #login_mainwindow.ui \
     mainwindow.ui \
     mst.ui \
     tripcreateWidget.ui \

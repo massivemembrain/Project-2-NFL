@@ -2,10 +2,12 @@ release/admin.o
 release/bfs.o
 release/displayWindow.o
 release/form.o
+release/login.o
 release/main.o
 release/mainwindow.o
 release/mst.o
 release/qsqlfootballClass.o
+release/travelgraphClass.o
 release/travelplanClass.o
 release/tripcreateWidget.o
 release/tripprogressWidget.o
@@ -14,6 +16,7 @@ release/moc_admin.o
 release/moc_bfs.o
 release/moc_displayWindow.o
 release/moc_form.o
+release/moc_login.o
 release/moc_mainwindow.o
 release/moc_mst.o
 release/moc_tripcreateWidget.o

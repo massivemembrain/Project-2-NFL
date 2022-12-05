@@ -3,7 +3,7 @@
 #include "tripcreateWidget.h"
 
 TravelPlan::TravelPlan()
-    : stadium_graph{"Distances"}, receipt{Receipt()}
+    : stadium_graph("Distances"), receipt{Receipt()}
 {
     window = new QStackedWidget;
     window->addWidget(new TripCreateWidget);
