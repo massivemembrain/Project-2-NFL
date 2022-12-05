@@ -21,7 +21,9 @@ DFS::DFS(QWidget *parent) :
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
-    myDb.setDatabaseName("../NFLProject.db");
+
+    myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+    //myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";
@@ -202,50 +204,57 @@ int DFS::findVertex(string city) {
     }
     return index;
 }
-// ==================================
+// =================================================
+// this part loads the db values inside the adj list
+// =================================================
 void DFS::on_pushButton_clicked()
 {
-    QSqlQuery query;
-    query.prepare("SELECT * FROM Distances");
-    query.exec();
-
-
-    for (int i = 0; query.next(); i++)
-    {
-        ui -> textBrowser -> append(query.value(1).toString() + ""
-                                     + query.value(2).toString() + " " +
-                                        query.value(3).toString() + "\n");
-    }
-
-
-
-    // graph object
+        // graph object
         DFS G;
 
-       while(query.next())
-       {
-            G.insertEdge(query.value(1).toString().toStdString(),
-                         query.value(2).toString().toStdString(),
-                         query.value(3).toString().toInt());
-       }
+        // code to insert vertices from db
+        QSqlQuery *qry1 = new QSqlQuery();
+        qry1->prepare("select DISTINCT Starting_Stadium from Distances");
 
+        if (qry1->exec())
+        {
+            while(qry1->next())
+            {
+                G.insertVertex(qry1->value(0).toString().toStdString());
+            }
+        }
+
+        // code to insert edges from db
+        QSqlQuery *qry2 = new QSqlQuery();
+        qry2->prepare("select * from Distances");
+
+        if (qry2->exec())
+        {
+            while(qry2->next())
+            {
+                G.insertEdge(qry2->value(1).toString().toStdString(), // starting stadium
+                             qry2->value(2).toString().toStdString(), // ending stadium
+                             qry2->value(3).toInt());                 // distance
+            }
+        }
 
     vector<string> dfsVertexList; // Will hold the vertecies in the correct order of a DFS
 
-
-
     // Will perform the DFS starting at chosen vertex and store the vertecies
     // while also calculating the total distance
+     int totalDistance = G.DFSFunction("U.S. Bank Stadium", dfsVertexList);
 
-
-     //int totalDistance = G.DFSFunction("U.S. Bank Stadium", dfsVertexList);           // this line crashing
+     ui -> textBrowser -> append( "DFS Traversal:\n\n");
 
      // Will loop around the dfsvertexlist vector and display the elements
      //in the correct order of the dfs
-    ui -> textBrowser -> append( "DFS Traversal:\n\n");
-
    for (int i = 0; i < dfsVertexList.size(); i++)
     {
        ui -> textBrowser -> append(QString::number(i+1) + " - "  + QString::fromStdString(dfsVertexList.at(i)));
     }
+
+   ui -> textBrowser -> append("\n***************************************************************************");
+   ui -> textBrowser -> append("Total distance traveled by discovery edges : " + QString::number(totalDistance));
+   ui -> textBrowser -> append("***************************************************************************\n");
+
 }

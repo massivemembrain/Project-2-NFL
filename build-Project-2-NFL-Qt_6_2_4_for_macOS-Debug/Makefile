@@ -62,6 +62,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
+		../Project-2-NFL/travelgraphClass.cpp \
 		../Project-2-NFL/travelplanClass.cpp \
 		../Project-2-NFL/tripcreateWidget.cpp \
 		../Project-2-NFL/tripprogressWidget.cpp \
@@ -70,6 +71,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		moc_dfs.cpp \
 		moc_displayWindow.cpp \
 		moc_form.cpp \
+		moc_login.cpp \
 		moc_mainwindow.cpp \
 		moc_mst.cpp \
 		moc_tripcreateWidget.cpp \
@@ -85,6 +87,7 @@ OBJECTS       = admin.o \
 		mainwindow.o \
 		mst.o \
 		qsqlfootballClass.o \
+		travelgraphClass.o \
 		travelplanClass.o \
 		tripcreateWidget.o \
 		tripprogressWidget.o \
@@ -94,6 +97,7 @@ OBJECTS       = admin.o \
 		moc_dfs.o \
 		moc_displayWindow.o \
 		moc_form.o \
+		moc_login.o \
 		moc_mainwindow.o \
 		moc_mst.o \
 		moc_tripcreateWidget.o \
@@ -249,6 +253,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/mst.h \
 		../Project-2-NFL/qsqlfootballClass.h \
+		../Project-2-NFL/travelgraphClass.h \
 		../Project-2-NFL/travelplanClass.h \
 		../Project-2-NFL/tripcreateWidget.h \
 		../Project-2-NFL/tripprogressWidget.h \
@@ -262,6 +267,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
+		../Project-2-NFL/travelgraphClass.cpp \
 		../Project-2-NFL/travelplanClass.cpp \
 		../Project-2-NFL/tripcreateWidget.cpp \
 		../Project-2-NFL/tripprogressWidget.cpp \
@@ -610,8 +616,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/dfs.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/dfs.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
 
 
@@ -641,9 +647,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_mainwindow.cpp moc_mst.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_mainwindow.cpp moc_mst.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 moc_admin.cpp: ../Project-2-NFL/admin.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -702,6 +708,15 @@ moc_form.cpp: ../Project-2-NFL/form.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/form.h -o moc_form.cpp
 
+moc_login.cpp: ../Project-2-NFL/login.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Project-2-NFL/admin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/libexec/moc
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/login.h -o moc_login.cpp
+
 moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -733,7 +748,7 @@ moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/graphClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTextBrowser \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
-		../Project-2-NFL/login.h \
+		../Project-2-NFL/login_mainwindow.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mainwindow.h -o moc_mainwindow.cpp
 
@@ -903,8 +918,6 @@ form.o: ../Project-2-NFL/form.cpp ../Project-2-NFL/form.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o form.o ../Project-2-NFL/form.cpp
 
 login.o: ../Project-2-NFL/login.cpp ../Project-2-NFL/login.h \
-		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		../Project-2-NFL/admin.h \
@@ -946,7 +959,7 @@ main.o: ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/graphClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTextBrowser \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
-		../Project-2-NFL/login.h \
+		../Project-2-NFL/login_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qapplication.h
@@ -983,7 +996,7 @@ mainwindow.o: ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/graphClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTextBrowser \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qtextbrowser.h \
-		../Project-2-NFL/login.h \
+		../Project-2-NFL/login_mainwindow.h \
 		ui_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableView \
@@ -1018,6 +1031,17 @@ qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsq
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qsqlfootballClass.o ../Project-2-NFL/qsqlfootballClass.cpp
+
+travelgraphClass.o: ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelgraphClass.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o travelgraphClass.o ../Project-2-NFL/travelgraphClass.cpp
 
 travelplanClass.o: ../Project-2-NFL/travelplanClass.cpp ../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1070,6 +1094,9 @@ moc_displayWindow.o: moc_displayWindow.cpp
 
 moc_form.o: moc_form.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_form.o moc_form.cpp
+
+moc_login.o: moc_login.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
