@@ -406,3 +406,25 @@ void Admin::on_importButton_3_clicked()
 
 }
 
+
+void Admin::on_testingButton_clicked()
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Distances");
+    std::vector<QString> city;
+    std::vector<QString> startStadium;
+    std::vector<QString> endStadium;
+    std::vector<int> distance;
+    query.exec();
+
+    for (int i = 0; query.next(); i++)
+    {
+        city.push_back(query.value(0).toString());
+        startStadium.push_back(query.value(1).toString());
+        endStadium.push_back(query.value(2).toString());
+        distance.push_back(query.value(3).toInt());
+
+        qDebug() << city[i] << startStadium[i] << endStadium[i] << distance[i] << "\n";
+    }
+}
+

@@ -34,6 +34,8 @@ private slots:
 
     void on_importButton_3_clicked();
 
+    void on_testingButton_clicked();
+
 private:
     Ui::Admin *ui;
     QSqlDatabase myDb;

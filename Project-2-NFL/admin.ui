@@ -143,7 +143,7 @@
     <rect>
      <x>410</x>
      <y>340</y>
-     <width>381</width>
+     <width>458</width>
      <height>80</height>
     </rect>
    </property>
@@ -166,6 +166,13 @@
      <widget class="QPushButton" name="importButton_3">
       <property name="text">
        <string>Import Distances</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="testingButton">
+      <property name="text">
+       <string>Testing</string>
       </property>
      </widget>
     </item>
