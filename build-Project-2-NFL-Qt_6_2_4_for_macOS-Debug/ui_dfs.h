@@ -27,10 +27,10 @@ public:
     {
         if (DFS->objectName().isEmpty())
             DFS->setObjectName(QString::fromUtf8("DFS"));
-        DFS->resize(734, 518);
+        DFS->resize(678, 684);
         textBrowser = new QTextBrowser(DFS);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(20, 70, 541, 421));
+        textBrowser->setGeometry(QRect(20, 60, 541, 601));
         pushButton = new QPushButton(DFS);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(20, 20, 141, 32));
