@@ -9,6 +9,7 @@
 #include"mst.h"
 #include "bfs.h"
 #include "travelplanClass.h"
+#include "login.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,8 @@ private:
     MST* mst= NULL;
 
     BFS* bfs = NULL;
+
+    Login* login = NULL;
 
     QStackedWidget* tripWindow = NULL;
     TravelPlan* plan = nullptr;

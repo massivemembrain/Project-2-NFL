@@ -13,6 +13,7 @@ SOURCES += \
     bfs.cpp \
     displayWindow.cpp \
     form.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     displayWindow.h \
     form.h \
     graphClass.h \
+    login.h \
     mainwindow.h \
     mst.h \
     qsqlfootballClass.h \
@@ -43,6 +45,7 @@ FORMS += \
     bfs.ui \
     displayWindow.ui \
     form.ui \
+    login.ui \
     mainwindow.ui \
     mst.ui \
     tripcreateWidget.ui \
