@@ -42,8 +42,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    adminWindow = new class::Admin;
-    adminWindow->show();
+//    adminWindow = new class::Admin;
+//    adminWindow->show();
+
+    login = new class::Login;
+    login->show();
 }
 
 void MainWindow::on_pushButton_displayWindow_clicked()
