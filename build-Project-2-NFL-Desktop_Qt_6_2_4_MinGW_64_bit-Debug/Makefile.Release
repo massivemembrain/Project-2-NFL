@@ -2476,29 +2476,7 @@ release/form.o: ../Project-2-NFL/form.cpp ../Project-2-NFL/form.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.2.4/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/qnativeinterface.h \
-		ui_form.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/QVariant \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qeventloop.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfutureinterface.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qmutex.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qresultstore.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture_impl.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthreadpool.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthread.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qrunnable.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qexception.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qpromise.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h
+		ui_form.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\form.o ..\Project-2-NFL\form.cpp
 
 release/login.o: ../Project-2-NFL/login.cpp ../Project-2-NFL/login.h \
@@ -3673,65 +3651,7 @@ release/tripcreateWidget.o: ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-N
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.2.4/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/qnativeinterface.h \
-		ui_tripcreateWidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/QVariant \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QAbstractButton \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qicon.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qeventloop.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfutureinterface.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qmutex.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qresultstore.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture_impl.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthreadpool.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthread.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qrunnable.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qexception.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qpromise.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QComboBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qcombobox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qvalidator.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qregularexpression.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qslider.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstyle.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QHeaderView \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QLabel \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpicture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QProgressBar \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qprogressbar.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QSpinBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qspinbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTableWidget \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtablewidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtableview.h
+		ui_tripcreateWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tripcreateWidget.o ..\Project-2-NFL\tripcreateWidget.cpp
 
 release/tripprogressWidget.o: ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripprogressWidget.h \
@@ -3861,65 +3781,7 @@ release/tripprogressWidget.o: ../Project-2-NFL/tripprogressWidget.cpp ../Project
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.2.4/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/qnativeinterface.h \
-		ui_tripprogressWidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/QVariant \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QAbstractButton \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qicon.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qeventloop.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfutureinterface.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qmutex.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qresultstore.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture_impl.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthreadpool.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthread.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qrunnable.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qexception.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qpromise.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QComboBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qcombobox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qvalidator.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qregularexpression.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qslider.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstyle.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QHeaderView \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QLabel \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpicture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QProgressBar \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qprogressbar.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QSpinBox \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qspinbox.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTableWidget \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtablewidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtableview.h
+		ui_tripprogressWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tripprogressWidget.o ..\Project-2-NFL\tripprogressWidget.cpp
 
 release/tripsummaryWidget.o: ../Project-2-NFL/tripsummaryWidget.cpp ../Project-2-NFL/tripsummaryWidget.h \
@@ -4049,34 +3911,7 @@ release/tripsummaryWidget.o: ../Project-2-NFL/tripsummaryWidget.cpp ../Project-2
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/QSizeF \
 		../../../../Qt/6.2.4/mingw_64/include/QtGui/QTransform \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/qnativeinterface.h \
-		ui_tripsummaryWidget.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/QVariant \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qeventloop.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfutureinterface.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qmutex.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qresultstore.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qfuture_impl.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthreadpool.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qthread.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qrunnable.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qexception.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qpromise.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QLabel \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qlabel.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpicture.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h
+		ui_tripsummaryWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tripsummaryWidget.o ..\Project-2-NFL\tripsummaryWidget.cpp
 
 release/moc_admin.o: release/moc_admin.cpp 
