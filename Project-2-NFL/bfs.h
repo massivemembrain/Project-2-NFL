@@ -33,9 +33,9 @@ public:
     ~BFS() {}
     void setNextLowestIndex(int& low_index, const int& row_index, const bool city_visited[NUMBER_CITIES], const int city_edges[NUMBER_CITIES]);
     void minBFS(const int matrix[][33], int origin);
-    City origin_vertex;
+    City origin_vertex = Los_Angeles_Rams;
 
-    int matrix[33][33];
+    int matrix[NUMBER_CITIES][NUMBER_CITIES];
 
 private slots:
     void on_selectTeamButton_clicked();

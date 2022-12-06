@@ -68,7 +68,7 @@ BFS:: BFS(QWidget *parent) :
     comboquery->setQuery("SELECT Team FROM Teams");
     ui->comboBox->setModel(comboquery);
 
-    //  minBFS(matrix);
+    // minBFS(matrix, int(origin_vertex));
 }
 
 /* setNextLowestIndex
@@ -113,94 +113,15 @@ void BFS::setNextLowestIndex(int& low_index, const int& row_index, const bool ci
  */
 
 
-//NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//Not being used because I copied pasted it into a button click function
+
 void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], int origin_vertex)
 {
-  // Flushed with each level group
-  std::vector<int> parent_index;
-  std::vector<int> sample_index;
-
-  // Persistent throughout loops
-  bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] = { {false} };
-  bool city_visited[NUMBER_CITIES] = { false };
-  int discovery_distance = 0;
-
-  //Initiallize
- // parent_index.push_back(origin_vertex);
- // city_visited[origin_vertex] = true;
-
-  //Debug: cout << "In Function\n";
-
-  int level = 0;
-  // For each city entry we need
-  while(parent_index.size() > 0)
-  {
-    QString l = QString::number(level);
-    ui -> textBrowser -> append("Level " + l + " edges:\n");
-    sample_index.clear();
-      // ** Discovery Edges
-      // For each parent vertex
-      for(int p = parent_index.size(); p > 0;  p--)
-      {
-        //cout << "re";
-        // For every possible child edge
-        int low_index = 0;
-        //for(int i = 0; i < NUMBER_CITIES; i++)
-        do
-        {
-          setNextLowestIndex(low_index, parent_index.back(), adjacencyVisited[parent_index.back()], cityDistAdjacencyMat[parent_index.back()]);
-          //cout << "peat\n";
-          // Rule out children that are not valid edges (ie. create level groups)
-          if(cityDistAdjacencyMat[parent_index.back()][low_index] != 0 && adjacencyVisited[parent_index.back()][low_index] == false)
-          {
-            adjacencyVisited[parent_index.back()][low_index] = true;
-            adjacencyVisited[low_index][parent_index.back()] = true;
-            //Debug: << "(" << parent_index.back() << ")"
-            ui -> textBrowser -> append(CityToStr[parent_index.back()] + " - " + CityToStr[low_index]);
-            // **Discovery only
-          if(city_visited[low_index] == false)
-          {
-            // Discovery
-            ui -> textBrowser -> append(" (Discovery Edge)\n");
-            city_visited[low_index] = true;
-            discovery_distance += cityDistAdjacencyMat[parent_index.back()][low_index];
-            sample_index.push_back(low_index);
-          }
-              //** Cross only
-          else
-          {
-            ui -> textBrowser -> append(" (Cross Edge)\n");
-          }
-          }
-          //Debug: cout << "SEE MEE (" << cityDistAdjacencyMat[parent_index.back()][low_index] << ")\n";
-        } while(cityDistAdjacencyMat[parent_index.back()][low_index] != 0);
-        parent_index.pop_back();
-      }
-// sort sample_index by
-
-    reverse(sample_index.begin(), sample_index.end());
-
-    parent_index = sample_index;
-    level++;
-     /*Debug: cout << "Next: ";
-    for(int& i : sample_index)
-      {
-        cout << i << ", ";
-      }*/
-    }
-  //Debug: cout << "End function" << endl;
-  QString dd = QString::number(discovery_distance);
-  ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
-}
-
-void BFS::on_selectTeamButton_clicked()
-{
-    vector<int> parent_index;
-      vector<int> sample_index;
+    // Flushed with each level group
+      std::vector<int> parent_index;
+      std::vector<int> sample_index;
 
       // Persistent throughout loops
-      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] = { false };
+      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] = { {false} };
       bool city_visited[NUMBER_CITIES] = { false };
       int discovery_distance = 0;
 
@@ -214,7 +135,8 @@ void BFS::on_selectTeamButton_clicked()
       // For each city entry we need
       while(parent_index.size() > 0)
       {
-        cout << "Level " << level << " edges:\n";
+        QString l = QString::number(level);
+        ui -> textBrowser -> append("Level " + l + " edges:\n");
         sample_index.clear();
           // ** Discovery Edges
           // For each parent vertex
@@ -226,10 +148,10 @@ void BFS::on_selectTeamButton_clicked()
             //for(int i = 0; i < NUMBER_CITIES; i++)
             do
             {
-              setNextLowestIndex(low_index, parent_index.back(), adjacencyVisited[parent_index.back()], matrix[parent_index.back()]);
+              setNextLowestIndex(low_index, parent_index.back(), adjacencyVisited[parent_index.back()], cityDistAdjacencyMat[parent_index.back()]);
               //cout << "peat\n";
               // Rule out children that are not valid edges (ie. create level groups)
-              if(matrix[parent_index.back()][low_index] != 0 && adjacencyVisited[parent_index.back()][low_index] == false)
+              if(cityDistAdjacencyMat[parent_index.back()][low_index] != 0 && adjacencyVisited[parent_index.back()][low_index] == false)
               {
                 adjacencyVisited[parent_index.back()][low_index] = true;
                 adjacencyVisited[low_index][parent_index.back()] = true;
@@ -239,19 +161,19 @@ void BFS::on_selectTeamButton_clicked()
               if(city_visited[low_index] == false)
               {
                 // Discovery
-                cout << " (Discovery Edge)\n";
+                ui -> textBrowser -> append(" (Discovery Edge)\n");
                 city_visited[low_index] = true;
-                discovery_distance += matrix[parent_index.back()][low_index];
+                discovery_distance += cityDistAdjacencyMat[parent_index.back()][low_index];
                 sample_index.push_back(low_index);
               }
                   //** Cross only
               else
               {
-                cout << " (Cross Edge)\n";
+                ui -> textBrowser -> append(" (Cross Edge)\n");
               }
               }
               //Debug: cout << "SEE MEE (" << cityDistAdjacencyMat[parent_index.back()][low_index] << ")\n";
-            } while(matrix[parent_index.back()][low_index] != 0);
+            } while(cityDistAdjacencyMat[parent_index.back()][low_index] != 0);
             parent_index.pop_back();
           }
     // sort sample_index by
@@ -267,6 +189,85 @@ void BFS::on_selectTeamButton_clicked()
           }*/
         }
       //Debug: cout << "End function" << endl;
-      cout << "\n\nThe total distance traveled over discovery edges is " << discovery_distance << " km.";
+      QString dd = QString::number(discovery_distance);
+      ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
+}
+
+void BFS::on_selectTeamButton_clicked()
+{
+
+    minBFS(matrix, origin_vertex);
+//    vector<int> parent_index;
+//      vector<int> sample_index;
+
+//      // Persistent throughout loops
+//      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] = { false };
+//      bool city_visited[NUMBER_CITIES] = { false };
+//      int discovery_distance = 0;
+
+//      //Initiallize
+//      parent_index.push_back(origin_vertex);
+//      city_visited[origin_vertex] = true;
+
+//      //Debug: cout << "In Function\n";
+
+//      int level = 0;
+//      // For each city entry we need
+//      while(parent_index.size() > 0)
+//      {
+//        cout << "Level " << level << " edges:\n";
+//        sample_index.clear();
+//          // ** Discovery Edges
+//          // For each parent vertex
+//          for(int p = parent_index.size(); p > 0;  p--)
+//          {
+//            //cout << "re";
+//            // For every possible child edge
+//            int low_index = 0;
+//            //for(int i = 0; i < NUMBER_CITIES; i++)
+//            do
+//            {
+//              setNextLowestIndex(low_index, parent_index.back(), adjacencyVisited[parent_index.back()], matrix[parent_index.back()]);
+//              //cout << "peat\n";
+//              // Rule out children that are not valid edges (ie. create level groups)
+//              if(matrix[parent_index.back()][low_index] != 0 && adjacencyVisited[parent_index.back()][low_index] == false)
+//              {
+//                adjacencyVisited[parent_index.back()][low_index] = true;
+//                adjacencyVisited[low_index][parent_index.back()] = true;
+//                //Debug: << "(" << parent_index.back() << ")"
+//                ui -> textBrowser -> append(CityToStr[parent_index.back()] + " - " + CityToStr[low_index]);
+//                // **Discovery only
+//              if(city_visited[low_index] == false)
+//              {
+//                // Discovery
+//                cout << " (Discovery Edge)\n";
+//                city_visited[low_index] = true;
+//                discovery_distance += matrix[parent_index.back()][low_index];
+//                sample_index.push_back(low_index);
+//              }
+//                  //** Cross only
+//              else
+//              {
+//                cout << " (Cross Edge)\n";
+//              }
+//              }
+//              //Debug: cout << "SEE MEE (" << cityDistAdjacencyMat[parent_index.back()][low_index] << ")\n";
+//            } while(matrix[parent_index.back()][low_index] != 0);
+//            parent_index.pop_back();
+//          }
+//    // sort sample_index by
+
+//        reverse(sample_index.begin(), sample_index.end());
+
+//        parent_index = sample_index;
+//        level++;
+//         /*Debug: cout << "Next: ";
+//        for(int& i : sample_index)
+//          {
+//            cout << i << ", ";
+//          }*/
+//        }
+//      //Debug: cout << "End function" << endl;
+//      cout << "\n\nThe total distance traveled over discovery edges is " << discovery_distance << " km.";
 }
 

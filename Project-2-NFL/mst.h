@@ -15,8 +15,8 @@ using namespace std;
 
 const int NUMBER_CITIES = 33;
 
-
-const QString CityToStr[NUMBER_CITIES] = {
+/*
+const QString CityToString[NUMBER_CITIES] = {
     "Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills",
     "Carolina Panthers",   "Chicago Bears",  "Cincinnati Bengals", "Cleveland Browns"
     "Dallas Cowboys",  "Denver Broncos",      "Detroit Lions",     "Green Bay Packers"
@@ -25,8 +25,8 @@ const QString CityToStr[NUMBER_CITIES] = {
     "Minnesota Vikings" "New England Patriots" "New Orleans Saints" "New York Giants"
     "New York Jets" "Philadelphia Eagles" "Pittsburgh Steelers" "San Francisco 49ers"
     "Seattle Seahawks" "Tampa Bay Buccaneers" "Tennessee Titans" "Washington Redskins"};
+*/
 
-/*
 const QString CityToStr[NUMBER_CITIES] =
 {
     "State Farm Stadium",        // i = 0
@@ -59,8 +59,9 @@ const QString CityToStr[NUMBER_CITIES] =
     "Raymond James Stadium"      // i = 27
     "Nissan Stadium",            // i = 28
     "FedExField"                 // i = 29
+    "Qualcomm Stadium"           // i = 30
   };
-*/
+
 
 
 namespace Ui
