@@ -63,9 +63,6 @@ public:
     int findVertex(string city);
     void insertEdge(string startCity, string endCity, int weight);
     int DFSFunction(string startingCity, vector<string> &dfsGraph);
-   // vector<string> getDiscoveryEdges(vector<string> &dfsGraph);
-   // vector<string> getBackEdges(vector<string> &dfsGraph);
-
 
 private slots:
     void on_pushButton_clicked();
@@ -76,7 +73,6 @@ private:
     int smallestEdgeDFS(int currVertex, vector<string> &dfs);
     int verticesVisited();
     int edgesDiscovered(int currVertex);
-    //void deleteDuplicates(vector<nodeEdge> &edgeList);
     vector<nodeVertex> graph;
     int dfsDistance;
     string otherVertex(nodeEdge currEdge, string startingCity);

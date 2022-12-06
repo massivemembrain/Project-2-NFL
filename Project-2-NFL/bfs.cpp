@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSqlQueryModel>
+#include<QDebug>
 
 BFS:: BFS(QWidget *parent) :
     QWidget(parent),
@@ -22,6 +23,7 @@ BFS:: BFS(QWidget *parent) :
     }
 
     myDb.setDatabaseName("../NFLProject.db");
+    //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";
@@ -62,11 +64,11 @@ BFS:: BFS(QWidget *parent) :
         }
     }
 
-    QSqlQueryModel* comboquery = new QSqlQueryModel();
-    comboquery->setQuery("SELECT Team FROM Teams");
-    ui->comboBox->setModel(comboquery);
+   // QSqlQueryModel* comboquery = new QSqlQueryModel();
+   // comboquery->setQuery("SELECT Team FROM Teams");
+   // ui->comboBox->setModel(comboquery);
 
-    //  minBFS(matrix);
+  //minBFS(matrix,17);
 }
 
 /* setNextLowestIndex
@@ -113,7 +115,7 @@ void BFS::setNextLowestIndex(int& low_index, const int& row_index, const bool ci
 
 //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //Not being used because I copied pasted it into a button click function
-void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES])
+void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES],int id)
 {
   // Flushed with each level group
   std::vector<int> parent_index;
@@ -191,15 +193,20 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES])
   QString dd = QString::number(discovery_distance);
   ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
 }
-
+// =======================================================================================================
 void BFS::on_selectTeamButton_clicked()
 {
-    QString origin_city = ui-> comboBox ->currentText();
+    //QString origin_city = ui-> comboBox ->currentText();
     QSqlQuery query;
-    query.prepare("SELECT Start_Number FROM Distances WHERE Team = :Origin");
-    query.bindValue(":Origin", origin_city);
+   // query.prepare("SELECT Start_Number FROM Distances WHERE Team = :Origin");
+   // query.bindValue(":Origin", origin_city);
+    query.prepare("SELECT Start_Number FROM Distances WHERE Team LIKE '%Rams' AND Starting_Stadium LIKE 'SoFi%'");
     query.exec();
-    int origin_vertex = query.value(0).toInt();
+    //int origin_vertex = query.value(0).toInt();         // this query not working
+    qDebug() << query.value(0).toInt();
+
+    int origin_vertex = 18;                               // i set starting num to 17
+
 
     // Flushed with each level group
     std::vector<int> parent_index;
@@ -211,10 +218,8 @@ void BFS::on_selectTeamButton_clicked()
     int discovery_distance = 0;
 
     //Initiallize
-    parent_index.push_back(origin_vertex);
-    city_visited[origin_vertex] = true;
-
-    //Debug: cout << "In Function\n";
+   parent_index.push_back(origin_vertex);
+   city_visited[origin_vertex] = true;
 
     int level = 0;
     // For each city entry we need
@@ -246,7 +251,7 @@ void BFS::on_selectTeamButton_clicked()
             if(city_visited[low_index] == false)
             {
               // Discovery
-              ui -> textBrowser -> append(" (Discovery Edge)\n");
+              ui -> textBrowser -> append("(Discovery Edge)\n");
               city_visited[low_index] = true;
               discovery_distance += matrix[parent_index.back()][low_index];
               sample_index.push_back(low_index);
@@ -277,4 +282,3 @@ void BFS::on_selectTeamButton_clicked()
     QString dd = QString::number(discovery_distance);
     ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
 }
-

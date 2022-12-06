@@ -7,6 +7,9 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
+
+    // makes the password invisible
+    ui->lineEdit_password->setEchoMode(QLineEdit::Password);
 }
 
 Login::~Login()
