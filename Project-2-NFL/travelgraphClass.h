@@ -16,7 +16,8 @@ class TravelGraph
 
 public:
     TravelGraph();
-    void refreshMatrix();
+    //void refreshMatrix();
+    void getSelectedDistance();
     void getShortestDistance();//Dijkstra();
     //void importCSV(QFile);
 private:

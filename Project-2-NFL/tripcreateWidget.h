@@ -15,6 +15,11 @@ public:
     explicit TripCreateWidget(QWidget *parent = nullptr);
     ~TripCreateWidget();
 
+private slots:
+    void on_proceedButtons_accepted();
+
+    void on_proceedButtons_rejected();
+
 private:
     Ui::TripCreateWidget *ui;
 };

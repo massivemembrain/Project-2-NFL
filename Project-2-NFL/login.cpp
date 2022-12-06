@@ -26,6 +26,7 @@ void Login::on_pushButton_login_clicked()
     {
         ui->loginContainer->hide();
         admin = new Admin(this);
+        setMinimumSize(1280, 480);
         admin->show();
 
         qInfo() << "You are now login as admin!";

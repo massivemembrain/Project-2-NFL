@@ -1,12 +1,18 @@
 #include <QWidget>
 #include "travelplanClass.h"
 #include "tripcreateWidget.h"
+#include "tripprogressWidget.h"
+#include "tripsummaryWidget.h"
 
 TravelPlan::TravelPlan()
-    : stadium_graph("Distances"), receipt{Receipt()}
+    : receipt{}//, stadium_graph("Distances")
 {
     window = new QStackedWidget;
     window->addWidget(new TripCreateWidget);
+    window->addWidget(new TripProgressWidget);
+    window->addWidget(new TripSummaryWidget);
+
+    window->setMinimumSize(640, 480);
     window->show();
 }
 TravelPlan::~TravelPlan()
@@ -19,4 +25,9 @@ TravelPlan::~TravelPlan()
         widget->deleteLater();
     }
     window->deleteLater();
+}
+
+void TravelPlan::setWidget(int index)
+{
+    window->setCurrentIndex(index);
 }

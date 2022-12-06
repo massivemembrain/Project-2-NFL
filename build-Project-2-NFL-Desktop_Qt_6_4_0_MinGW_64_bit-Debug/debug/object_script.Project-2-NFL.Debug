@@ -1,5 +1,6 @@
 debug/admin.o
 debug/bfs.o
+debug/dfs.o
 debug/displayWindow.o
 debug/form.o
 debug/login.o
@@ -14,6 +15,7 @@ debug/tripprogressWidget.o
 debug/tripsummaryWidget.o
 debug/moc_admin.o
 debug/moc_bfs.o
+debug/moc_dfs.o
 debug/moc_displayWindow.o
 debug/moc_form.o
 debug/moc_login.o

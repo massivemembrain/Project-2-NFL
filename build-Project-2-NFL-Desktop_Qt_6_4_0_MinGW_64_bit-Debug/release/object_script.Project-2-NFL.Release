@@ -1,5 +1,6 @@
 release/admin.o
 release/bfs.o
+release/dfs.o
 release/displayWindow.o
 release/form.o
 release/login.o
@@ -14,6 +15,7 @@ release/tripprogressWidget.o
 release/tripsummaryWidget.o
 release/moc_admin.o
 release/moc_bfs.o
+release/moc_dfs.o
 release/moc_displayWindow.o
 release/moc_form.o
 release/moc_login.o

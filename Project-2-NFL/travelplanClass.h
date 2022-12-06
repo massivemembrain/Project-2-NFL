@@ -4,8 +4,9 @@
 #include <QSqlQueryModel>
 #include <QString>
 #include <QStackedWidget>
-#include "graphClass.h"
+//#include "graphClass.h"
 
+using namespace std;
 
 class TravelPlan
 {
@@ -13,14 +14,17 @@ public:
     struct ReceiptEntry
     {
         QString item;
-        int quantity;
-        int price;
+        int quantity = 0;
+        int price = 0;
     };
-    struct Receipt
+    struct CityReceipt
     {
+      QString city_name;
       vector<ReceiptEntry> item_list;
-      int total_expense;
+      int total_expense = 0;
     };
+    typedef vector<CityReceipt> TripReceipt;
+
     //Graph<int> travel_graph;
     //Receipt receipt;
     TravelPlan();
@@ -29,9 +33,10 @@ public:
     QSqlQueryModel getReceipt();
     int getTotalExpense();
 
-    Graph<int> stadium_graph;
+    void setWidget(int index);
+    //Graph<int> stadium_graph;
 private:
-    Receipt receipt;
+    TripReceipt receipt;
     QStackedWidget* window;
     vector<QString> team_destinations;
     vector<QString>::iterator current_team;
