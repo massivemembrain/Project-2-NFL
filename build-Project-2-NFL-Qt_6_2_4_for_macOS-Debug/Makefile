@@ -61,6 +61,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/main.cpp \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
+		../Project-2-NFL/ordertrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
 		../Project-2-NFL/travelgraphClass.cpp \
@@ -88,6 +89,7 @@ OBJECTS       = admin.o \
 		main.o \
 		mainwindow.o \
 		mst.o \
+		ordertrip.o \
 		qsqlfootballClass.o \
 		shortestDistance.o \
 		travelgraphClass.o \
@@ -256,6 +258,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/login.h \
 		../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/mst.h \
+		../Project-2-NFL/ordertrip.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../Project-2-NFL/shortestDistance.h \
 		../Project-2-NFL/travelgraphClass.h \
@@ -271,6 +274,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/main.cpp \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
+		../Project-2-NFL/ordertrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
 		../Project-2-NFL/travelgraphClass.cpp \
@@ -622,8 +626,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/dfs.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/dfs.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/ordertrip.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/shortestDistance.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
 
 
@@ -754,6 +758,24 @@ moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/login_mainwindow.h \
 		../Project-2-NFL/shortestDistance.h \
 		ui_shortestDistance.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mainwindow.h -o moc_mainwindow.cpp
 
@@ -776,12 +798,46 @@ moc_shortestDistance.cpp: ../Project-2-NFL/shortestDistance.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		ui_shortestDistance.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/shortestDistance.h -o moc_shortestDistance.cpp
 
 moc_tripcreateWidget.cpp: ../Project-2-NFL/tripcreateWidget.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/tripcreateWidget.h -o moc_tripcreateWidget.cpp
 
@@ -977,6 +1033,24 @@ main.o: ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/login_mainwindow.h \
 		../Project-2-NFL/shortestDistance.h \
 		ui_shortestDistance.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qapplication.h
@@ -1013,6 +1087,24 @@ mainwindow.o: ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/login_mainwindow.h \
 		../Project-2-NFL/shortestDistance.h \
 		ui_shortestDistance.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
 		ui_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableView \
@@ -1035,6 +1127,10 @@ mst.o: ../Project-2-NFL/mst.cpp ../Project-2-NFL/mst.h \
 		ui_bfs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mst.o ../Project-2-NFL/mst.cpp
 
+ordertrip.o: ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/ordertrip.h \
+		ui_tripcreateWidget.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ordertrip.o ../Project-2-NFL/ordertrip.cpp
+
 qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
@@ -1053,7 +1149,36 @@ qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsq
 shortestDistance.o: ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/shortestDistance.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_shortestDistance.h
+		ui_shortestDistance.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
+		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSql
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shortestDistance.o ../Project-2-NFL/shortestDistance.cpp
 
 travelgraphClass.o: ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelgraphClass.h \
@@ -1077,6 +1202,8 @@ travelplanClass.o: ../Project-2-NFL/travelplanClass.cpp ../../../../Qt/6.2.4/mac
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QStackedWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
 		../Project-2-NFL/tripcreateWidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
 		../Project-2-NFL/tripprogressWidget.h \
 		../Project-2-NFL/tripsummaryWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o travelplanClass.o ../Project-2-NFL/travelplanClass.cpp
@@ -1084,6 +1211,13 @@ travelplanClass.o: ../Project-2-NFL/travelplanClass.cpp ../../../../Qt/6.2.4/mac
 tripcreateWidget.o: ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripcreateWidget.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
 		ui_tripcreateWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tripcreateWidget.o ../Project-2-NFL/tripcreateWidget.cpp
 
