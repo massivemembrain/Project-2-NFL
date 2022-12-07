@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>603</width>
-    <height>419</height>
+    <width>818</width>
+    <height>641</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>501</width>
-     <height>291</height>
+     <x>690</x>
+     <y>20</y>
+     <width>71</width>
+     <height>51</height>
     </rect>
    </property>
   </widget>
@@ -34,6 +34,16 @@
    </property>
    <property name="text">
     <string>visit all teams starting at England patriots, travelling the shortest distance </string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>381</width>
+     <height>521</height>
+    </rect>
    </property>
   </widget>
  </widget>

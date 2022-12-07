@@ -54,7 +54,9 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/bfs.cpp \
+		../Project-2-NFL/customtrip.cpp \
 		../Project-2-NFL/dfs.cpp \
+		../Project-2-NFL/dijkstra.cpp \
 		../Project-2-NFL/displayWindow.cpp \
 		../Project-2-NFL/form.cpp \
 		../Project-2-NFL/login.cpp \
@@ -63,6 +65,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/mst.cpp \
 		../Project-2-NFL/ordertrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
+		../Project-2-NFL/selectAlgo.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
 		../Project-2-NFL/travelgraphClass.cpp \
 		../Project-2-NFL/travelplanClass.cpp \
@@ -71,18 +74,22 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/tripsummaryWidget.cpp moc_admin.cpp \
 		moc_bfs.cpp \
 		moc_dfs.cpp \
+		moc_dijkstra.cpp \
 		moc_displayWindow.cpp \
 		moc_form.cpp \
 		moc_login.cpp \
 		moc_mainwindow.cpp \
 		moc_mst.cpp \
+		moc_selectAlgo.cpp \
 		moc_shortestDistance.cpp \
 		moc_tripcreateWidget.cpp \
 		moc_tripprogressWidget.cpp \
 		moc_tripsummaryWidget.cpp
 OBJECTS       = admin.o \
 		bfs.o \
+		customtrip.o \
 		dfs.o \
+		dijkstra.o \
 		displayWindow.o \
 		form.o \
 		login.o \
@@ -91,6 +98,7 @@ OBJECTS       = admin.o \
 		mst.o \
 		ordertrip.o \
 		qsqlfootballClass.o \
+		selectAlgo.o \
 		shortestDistance.o \
 		travelgraphClass.o \
 		travelplanClass.o \
@@ -100,11 +108,13 @@ OBJECTS       = admin.o \
 		moc_admin.o \
 		moc_bfs.o \
 		moc_dfs.o \
+		moc_dijkstra.o \
 		moc_displayWindow.o \
 		moc_form.o \
 		moc_login.o \
 		moc_mainwindow.o \
 		moc_mst.o \
+		moc_selectAlgo.o \
 		moc_shortestDistance.o \
 		moc_tripcreateWidget.o \
 		moc_tripprogressWidget.o \
@@ -251,7 +261,9 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../../../../Qt/6.2.4/macos/mkspecs/features/lex.prf \
 		../Project-2-NFL/Project-2-NFL.pro ../Project-2-NFL/admin.h \
 		../Project-2-NFL/bfs.h \
+		../Project-2-NFL/customtrip.h \
 		../Project-2-NFL/dfs.h \
+		../Project-2-NFL/dijkstra.h \
 		../Project-2-NFL/displayWindow.h \
 		../Project-2-NFL/form.h \
 		../Project-2-NFL/graphClass.h \
@@ -260,6 +272,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/mst.h \
 		../Project-2-NFL/ordertrip.h \
 		../Project-2-NFL/qsqlfootballClass.h \
+		../Project-2-NFL/selectAlgo.h \
 		../Project-2-NFL/shortestDistance.h \
 		../Project-2-NFL/travelgraphClass.h \
 		../Project-2-NFL/travelplanClass.h \
@@ -267,7 +280,9 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/tripprogressWidget.h \
 		../Project-2-NFL/tripsummaryWidget.h ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/bfs.cpp \
+		../Project-2-NFL/customtrip.cpp \
 		../Project-2-NFL/dfs.cpp \
+		../Project-2-NFL/dijkstra.cpp \
 		../Project-2-NFL/displayWindow.cpp \
 		../Project-2-NFL/form.cpp \
 		../Project-2-NFL/login.cpp \
@@ -276,6 +291,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/mst.cpp \
 		../Project-2-NFL/ordertrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
+		../Project-2-NFL/selectAlgo.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
 		../Project-2-NFL/travelgraphClass.cpp \
 		../Project-2-NFL/travelplanClass.cpp \
@@ -302,7 +318,7 @@ include /Users/nedamohseni/Qt/6.2.4/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Project-2-NFL.app/Contents/MacOS/Project-2-NFL: ui_admin.h ui_bfs.h ui_dfs.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h $(OBJECTS)  
+Project-2-NFL.app/Contents/MacOS/Project-2-NFL: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h $(OBJECTS)  
 	@test -d Project-2-NFL.app/Contents/MacOS/ || mkdir -p Project-2-NFL.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -626,9 +642,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/dfs.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/ordertrip.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/shortestDistance.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/customtrip.h ../Project-2-NFL/dfs.h ../Project-2-NFL/dijkstra.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/ordertrip.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/selectAlgo.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/customtrip.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/dijkstra.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/selectAlgo.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/dijkstra.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/selectAlgo.ui ../Project-2-NFL/shortestDistance.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -657,9 +673,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 moc_admin.cpp: ../Project-2-NFL/admin.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -703,6 +719,22 @@ moc_dfs.cpp: ../Project-2-NFL/dfs.h \
 		ui_dfs.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/dfs.h -o moc_dfs.cpp
+
+moc_dijkstra.cpp: ../Project-2-NFL/dijkstra.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Project-2-NFL/mst.h \
+		ui_mst.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/6.2.4/macos/libexec/moc
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/dijkstra.h -o moc_dijkstra.cpp
 
 moc_displayWindow.cpp: ../Project-2-NFL/displayWindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
@@ -776,6 +808,12 @@ moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
+		../Project-2-NFL/dijkstra.h \
+		../Project-2-NFL/selectAlgo.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
+		ui_selectAlgo.h \
+		../Project-2-NFL/tripcreateWidget.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mainwindow.h -o moc_mainwindow.cpp
 
@@ -793,6 +831,27 @@ moc_mst.cpp: ../Project-2-NFL/mst.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mst.h -o moc_mst.cpp
+
+moc_selectAlgo.cpp: ../Project-2-NFL/selectAlgo.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		ui_selectAlgo.h \
+		../Project-2-NFL/travelplanClass.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QStackedWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../Project-2-NFL/tripcreateWidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/libexec/moc
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/selectAlgo.h -o moc_selectAlgo.cpp
 
 moc_shortestDistance.cpp: ../Project-2-NFL/shortestDistance.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
@@ -857,9 +916,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_admin.h ui_bfs.h ui_dfs.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
+compiler_uic_make_all: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_admin.h ui_bfs.h ui_dfs.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
+	-$(DEL_FILE) ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
 ui_admin.h: ../Project-2-NFL/admin.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/admin.ui -o ui_admin.h
@@ -871,6 +930,10 @@ ui_bfs.h: ../Project-2-NFL/bfs.ui \
 ui_dfs.h: ../Project-2-NFL/dfs.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/dfs.ui -o ui_dfs.h
+
+ui_dijkstra.h: ../Project-2-NFL/dijkstra.ui \
+		../../../../Qt/6.2.4/macos/libexec/uic
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/dijkstra.ui -o ui_dijkstra.h
 
 ui_displayWindow.h: ../Project-2-NFL/displayWindow.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
@@ -891,6 +954,10 @@ ui_mainwindow.h: ../Project-2-NFL/mainwindow.ui \
 ui_mst.h: ../Project-2-NFL/mst.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/mst.ui -o ui_mst.h
+
+ui_selectAlgo.h: ../Project-2-NFL/selectAlgo.ui \
+		../../../../Qt/6.2.4/macos/libexec/uic
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/selectAlgo.ui -o ui_selectAlgo.h
 
 ui_shortestDistance.h: ../Project-2-NFL/shortestDistance.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
@@ -959,6 +1026,20 @@ bfs.o: ../Project-2-NFL/bfs.cpp ../Project-2-NFL/bfs.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bfs.o ../Project-2-NFL/bfs.cpp
 
+customtrip.o: ../Project-2-NFL/customtrip.cpp ../Project-2-NFL/customtrip.h \
+		../Project-2-NFL/tripcreateWidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customtrip.o ../Project-2-NFL/customtrip.cpp
+
 dfs.o: ../Project-2-NFL/dfs.cpp ../Project-2-NFL/dfs.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -976,6 +1057,24 @@ dfs.o: ../Project-2-NFL/dfs.cpp ../Project-2-NFL/dfs.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlerror.h \
 		ui_dfs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dfs.o ../Project-2-NFL/dfs.cpp
+
+dijkstra.o: ../Project-2-NFL/dijkstra.cpp ../Project-2-NFL/dijkstra.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Project-2-NFL/mst.h \
+		ui_mst.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
+		ui_dijkstra.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dijkstra.o ../Project-2-NFL/dijkstra.cpp
 
 displayWindow.o: ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/displayWindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
@@ -1051,6 +1150,12 @@ main.o: ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
+		../Project-2-NFL/dijkstra.h \
+		../Project-2-NFL/selectAlgo.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
+		ui_selectAlgo.h \
+		../Project-2-NFL/tripcreateWidget.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qapplication.h
@@ -1105,6 +1210,12 @@ mainwindow.o: ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
+		../Project-2-NFL/dijkstra.h \
+		../Project-2-NFL/selectAlgo.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
+		ui_selectAlgo.h \
+		../Project-2-NFL/tripcreateWidget.h \
 		ui_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableView \
@@ -1146,6 +1257,26 @@ qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsq
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qsqlfootballClass.o ../Project-2-NFL/qsqlfootballClass.cpp
 
+selectAlgo.o: ../Project-2-NFL/selectAlgo.cpp ../Project-2-NFL/selectAlgo.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		ui_selectAlgo.h \
+		../Project-2-NFL/travelplanClass.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QStackedWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qstackedwidget.h \
+		../Project-2-NFL/tripcreateWidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectAlgo.o ../Project-2-NFL/selectAlgo.cpp
+
 shortestDistance.o: ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/shortestDistance.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1178,7 +1309,11 @@ shortestDistance.o: ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/short
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlRelationalTableModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/QStandardItemModel \
 		../../../../Qt/6.2.4/macos/lib/QtGui.framework/Headers/qstandarditemmodel.h \
-		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSql
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSql \
+		../Project-2-NFL/dfs.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlError \
+		ui_dfs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shortestDistance.o ../Project-2-NFL/shortestDistance.cpp
 
 travelgraphClass.o: ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelgraphClass.h \
@@ -1218,7 +1353,8 @@ tripcreateWidget.o: ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripc
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
-		ui_tripcreateWidget.h
+		ui_tripcreateWidget.h \
+		../Project-2-NFL/customtrip.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tripcreateWidget.o ../Project-2-NFL/tripcreateWidget.cpp
 
 tripprogressWidget.o: ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripprogressWidget.h \
@@ -1242,6 +1378,9 @@ moc_bfs.o: moc_bfs.cpp
 moc_dfs.o: moc_dfs.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dfs.o moc_dfs.cpp
 
+moc_dijkstra.o: moc_dijkstra.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dijkstra.o moc_dijkstra.cpp
+
 moc_displayWindow.o: moc_displayWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_displayWindow.o moc_displayWindow.cpp
 
@@ -1256,6 +1395,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_mst.o: moc_mst.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mst.o moc_mst.cpp
+
+moc_selectAlgo.o: moc_selectAlgo.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_selectAlgo.o moc_selectAlgo.cpp
 
 moc_shortestDistance.o: moc_shortestDistance.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_shortestDistance.o moc_shortestDistance.cpp

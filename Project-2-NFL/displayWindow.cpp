@@ -128,7 +128,8 @@ void displayWindow :: on_pushButton_openRoof_clicked()
     ui->tableView->setModel(qryModel);
 
     QSqlQueryModel* qryModel2 = new QSqlQueryModel();
-    qryModel2->setQuery("SELECT COUNT(DISTINCT Name) FROM Teams WHERE RoofType LIKE '%open%'");
+    qryModel2->setQuery("SELECT COUNT(DISTINCT Name) FROM Teams WHERE RoofType LIKE '%open%' "
+                        "                                             AND Team NOT LIKE 'San%Sailors'"); // excluding san diego
     ui -> tableView_2 -> setModel(qryModel2);
 }
 // ==============================================================

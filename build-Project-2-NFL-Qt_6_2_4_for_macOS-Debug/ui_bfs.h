@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
@@ -26,7 +25,6 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
-    QComboBox *comboBox;
     QPushButton *selectTeamButton;
     QTextBrowser *textBrowser;
 
@@ -43,11 +41,6 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        comboBox = new QComboBox(verticalLayoutWidget);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-
-        horizontalLayout->addWidget(comboBox);
-
         selectTeamButton = new QPushButton(verticalLayoutWidget);
         selectTeamButton->setObjectName(QString::fromUtf8("selectTeamButton"));
 
@@ -70,7 +63,7 @@ public:
     void retranslateUi(QWidget *BFS)
     {
         BFS->setWindowTitle(QCoreApplication::translate("BFS", "Form", nullptr));
-        selectTeamButton->setText(QCoreApplication::translate("BFS", "Select Team", nullptr));
+        selectTeamButton->setText(QCoreApplication::translate("BFS", "B F S ", nullptr));
     } // retranslateUi
 
 };

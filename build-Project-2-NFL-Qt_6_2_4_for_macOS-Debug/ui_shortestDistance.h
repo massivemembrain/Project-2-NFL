@@ -14,6 +14,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,18 +24,22 @@ class Ui_shortestDistance
 public:
     QTableView *tableView;
     QLabel *label;
+    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *shortestDistance)
     {
         if (shortestDistance->objectName().isEmpty())
             shortestDistance->setObjectName(QString::fromUtf8("shortestDistance"));
-        shortestDistance->resize(603, 419);
+        shortestDistance->resize(818, 641);
         tableView = new QTableView(shortestDistance);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(10, 100, 501, 291));
+        tableView->setGeometry(QRect(690, 20, 71, 51));
         label = new QLabel(shortestDistance);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(40, 30, 481, 41));
+        textBrowser = new QTextBrowser(shortestDistance);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(40, 90, 381, 521));
 
         retranslateUi(shortestDistance);
 
