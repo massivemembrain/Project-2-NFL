@@ -11,6 +11,7 @@
 #include "dfs.h"
 #include "travelplanClass.h"
 #include "login_mainwindow.h"
+#include "shortestDistance.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -42,6 +43,8 @@ private slots:
 
     void on_pushButton_DFS_clicked();
 
+    void on_pushButton_shortdist_clicked();
+
 private:
     Ui::MainWindow *ui;
     //Admin* adminWindow = NULL;
@@ -55,5 +58,8 @@ private:
 
     QStackedWidget* tripWindow = NULL;
     TravelPlan* plan = nullptr;
+
+
+    shortestDistance* sh = NULL;
 };
 #endif // MAINWINDOW_H

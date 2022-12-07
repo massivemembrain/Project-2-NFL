@@ -1,7 +1,6 @@
 #ifndef DISPLAYWINDOW_H
 #define DISPLAYWINDOW_H
 
-
 #include <QWidget>
 #include <QSqlQueryModel>
 

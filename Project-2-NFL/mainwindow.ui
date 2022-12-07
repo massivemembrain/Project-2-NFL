@@ -17,11 +17,16 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>480</x>
       <y>160</y>
       <width>111</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Admin</string>
@@ -35,6 +40,11 @@
       <width>100</width>
       <height>32</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -57,6 +67,19 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    background-color: rgb(201, 236, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+    </property>
     <property name="text">
      <string>M S T </string>
     </property>
@@ -64,11 +87,16 @@
    <widget class="QPushButton" name="pushButton_trip">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>480</x>
       <y>70</y>
       <width>111</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Plan a Trip</string>
@@ -83,6 +111,19 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    background-color: rgb(201, 236, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+    </property>
     <property name="text">
      <string>B F S</string>
     </property>
@@ -96,8 +137,39 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    background-color: rgb(201, 236, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-color: beige;
+}</string>
+    </property>
     <property name="text">
      <string>D F S </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_shortdist">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>240</y>
+      <width>141</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>shortest Distance</string>
     </property>
    </widget>
   </widget>

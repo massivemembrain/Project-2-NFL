@@ -86,3 +86,10 @@ void MainWindow::on_pushButton_DFS_clicked()
     dfs->show();
 }
 
+
+void MainWindow::on_pushButton_shortdist_clicked()
+{
+    sh = new class::shortestDistance;
+    sh->show();
+}
+

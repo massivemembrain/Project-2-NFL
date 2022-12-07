@@ -29,6 +29,7 @@ public:
     QPushButton *pushButton_trip;
     QPushButton *pushButton_BFS;
     QPushButton *pushButton_DFS;
+    QPushButton *pushButton_shortdist;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,10 +42,14 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(390, 160, 111, 31));
+        pushButton->setGeometry(QRect(480, 160, 111, 31));
+        QFont font;
+        font.setBold(true);
+        pushButton->setFont(font);
         pushButton_displayWindow = new QPushButton(centralwidget);
         pushButton_displayWindow->setObjectName(QString::fromUtf8("pushButton_displayWindow"));
         pushButton_displayWindow->setGeometry(QRect(40, 70, 100, 32));
+        pushButton_displayWindow->setFont(font);
         pushButton_displayWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "    background-color: rgb(201, 236, 255);\n"
 "    border-style: outset;\n"
@@ -54,15 +59,41 @@ public:
         pushButton_MST = new QPushButton(centralwidget);
         pushButton_MST->setObjectName(QString::fromUtf8("pushButton_MST"));
         pushButton_MST->setGeometry(QRect(40, 150, 100, 32));
+        pushButton_MST->setFont(font);
+        pushButton_MST->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background-color: rgb(201, 236, 255);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: beige;\n"
+"}"));
         pushButton_trip = new QPushButton(centralwidget);
         pushButton_trip->setObjectName(QString::fromUtf8("pushButton_trip"));
-        pushButton_trip->setGeometry(QRect(390, 70, 111, 31));
+        pushButton_trip->setGeometry(QRect(480, 70, 111, 31));
+        pushButton_trip->setFont(font);
         pushButton_BFS = new QPushButton(centralwidget);
         pushButton_BFS->setObjectName(QString::fromUtf8("pushButton_BFS"));
         pushButton_BFS->setGeometry(QRect(40, 220, 100, 32));
+        pushButton_BFS->setFont(font);
+        pushButton_BFS->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background-color: rgb(201, 236, 255);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: beige;\n"
+"}"));
         pushButton_DFS = new QPushButton(centralwidget);
         pushButton_DFS->setObjectName(QString::fromUtf8("pushButton_DFS"));
         pushButton_DFS->setGeometry(QRect(40, 290, 100, 32));
+        pushButton_DFS->setFont(font);
+        pushButton_DFS->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"    background-color: rgb(201, 236, 255);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-color: beige;\n"
+"}"));
+        pushButton_shortdist = new QPushButton(centralwidget);
+        pushButton_shortdist->setObjectName(QString::fromUtf8("pushButton_shortdist"));
+        pushButton_shortdist->setGeometry(QRect(470, 240, 141, 32));
+        pushButton_shortdist->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -86,6 +117,7 @@ public:
         pushButton_trip->setText(QCoreApplication::translate("MainWindow", "Plan a Trip", nullptr));
         pushButton_BFS->setText(QCoreApplication::translate("MainWindow", "B F S", nullptr));
         pushButton_DFS->setText(QCoreApplication::translate("MainWindow", "D F S ", nullptr));
+        pushButton_shortdist->setText(QCoreApplication::translate("MainWindow", "shortest Distance", nullptr));
     } // retranslateUi
 
 };
