@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
+    ordertrip.cpp \
     qsqlfootballClass.cpp \
     travelgraphClass.cpp \
     travelplanClass.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     #login_mainwindow.h \
     mainwindow.h \
     mst.h \
+    ordertrip.h \
     qsqlfootballClass.h \
     travelgraphClass.h \
     travelplanClass.h \

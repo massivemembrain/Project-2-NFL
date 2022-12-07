@@ -2,6 +2,9 @@
 #define TRIPCREATEWIDGET_H
 
 #include <QWidget>
+#include <QString>
+#include <QSqlDatabase>
+#include <QSqlQueryModel>
 
 namespace Ui {
 class TripCreateWidget;
@@ -22,6 +25,8 @@ private slots:
 
 private:
     Ui::TripCreateWidget *ui;
+
+    QSqlDatabase myDb;
 };
 
 #endif // TRIPCREATEWIDGET_H

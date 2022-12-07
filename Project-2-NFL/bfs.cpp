@@ -119,7 +119,7 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], i
       std::vector<int> sample_index;
 
       // Persistent throughout loops
-      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] =  {false} ;
+      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] =  {{false}} ;
       bool city_visited[NUMBER_CITIES] = { false };
       int discovery_distance = 0;
 
