@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,19 +20,46 @@ QT_BEGIN_NAMESPACE
 class Ui_TripSummaryWidget
 {
 public:
-    QLabel *stadiumName;
+    QLabel *label_title;
+    QLabel *totalExpensePlan;
+    QTextBrowser *tripReceipt;
+    QLabel *label_plan_total;
+    QTextBrowser *tripSummary;
+    QLabel *label_plan_summary;
+    QLabel *label_souvenir;
 
     void setupUi(QWidget *TripSummaryWidget)
     {
         if (TripSummaryWidget->objectName().isEmpty())
             TripSummaryWidget->setObjectName(QString::fromUtf8("TripSummaryWidget"));
         TripSummaryWidget->resize(640, 480);
-        stadiumName = new QLabel(TripSummaryWidget);
-        stadiumName->setObjectName(QString::fromUtf8("stadiumName"));
-        stadiumName->setGeometry(QRect(30, 20, 141, 31));
-        stadiumName->setTextFormat(Qt::MarkdownText);
-        stadiumName->setScaledContents(false);
-        stadiumName->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_title = new QLabel(TripSummaryWidget);
+        label_title->setObjectName(QString::fromUtf8("label_title"));
+        label_title->setGeometry(QRect(30, 20, 141, 31));
+        label_title->setTextFormat(Qt::MarkdownText);
+        label_title->setScaledContents(false);
+        label_title->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        totalExpensePlan = new QLabel(TripSummaryWidget);
+        totalExpensePlan->setObjectName(QString::fromUtf8("totalExpensePlan"));
+        totalExpensePlan->setGeometry(QRect(410, 330, 71, 21));
+        tripReceipt = new QTextBrowser(TripSummaryWidget);
+        tripReceipt->setObjectName(QString::fromUtf8("tripReceipt"));
+        tripReceipt->setGeometry(QRect(300, 110, 256, 211));
+        label_plan_total = new QLabel(TripSummaryWidget);
+        label_plan_total->setObjectName(QString::fromUtf8("label_plan_total"));
+        label_plan_total->setGeometry(QRect(300, 330, 111, 20));
+        label_plan_total->setTextFormat(Qt::MarkdownText);
+        tripSummary = new QTextBrowser(TripSummaryWidget);
+        tripSummary->setObjectName(QString::fromUtf8("tripSummary"));
+        tripSummary->setGeometry(QRect(20, 110, 241, 301));
+        label_plan_summary = new QLabel(TripSummaryWidget);
+        label_plan_summary->setObjectName(QString::fromUtf8("label_plan_summary"));
+        label_plan_summary->setGeometry(QRect(30, 90, 111, 20));
+        label_plan_summary->setTextFormat(Qt::MarkdownText);
+        label_souvenir = new QLabel(TripSummaryWidget);
+        label_souvenir->setObjectName(QString::fromUtf8("label_souvenir"));
+        label_souvenir->setGeometry(QRect(310, 90, 81, 16));
+        label_souvenir->setTextFormat(Qt::MarkdownText);
 
         retranslateUi(TripSummaryWidget);
 
@@ -41,7 +69,11 @@ public:
     void retranslateUi(QWidget *TripSummaryWidget)
     {
         TripSummaryWidget->setWindowTitle(QCoreApplication::translate("TripSummaryWidget", "Form", nullptr));
-        stadiumName->setText(QCoreApplication::translate("TripSummaryWidget", "## My Trip", nullptr));
+        label_title->setText(QCoreApplication::translate("TripSummaryWidget", "## My Trip", nullptr));
+        totalExpensePlan->setText(QCoreApplication::translate("TripSummaryWidget", "$ ", nullptr));
+        label_plan_total->setText(QCoreApplication::translate("TripSummaryWidget", "### Plan Expenses:", nullptr));
+        label_plan_summary->setText(QCoreApplication::translate("TripSummaryWidget", "### Plan Summary", nullptr));
+        label_souvenir->setText(QCoreApplication::translate("TripSummaryWidget", "### My Receipt", nullptr));
     } // retranslateUi
 
 };

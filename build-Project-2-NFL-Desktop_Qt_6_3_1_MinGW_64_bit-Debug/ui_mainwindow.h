@@ -28,6 +28,7 @@ public:
     QPushButton *pushButton_MST;
     QPushButton *pushButton_trip;
     QPushButton *pushButton_BFS;
+    QPushButton *pushButton_DFS;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -58,11 +59,14 @@ public:
         pushButton_trip->setGeometry(QRect(390, 70, 111, 31));
         pushButton_BFS = new QPushButton(centralwidget);
         pushButton_BFS->setObjectName(QString::fromUtf8("pushButton_BFS"));
-        pushButton_BFS->setGeometry(QRect(40, 230, 100, 32));
+        pushButton_BFS->setGeometry(QRect(40, 220, 100, 32));
+        pushButton_DFS = new QPushButton(centralwidget);
+        pushButton_DFS->setObjectName(QString::fromUtf8("pushButton_DFS"));
+        pushButton_DFS->setGeometry(QRect(40, 290, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -81,6 +85,7 @@ public:
         pushButton_MST->setText(QCoreApplication::translate("MainWindow", "M S T ", nullptr));
         pushButton_trip->setText(QCoreApplication::translate("MainWindow", "Plan a Trip", nullptr));
         pushButton_BFS->setText(QCoreApplication::translate("MainWindow", "B F S", nullptr));
+        pushButton_DFS->setText(QCoreApplication::translate("MainWindow", "D F S ", nullptr));
     } // retranslateUi
 
 };
