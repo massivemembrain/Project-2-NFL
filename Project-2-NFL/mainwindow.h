@@ -12,7 +12,7 @@
 #include "travelplanClass.h"
 #include "login_mainwindow.h"
 #include "shortestDistance.h"
-
+#include "dijkstra.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -45,6 +45,8 @@ private slots:
 
     void on_pushButton_shortdist_clicked();
 
+    void on_pushButton_dijkstra_clicked();
+
 private:
     Ui::MainWindow *ui;
     //Admin* adminWindow = NULL;
@@ -58,6 +60,8 @@ private:
 
     QStackedWidget* tripWindow = NULL;
     TravelPlan* plan = nullptr;
+
+    Dijkstra* dij = NULL;
 
 
     shortestDistance* sh = NULL;

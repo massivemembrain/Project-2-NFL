@@ -93,3 +93,10 @@ void MainWindow::on_pushButton_shortdist_clicked()
     sh->show();
 }
 
+
+void MainWindow::on_pushButton_dijkstra_clicked()
+{
+    dij = new class::Dijkstra;
+    dij->show();
+}
+

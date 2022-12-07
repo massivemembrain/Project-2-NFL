@@ -12,6 +12,7 @@ SOURCES += \
     admin.cpp \
     bfs.cpp \
     dfs.cpp \
+    dijkstra.cpp \
     displayWindow.cpp \
     form.cpp \
     login.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     admin.h \
     bfs.h \
     dfs.h \
+    dijkstra.h \
     displayWindow.h \
     form.h \
     graphClass.h \
@@ -52,6 +54,7 @@ FORMS += \
     admin.ui \
     bfs.ui \
     dfs.ui \
+    dijkstra.ui \
     displayWindow.ui \
     form.ui \
     login.ui \

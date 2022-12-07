@@ -17,6 +17,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
@@ -36,12 +37,13 @@ public:
     QComboBox *planType;
     QTextBrowser *teamSelection;
     QLabel *label_team_selected;
+    QTableView *tableView;
 
     void setupUi(QWidget *TripCreateWidget)
     {
         if (TripCreateWidget->objectName().isEmpty())
             TripCreateWidget->setObjectName(QString::fromUtf8("TripCreateWidget"));
-        TripCreateWidget->resize(640, 480);
+        TripCreateWidget->resize(1102, 788);
         label_description = new QLabel(TripCreateWidget);
         label_description->setObjectName(QString::fromUtf8("label_description"));
         label_description->setGeometry(QRect(30, 50, 181, 16));
@@ -50,7 +52,7 @@ public:
         label_proceed->setGeometry(QRect(410, 380, 181, 16));
         teamTable = new QTableWidget(TripCreateWidget);
         teamTable->setObjectName(QString::fromUtf8("teamTable"));
-        teamTable->setGeometry(QRect(20, 110, 241, 301));
+        teamTable->setGeometry(QRect(20, 110, 261, 311));
         proceedButtons = new QDialogButtonBox(TripCreateWidget);
         proceedButtons->setObjectName(QString::fromUtf8("proceedButtons"));
         proceedButtons->setGeometry(QRect(280, 410, 341, 32));
@@ -82,6 +84,9 @@ public:
         label_team_selected->setObjectName(QString::fromUtf8("label_team_selected"));
         label_team_selected->setGeometry(QRect(310, 90, 111, 16));
         label_team_selected->setTextFormat(Qt::MarkdownText);
+        tableView = new QTableView(TripCreateWidget);
+        tableView->setObjectName(QString::fromUtf8("tableView"));
+        tableView->setGeometry(QRect(600, 40, 381, 321));
 
         retranslateUi(TripCreateWidget);
 
@@ -93,7 +98,7 @@ public:
         TripCreateWidget->setWindowTitle(QCoreApplication::translate("TripCreateWidget", "Form", nullptr));
         label_description->setText(QCoreApplication::translate("TripCreateWidget", "Your dream vacation starts here.", nullptr));
         label_proceed->setText(QCoreApplication::translate("TripCreateWidget", "Proceed to your dream vacation?", nullptr));
-        label_team_available->setText(QCoreApplication::translate("TripCreateWidget", "### Avalable Teams", nullptr));
+        label_team_available->setText(QCoreApplication::translate("TripCreateWidget", "### Available Teams", nullptr));
         planName->setText(QCoreApplication::translate("TripCreateWidget", "## My Plan", nullptr));
         planType->setPlaceholderText(QCoreApplication::translate("TripCreateWidget", "no item selected", nullptr));
         label_team_selected->setText(QCoreApplication::translate("TripCreateWidget", "### Selected Teams", nullptr));
