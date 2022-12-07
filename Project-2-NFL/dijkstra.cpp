@@ -159,6 +159,10 @@ void Dijkstra::shortestPath(int src, int end)
     qDebug() << "\n\nCity Distance from " << CityToTeam[src] << " to\n";
 
     qDebug() << CityToTeam[end] << ": " << dist[end] << " km\n";
+    QString str = QString::number(dist[end]);
+
+    ui -> textBrowser -> append ("\n\nCity Distance from " + CityToTeam[src] + " to\n");
+    ui -> textBrowser -> append (CityToTeam[end] + ": " + str + " km\n");
 
 
 }
