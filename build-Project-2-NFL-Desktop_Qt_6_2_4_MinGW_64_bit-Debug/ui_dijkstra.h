@@ -15,6 +15,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,41 +23,49 @@ QT_BEGIN_NAMESPACE
 class Ui_Dijkstra
 {
 public:
-    QTextBrowser *textBrowser;
-    QWidget *horizontalLayoutWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QComboBox *comboBox_start;
     QComboBox *comboBox_end;
     QPushButton *pushButton_find;
+    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *Dijkstra)
     {
         if (Dijkstra->objectName().isEmpty())
             Dijkstra->setObjectName(QString::fromUtf8("Dijkstra"));
         Dijkstra->resize(834, 388);
-        textBrowser = new QTextBrowser(Dijkstra);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(260, 120, 256, 192));
-        horizontalLayoutWidget = new QWidget(Dijkstra);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(190, 20, 391, 80));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        verticalLayoutWidget = new QWidget(Dijkstra);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(140, 30, 521, 301));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        comboBox_start = new QComboBox(horizontalLayoutWidget);
+        comboBox_start = new QComboBox(verticalLayoutWidget);
         comboBox_start->setObjectName(QString::fromUtf8("comboBox_start"));
 
         horizontalLayout->addWidget(comboBox_start);
 
-        comboBox_end = new QComboBox(horizontalLayoutWidget);
+        comboBox_end = new QComboBox(verticalLayoutWidget);
         comboBox_end->setObjectName(QString::fromUtf8("comboBox_end"));
 
         horizontalLayout->addWidget(comboBox_end);
 
-        pushButton_find = new QPushButton(horizontalLayoutWidget);
+        pushButton_find = new QPushButton(verticalLayoutWidget);
         pushButton_find->setObjectName(QString::fromUtf8("pushButton_find"));
 
         horizontalLayout->addWidget(pushButton_find);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        textBrowser = new QTextBrowser(verticalLayoutWidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+
+        verticalLayout->addWidget(textBrowser);
 
 
         retranslateUi(Dijkstra);

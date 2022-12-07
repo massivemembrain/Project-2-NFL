@@ -9,6 +9,7 @@
 #include <QDebug>
 #include "ui_selectAlgo.h"
 #include "travelplanClass.h"
+#include "tripcreateWidget.h"
 
 namespace Ui
 {
@@ -25,10 +26,13 @@ public:
 private slots:
     void on_pushButton_go_clicked();
 
+    void on_go_clicked();
+
 private:
     Ui::selectAlgo *ui;
     QStackedWidget* tripWindow = NULL;
     TravelPlan* plan = nullptr;
+    TripCreateWidget* custom = NULL;
 
 };
 

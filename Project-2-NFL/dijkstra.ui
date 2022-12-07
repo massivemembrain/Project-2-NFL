@@ -13,38 +13,35 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTextBrowser" name="textBrowser">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>120</y>
-     <width>256</width>
-     <height>192</height>
+     <x>140</x>
+     <y>30</y>
+     <width>521</width>
+     <height>301</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>20</y>
-     <width>391</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QComboBox" name="comboBox_start"/>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="comboBox_start"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_end"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_find">
+        <property name="text">
+         <string>Find</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox_end"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_find">
-      <property name="text">
-       <string>Find</string>
-      </property>
-     </widget>
+     <widget class="QTextBrowser" name="textBrowser"/>
     </item>
    </layout>
   </widget>

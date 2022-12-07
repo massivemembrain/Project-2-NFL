@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     bfs.cpp \
+    customtrip.cpp \
     dfs.cpp \
     dijkstra.cpp \
     displayWindow.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
 HEADERS += \
     admin.h \
     bfs.h \
+    customtrip.h \
     dfs.h \
     dijkstra.h \
     displayWindow.h \
