@@ -1,0 +1,37 @@
+\hypertarget{travelgraph_class_8h_source}{}\doxysection{travelgraph\+Class.\+h}
+\label{travelgraph_class_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/travelgraphClass.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/travelgraphClass.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TRAVELGRAPH\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TRAVELGRAPH\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{6 \textcolor{comment}{//\#import <QFile>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_travel_graph}{TravelGraph}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     vector<QString> vertex\_name\_array;}
+\DoxyCodeLine{13     \textcolor{comment}{//vector<vector<int>> weight\_matrix;}}
+\DoxyCodeLine{14     \textcolor{comment}{// DB is both Map team-\/>stadium \& Matrix [origin][destination]-\/>distance}}
+\DoxyCodeLine{15     QSqlDatabase database;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_travel_graph}{TravelGraph}}();}
+\DoxyCodeLine{19     \textcolor{comment}{//void refreshMatrix();}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} getSelectedDistance();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} getShortestDistance();\textcolor{comment}{//Dijkstra();}}
+\DoxyCodeLine{22     \textcolor{comment}{//void importCSV(QFile);}}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \textcolor{comment}{// Helper functions}}
+\DoxyCodeLine{25     \textcolor{keyword}{const} QString\& getValueFromIndex( \textcolor{keywordtype}{int} index );}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} getIndexFromValue( QString value );}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} contains(QString\& vertex);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TRAVELGRAPH\_H}}
+
+\end{DoxyCode}

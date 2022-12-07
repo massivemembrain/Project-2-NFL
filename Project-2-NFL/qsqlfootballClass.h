@@ -6,9 +6,21 @@
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
 
+
+/*****************************************************************//**
+ * \file   qSqlFootball.h
+ * \brief  QSqlFootball get infos from data base
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
 using namespace std;
 
-
+/**
+ * \class QSqlFootball
+ * \brief QSqlFootball get infos from data base
+ */
 class QSqlFootball
 {
 private:

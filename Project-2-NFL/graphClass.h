@@ -12,11 +12,22 @@
 #include <QString>
 #include <QTextBrowser>
 
+/*****************************************************************//**
+ * \file   graphClass.h
+ * \brief  dfs object to perform DFS algorithm
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+/**
+ *  \namespace Ui
+ */
 using namespace std;
 
-/* Graph
- * brief:
- * 4D Structure
+/**
+ * \class Graph
+ * \brief
  */
 template <typename T>
 class Graph

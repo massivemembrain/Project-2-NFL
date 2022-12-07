@@ -1,0 +1,93 @@
+\hypertarget{mst_8h_source}{}\doxysection{mst.\+h}
+\label{mst_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/mst.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/mst.h}}
+\mbox{\hyperlink{mst_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{comment}{//\#include <bits/stdc++.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include"{}ui\_mst.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include<QString>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{25 \textcolor{keyword}{const} \textcolor{keywordtype}{int} NUMBER\_CITIES = 30;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{const} QString CityToTeam[NUMBER\_CITIES] = \{}
+\DoxyCodeLine{28     \textcolor{stringliteral}{"{}Arizona Cardinals"{}}, \textcolor{stringliteral}{"{}Atlanta Falcons"{}}, \textcolor{stringliteral}{"{}Baltimore Ravens"{}}, \textcolor{stringliteral}{"{}Buffalo Bills"{}},}
+\DoxyCodeLine{29     \textcolor{stringliteral}{"{}Carolina Panthers"{}},   \textcolor{stringliteral}{"{}Chicago Bears"{}},  \textcolor{stringliteral}{"{}Cincinnati Bengals"{}}, \textcolor{stringliteral}{"{}Cleveland Browns"{}},}
+\DoxyCodeLine{30     \textcolor{stringliteral}{"{}Dallas Cowboys"{}},  \textcolor{stringliteral}{"{}Denver Broncos"{}},      \textcolor{stringliteral}{"{}Detroit Lions"{}},     \textcolor{stringliteral}{"{}Green Bay Packers"{}},}
+\DoxyCodeLine{31     \textcolor{stringliteral}{"{}Houston Texans"{}},  \textcolor{stringliteral}{"{}Indianapolis Colts"{}}, \textcolor{stringliteral}{"{}Jacksonville Jaguars"{}}, \textcolor{stringliteral}{"{}Kansas City Chiefs"{}},}
+\DoxyCodeLine{32     \textcolor{stringliteral}{"{}Las Vegas Raiders"{}}, \textcolor{stringliteral}{"{}Los Angeles Chargers/Rams"{}}, \textcolor{stringliteral}{"{}Miami Dolphins"{}},}
+\DoxyCodeLine{33     \textcolor{stringliteral}{"{}Minnesota Vikings"{}}, \textcolor{stringliteral}{"{}New England Patriots"{}}, \textcolor{stringliteral}{"{}New Orleans Saints"{}}, \textcolor{stringliteral}{"{}New York Giants/Jets"{}},}
+\DoxyCodeLine{34     \textcolor{stringliteral}{"{}Philadelphia Eagles"{}}, \textcolor{stringliteral}{"{}Pittsburgh Steelers"{}}, \textcolor{stringliteral}{"{}San Francisco 49ers"{}},}
+\DoxyCodeLine{35     \textcolor{stringliteral}{"{}Seattle Seahawks"{}}, \textcolor{stringliteral}{"{}Tampa Bay Buccaneers"{}}, \textcolor{stringliteral}{"{}Tennessee Titans"{}}, \textcolor{stringliteral}{"{}Washington Redskins"{}}\};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{const} QString CityToStr[NUMBER\_CITIES] =}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{stringliteral}{"{}State Farm Stadium"{}},        \textcolor{comment}{// i = 0}}
+\DoxyCodeLine{41     \textcolor{stringliteral}{"{}Mercedes-\/Benz Stadium"{}},     \textcolor{comment}{// i = 1}}
+\DoxyCodeLine{42     \textcolor{stringliteral}{"{}M\&T Bank Stadium"{}},          \textcolor{comment}{// i = 2}}
+\DoxyCodeLine{43     \textcolor{stringliteral}{"{}Highmark Stadium"{}},          \textcolor{comment}{// i = 3}}
+\DoxyCodeLine{44     \textcolor{stringliteral}{"{}Bank of America Stadium"{}},   \textcolor{comment}{// i = 4}}
+\DoxyCodeLine{45     \textcolor{stringliteral}{"{}Soldier Field"{}},             \textcolor{comment}{// i = 5}}
+\DoxyCodeLine{46     \textcolor{stringliteral}{"{}Paycor Stadium"{}},            \textcolor{comment}{// i = 6}}
+\DoxyCodeLine{47     \textcolor{stringliteral}{"{}FirstEnergy Stadium"{}},       \textcolor{comment}{// i = 7}}
+\DoxyCodeLine{48     \textcolor{stringliteral}{"{}AT\&T Stadium"{}},              \textcolor{comment}{// i = 8}}
+\DoxyCodeLine{49     \textcolor{stringliteral}{"{}Empower Field at Mile High"{}},\textcolor{comment}{// i = 9}}
+\DoxyCodeLine{50     \textcolor{stringliteral}{"{}Ford Field"{}},                \textcolor{comment}{// i = 10}}
+\DoxyCodeLine{51     \textcolor{stringliteral}{"{}Lambeau Field"{}},             \textcolor{comment}{// i = 11}}
+\DoxyCodeLine{52     \textcolor{stringliteral}{"{}NRG Stadium"{}},               \textcolor{comment}{// i = 12}}
+\DoxyCodeLine{53     \textcolor{stringliteral}{"{}Lucas Oil Stadium"{}},         \textcolor{comment}{// i = 13}}
+\DoxyCodeLine{54     \textcolor{stringliteral}{"{}TIAA Bank Field"{}},           \textcolor{comment}{// i = 14}}
+\DoxyCodeLine{55     \textcolor{stringliteral}{"{}Arrowhead Stadium"{}},         \textcolor{comment}{// i = 15}}
+\DoxyCodeLine{56     \textcolor{stringliteral}{"{}Allegiant Stadium"{}},         \textcolor{comment}{// i = 16}}
+\DoxyCodeLine{57     \textcolor{stringliteral}{"{}SoFi Stadium"{}},              \textcolor{comment}{// i = 17}}
+\DoxyCodeLine{58     \textcolor{stringliteral}{"{}Hard Rock Stadium"{}},         \textcolor{comment}{// i = 18}}
+\DoxyCodeLine{59     \textcolor{stringliteral}{"{}U.S. Bank Stadium"{}},         \textcolor{comment}{// i = 19}}
+\DoxyCodeLine{60     \textcolor{stringliteral}{"{}Gillette Stadium"{}},          \textcolor{comment}{// i = 20}}
+\DoxyCodeLine{61     \textcolor{stringliteral}{"{}Caesars Superdome"{}},         \textcolor{comment}{// i = 21}}
+\DoxyCodeLine{62     \textcolor{stringliteral}{"{}MetLife Stadium"{}},           \textcolor{comment}{// i = 22}}
+\DoxyCodeLine{63     \textcolor{stringliteral}{"{}Lincoln Financial Field"{}},   \textcolor{comment}{// i = 23}}
+\DoxyCodeLine{64     \textcolor{stringliteral}{"{}Acrisure Stadium"{}},          \textcolor{comment}{// i = 24}}
+\DoxyCodeLine{65     \textcolor{stringliteral}{"{}Levi's Stadium"{}},            \textcolor{comment}{// i = 25}}
+\DoxyCodeLine{66     \textcolor{stringliteral}{"{}Lumen Field"{}},               \textcolor{comment}{// i = 26}}
+\DoxyCodeLine{67     \textcolor{stringliteral}{"{}Raymond James Stadium"{}}      \textcolor{comment}{// i = 27}}
+\DoxyCodeLine{68     \textcolor{stringliteral}{"{}Nissan Stadium"{}},            \textcolor{comment}{// i = 28}}
+\DoxyCodeLine{69     \textcolor{stringliteral}{"{}FedExField"{}}                 \textcolor{comment}{// i = 29}}
+\DoxyCodeLine{70   \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{75 \textcolor{keyword}{namespace }Ui}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77      \textcolor{keyword}{class }\mbox{\hyperlink{class_m_s_t}{MST}};}
+\DoxyCodeLine{78 \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{85 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_s_t}{MST}} :  \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     Q\_OBJECT}
+\DoxyCodeLine{88 \textcolor{keyword}{public}:}
+\DoxyCodeLine{89     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_m_s_t}{MST}}(QWidget *parent = \textcolor{keyword}{nullptr}); }
+\DoxyCodeLine{91     \mbox{\hyperlink{class_m_s_t_aadf8fdb6c7e85fe0f214c6b693b946df}{\string~MST}}() \{\} }
+\DoxyCodeLine{100     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_m_s_t_a1e496fbe9bcec4edbc5cd0f5b9c13cf8}{minKey}} (\textcolor{keywordtype}{int} key[], \textcolor{keywordtype}{bool} set[]);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_s_t_a3fb0c903bf78c3132c581d63a6e809c2}{printMST}}(\textcolor{keywordtype}{int} parent[], \textcolor{keywordtype}{int} graph[NUMBER\_CITIES][NUMBER\_CITIES]);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_s_t_ab3ca59f5e6b0ff41b75c9b097f99c917}{primMST}}(\textcolor{keywordtype}{int} graph[NUMBER\_CITIES][NUMBER\_CITIES]);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keyword}{private}:}
+\DoxyCodeLine{118     Ui::MST *ui; }
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MST\_H}}
+
+\end{DoxyCode}

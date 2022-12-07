@@ -1,0 +1,71 @@
+\hypertarget{mainwindow_8h_source}{}\doxysection{mainwindow.\+h}
+\label{mainwindow_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/mainwindow.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/mainwindow.h}}
+\mbox{\hyperlink{mainwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MAINWINDOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MAINWINDOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QStackedWidget>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}admin.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{display_window_8h}{displayWindow.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{mst_8h}{mst.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bfs_8h}{bfs.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dfs_8h}{dfs.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}travelplanClass.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}login\_mainwindow.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shortest_distance_8h}{shortestDistance.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dijkstra_8h}{dijkstra.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{select_algo_8h}{selectAlgo.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{26 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{30 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}; \}}
+\DoxyCodeLine{31 QT\_END\_NAMESPACE}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     Q\_OBJECT}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_main_window}{MainWindow}}(QWidget *parent = \textcolor{keyword}{nullptr}); }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}(); }
+\DoxyCodeLine{46 \textcolor{comment}{//public slots:}}
+\DoxyCodeLine{47 \textcolor{comment}{//    void on\_login();}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} on\_pushButton\_clicked();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} on\_pushButton\_displayWindow\_clicked();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} on\_pushButton\_MST\_clicked();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} on\_pushButton\_BFS\_clicked();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} on\_pushButton\_trip\_clicked();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} on\_pushButton\_DFS\_clicked();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} on\_pushButton\_shortdist\_clicked();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} on\_pushButton\_dijkstra\_clicked();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{private}:}
+\DoxyCodeLine{68     Ui::MainWindow *ui; }
+\DoxyCodeLine{69     \textcolor{comment}{//Admin* adminWindow = NULL;}}
+\DoxyCodeLine{70     \mbox{\hyperlink{classdisplay_window}{displayWindow}}* d = NULL; }
+\DoxyCodeLine{72     \mbox{\hyperlink{class_m_s_t}{MST}}* mst= NULL; }
+\DoxyCodeLine{73     \mbox{\hyperlink{class_b_f_s}{BFS}}* bfs = NULL; }
+\DoxyCodeLine{74     \mbox{\hyperlink{class_d_f_s}{DFS}}* dfs = NULL; }
+\DoxyCodeLine{76     \mbox{\hyperlink{class_login}{Login}}* login = NULL; }
+\DoxyCodeLine{78     QStackedWidget* tripWindow = NULL; }
+\DoxyCodeLine{79     \mbox{\hyperlink{class_travel_plan}{TravelPlan}}* plan = \textcolor{keyword}{nullptr}; }
+\DoxyCodeLine{81     \mbox{\hyperlink{class_dijkstra}{Dijkstra}}* dij = NULL; }
+\DoxyCodeLine{83     \mbox{\hyperlink{classselect_algo}{selectAlgo}}* sa = NULL; }
+\DoxyCodeLine{85     \mbox{\hyperlink{classshortest_distance}{shortestDistance}}* sh = NULL; }
+\DoxyCodeLine{86 \};}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
+
+\end{DoxyCode}

@@ -1,5 +1,6 @@
 release/admin.o
 release/bfs.o
+release/customtrip.o
 release/dfs.o
 release/dijkstra.o
 release/displayWindow.o

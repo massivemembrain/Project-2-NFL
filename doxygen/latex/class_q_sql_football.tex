@@ -1,0 +1,95 @@
+\hypertarget{class_q_sql_football}{}\doxysection{QSql\+Football Class Reference}
+\label{class_q_sql_football}\index{QSqlFootball@{QSqlFootball}}
+
+
+\mbox{\hyperlink{class_q_sql_football}{QSql\+Football}} get infos from data base.  
+
+
+
+
+{\ttfamily \#include $<$qsqlfootball\+Class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_adc907169dcdab8d5ea1d93fec91c7f02}{get\+Team\+Info}} (const QString TEAM\+\_\+\+NAME) const
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_ac3e3a0d1631e4b1b72f7d9cba0bfd633}{get\+Teams}} (const QString SEARCH\+\_\+\+TERM=\char`\"{}$\ast$\char`\"{}, const QString FILTER\+\_\+\+TERM=\char`\"{}Team\char`\"{}, const QString SORT\+\_\+\+TERM=\char`\"{}Team\char`\"{}) const
+\item 
+const QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_a0fe8cea8dca2ac7e9509446e0486511b}{get\+Stadium\+Info}} (const QString STADIUM\+\_\+\+NAME) const
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_ac7100df92d86733985cfdfa95ff1bef7}{get\+Stadiums}} (const QString SEARCH\+\_\+\+TERM=\char`\"{}$\ast$\char`\"{}, const QString FILTER\+\_\+\+TERM=\char`\"{}Name\char`\"{}, const QString SORT\+\_\+\+TERM=\char`\"{}Name\char`\"{}) const
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_a9a7728cf878274d2b924c023ac3a47b5}{get\+All\+Teams\+Stars}} () const
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{class_q_sql_football_a23b696cf2a8030fe785733678d2498ed}{get\+Team\+Souvenirs}} (const QString TEAM\+\_\+\+NAME=\char`\"{}$\ast$\char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_q_sql_football_a4ff80787bb677ec59cbc60a6042e1641}\label{class_q_sql_football_a4ff80787bb677ec59cbc60a6042e1641}} 
+void {\bfseries modify\+Souvenir\+Price} (QString NAME, const QString NEW\+\_\+\+PRICE, QString TEAM=\char`\"{}$\ast$\char`\"{})
+\item 
+\mbox{\Hypertarget{class_q_sql_football_ae050aa5222391c4619c3de1a31dd9e7d}\label{class_q_sql_football_ae050aa5222391c4619c3de1a31dd9e7d}} 
+void {\bfseries import\+CSV} ()
+\item 
+\mbox{\Hypertarget{class_q_sql_football_a8ab4da972716ea13e88fbb0d4f5cfb49}\label{class_q_sql_football_a8ab4da972716ea13e88fbb0d4f5cfb49}} 
+void {\bfseries import\+CSV} (QString path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_football_a954d429a2e770fbc3ee03d68c60d765e}\label{class_q_sql_football_a954d429a2e770fbc3ee03d68c60d765e}} 
+static void {\bfseries init\+DB} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_q_sql_football}{QSql\+Football}} get infos from data base. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_football_a9a7728cf878274d2b924c023ac3a47b5}\label{class_q_sql_football_a9a7728cf878274d2b924c023ac3a47b5}} 
+\index{QSqlFootball@{QSqlFootball}!getAllTeamsStars@{getAllTeamsStars}}
+\index{getAllTeamsStars@{getAllTeamsStars}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getAllTeamsStars()}{getAllTeamsStars()}}
+{\footnotesize\ttfamily QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+All\+Teams\+Stars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+get\+All\+Teams Story \#9 Teams are sorted alphabetically. Each team\textquotesingle{}s corresponding stars \mbox{\Hypertarget{class_q_sql_football_a0fe8cea8dca2ac7e9509446e0486511b}\label{class_q_sql_football_a0fe8cea8dca2ac7e9509446e0486511b}} 
+\index{QSqlFootball@{QSqlFootball}!getStadiumInfo@{getStadiumInfo}}
+\index{getStadiumInfo@{getStadiumInfo}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getStadiumInfo()}{getStadiumInfo()}}
+{\footnotesize\ttfamily const QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+Stadium\+Info (\begin{DoxyParamCaption}\item[{const QString}]{STADIUM\+\_\+\+NAME }\end{DoxyParamCaption}) const}
+
+get\+Info Story \#2 Return all info for one team in a QWidget \mbox{\Hypertarget{class_q_sql_football_ac7100df92d86733985cfdfa95ff1bef7}\label{class_q_sql_football_ac7100df92d86733985cfdfa95ff1bef7}} 
+\index{QSqlFootball@{QSqlFootball}!getStadiums@{getStadiums}}
+\index{getStadiums@{getStadiums}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getStadiums()}{getStadiums()}}
+{\footnotesize\ttfamily QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+Stadiums (\begin{DoxyParamCaption}\item[{const QString}]{SEARCH\+\_\+\+TERM = {\ttfamily \char`\"{}$\ast$\char`\"{}},  }\item[{const QString}]{FILTER\+\_\+\+TERM = {\ttfamily \char`\"{}Name\char`\"{}},  }\item[{const QString}]{SORT\+\_\+\+TERM = {\ttfamily \char`\"{}Name\char`\"{}} }\end{DoxyParamCaption}) const}
+
+get\+All\+Stadiums Story \#4, 8 Stadiums are sorted alphabetically. Each stadium\textquotesingle{}s corresponding team(s) are stored in \mbox{\Hypertarget{class_q_sql_football_adc907169dcdab8d5ea1d93fec91c7f02}\label{class_q_sql_football_adc907169dcdab8d5ea1d93fec91c7f02}} 
+\index{QSqlFootball@{QSqlFootball}!getTeamInfo@{getTeamInfo}}
+\index{getTeamInfo@{getTeamInfo}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getTeamInfo()}{getTeamInfo()}}
+{\footnotesize\ttfamily const QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+Team\+Info (\begin{DoxyParamCaption}\item[{const QString}]{TEAM\+\_\+\+NAME }\end{DoxyParamCaption}) const}
+
+get\+Info Story \#2 Return all info for one team in a QWidget \mbox{\Hypertarget{class_q_sql_football_ac3e3a0d1631e4b1b72f7d9cba0bfd633}\label{class_q_sql_football_ac3e3a0d1631e4b1b72f7d9cba0bfd633}} 
+\index{QSqlFootball@{QSqlFootball}!getTeams@{getTeams}}
+\index{getTeams@{getTeams}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getTeams()}{getTeams()}}
+{\footnotesize\ttfamily QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+Teams (\begin{DoxyParamCaption}\item[{const QString}]{SEARCH\+\_\+\+TERM = {\ttfamily \char`\"{}$\ast$\char`\"{}},  }\item[{const QString}]{FILTER\+\_\+\+TERM = {\ttfamily \char`\"{}Team\char`\"{}},  }\item[{const QString}]{SORT\+\_\+\+TERM = {\ttfamily \char`\"{}Team\char`\"{}} }\end{DoxyParamCaption}) const}
+
+get\+All\+Teams Story \#3, 5, 7 Teams are sorted alphabetically.
+
+Football Team Data
+
+QString team\+\_\+name; QString team\+\_\+conference; QString team\+\_\+division; QString team\+\_\+star\+\_\+player;
+
+QString stadium\+\_\+name; int stadium\+\_\+capacity; QString stadium\+\_\+location; QString stadium\+\_\+surface\+\_\+type; QString stadium\+\_\+roof\+\_\+type; \mbox{\Hypertarget{class_q_sql_football_a23b696cf2a8030fe785733678d2498ed}\label{class_q_sql_football_a23b696cf2a8030fe785733678d2498ed}} 
+\index{QSqlFootball@{QSqlFootball}!getTeamSouvenirs@{getTeamSouvenirs}}
+\index{getTeamSouvenirs@{getTeamSouvenirs}!QSqlFootball@{QSqlFootball}}
+\doxysubsubsection{\texorpdfstring{getTeamSouvenirs()}{getTeamSouvenirs()}}
+{\footnotesize\ttfamily QSql\+Query\+Model $\ast$ QSql\+Football\+::get\+Team\+Souvenirs (\begin{DoxyParamCaption}\item[{const QString}]{TEAM\+\_\+\+NAME = {\ttfamily \char`\"{}$\ast$\char`\"{}} }\end{DoxyParamCaption}) const}
+
+get\+All\+Teams Story \#9 Teams are sorted alphabetically. Each team\textquotesingle{}s corresponding stars 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/qsqlfootball\+Class.\+h\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/qsqlfootball\+Class.\+cpp\end{DoxyCompactItemize}

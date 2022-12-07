@@ -1,0 +1,139 @@
+\hypertarget{class_d_f_s}{}\doxysection{DFS Class Reference}
+\label{class_d_f_s}\index{DFS@{DFS}}
+
+
+\mbox{\hyperlink{class_d_f_s}{DFS}} class perform \mbox{\hyperlink{class_d_f_s}{DFS}} algorithm.  
+
+
+
+
+{\ttfamily \#include $<$dfs.\+h$>$}
+
+
+
+Inheritance diagram for DFS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{class_d_f_s__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for DFS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{class_d_f_s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_f_s_a508c3a3c7eedaecb8f9c6c27a9fb6c3b}{DFS}} (QWidget $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{class_d_f_s_a17045ec18948d58d53831c9fedd66b3a}{insert\+Vertex}} (string city)
+\begin{DoxyCompactList}\small\item\em insert new city \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_d_f_s_a857ca5ebaa6f03fce30bde4d6bbd63d3}{find\+Vertex}} (string city)
+\begin{DoxyCompactList}\small\item\em find the city \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_f_s_a397810ee85ed72d25e2c3659fe9efcae}{insert\+Edge}} (string start\+City, string end\+City, int weight)
+\begin{DoxyCompactList}\small\item\em insert new distance \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_d_f_s_a8b5f97f774dc06b1cffe98c73760176b}{DFSFunction}} (string starting\+City, vector$<$ string $>$ \&dfs\+Graph)
+\begin{DoxyCompactList}\small\item\em perform the \mbox{\hyperlink{class_d_f_s}{DFS}} algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_d_f_s}{DFS}} class perform \mbox{\hyperlink{class_d_f_s}{DFS}} algorithm. 
+
+QWidget 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_f_s_a508c3a3c7eedaecb8f9c6c27a9fb6c3b}\label{class_d_f_s_a508c3a3c7eedaecb8f9c6c27a9fb6c3b}} 
+\index{DFS@{DFS}!DFS@{DFS}}
+\index{DFS@{DFS}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{DFS()}{DFS()}}
+{\footnotesize\ttfamily DFS\+::\+DFS (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_f_s_a8b5f97f774dc06b1cffe98c73760176b}\label{class_d_f_s_a8b5f97f774dc06b1cffe98c73760176b}} 
+\index{DFS@{DFS}!DFSFunction@{DFSFunction}}
+\index{DFSFunction@{DFSFunction}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{DFSFunction()}{DFSFunction()}}
+{\footnotesize\ttfamily DFS\+::\+DFSFunction (\begin{DoxyParamCaption}\item[{string}]{starting\+City,  }\item[{vector$<$ string $>$ \&}]{dfs\+Graph }\end{DoxyParamCaption})}
+
+
+
+perform the \mbox{\hyperlink{class_d_f_s}{DFS}} algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+City} & \\
+\hline
+{\em \&dfs\+Graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dfs\+Distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_f_s_a857ca5ebaa6f03fce30bde4d6bbd63d3}\label{class_d_f_s_a857ca5ebaa6f03fce30bde4d6bbd63d3}} 
+\index{DFS@{DFS}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily DFS\+::find\+Vertex (\begin{DoxyParamCaption}\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+find the city 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_f_s_a397810ee85ed72d25e2c3659fe9efcae}\label{class_d_f_s_a397810ee85ed72d25e2c3659fe9efcae}} 
+\index{DFS@{DFS}!insertEdge@{insertEdge}}
+\index{insertEdge@{insertEdge}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{insertEdge()}{insertEdge()}}
+{\footnotesize\ttfamily DFS\+::insert\+Edge (\begin{DoxyParamCaption}\item[{string}]{start\+City,  }\item[{string}]{end\+City,  }\item[{int}]{weight }\end{DoxyParamCaption})}
+
+
+
+insert new distance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+City} & \\
+\hline
+{\em end\+City} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_f_s_a17045ec18948d58d53831c9fedd66b3a}\label{class_d_f_s_a17045ec18948d58d53831c9fedd66b3a}} 
+\index{DFS@{DFS}!insertVertex@{insertVertex}}
+\index{insertVertex@{insertVertex}!DFS@{DFS}}
+\doxysubsubsection{\texorpdfstring{insertVertex()}{insertVertex()}}
+{\footnotesize\ttfamily DFS\+::insert\+Vertex (\begin{DoxyParamCaption}\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+insert new city 
+
+destructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/\mbox{\hyperlink{dfs_8h}{dfs.\+h}}\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/dfs.\+cpp\end{DoxyCompactItemize}

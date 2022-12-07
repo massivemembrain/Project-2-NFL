@@ -1,5 +1,6 @@
 debug/admin.o
 debug/bfs.o
+debug/customtrip.o
 debug/dfs.o
 debug/dijkstra.o
 debug/displayWindow.o

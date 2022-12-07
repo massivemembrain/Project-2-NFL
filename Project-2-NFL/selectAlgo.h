@@ -11,6 +11,14 @@
 #include "travelplanClass.h"
 #include "tripcreateWidget.h"
 
+/*****************************************************************//**
+ * \file   selectAlgo.h
+ * \brief  allows user to select a
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
 namespace Ui
 {
     class selectAlgo;

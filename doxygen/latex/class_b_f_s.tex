@@ -1,0 +1,129 @@
+\hypertarget{class_b_f_s}{}\doxysection{BFS Class Reference}
+\label{class_b_f_s}\index{BFS@{BFS}}
+
+
+\mbox{\hyperlink{class_b_f_s}{BFS}} class perform \mbox{\hyperlink{class_b_f_s}{BFS}} algorithm.  
+
+
+
+
+{\ttfamily \#include $<$bfs.\+h$>$}
+
+
+
+Inheritance diagram for BFS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{class_b_f_s__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for BFS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{class_b_f_s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_f_s_a9ece87706ece5a6dbba068b0275609a2}{BFS}} (QWidget $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{class_b_f_s_a49eae2c37b1083d19f70640f0848b1cd}{$\sim$\+BFS}} ()
+\item 
+void \mbox{\hyperlink{class_b_f_s_aab3cab8cf6f985cfc55909bd60ae8a66}{set\+Next\+Lowest\+Index}} (int \&low\+\_\+index, const int \&row\+\_\+index, const bool city\+\_\+visited\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}, const int city\+\_\+edges\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]})
+\begin{DoxyCompactList}\small\item\em set the next lowest index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_f_s_afed0a3770e269cf987e5dc8308f06180}{min\+BFS}} (const int \mbox{\hyperlink{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}{matrix}}\mbox{[}$\,$\mbox{]}\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}, int origin)
+\begin{DoxyCompactList}\small\item\em perform the \mbox{\hyperlink{class_b_f_s}{BFS}} algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bfs_8h_a5b0b3233244b03599b184ec39148c997}{City}} \mbox{\hyperlink{class_b_f_s_ac31df19180914d2fe8b5a70daba16e97}{origin\+\_\+vertex}} = Los\+\_\+\+Angeles\+\_\+\+Rams
+\item 
+int \mbox{\hyperlink{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}{matrix}} \mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_b_f_s}{BFS}} class perform \mbox{\hyperlink{class_b_f_s}{BFS}} algorithm. 
+
+QWidget 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_f_s_a9ece87706ece5a6dbba068b0275609a2}\label{class_b_f_s_a9ece87706ece5a6dbba068b0275609a2}} 
+\index{BFS@{BFS}!BFS@{BFS}}
+\index{BFS@{BFS}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
+{\footnotesize\ttfamily BFS\+::\+BFS (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+constructor \mbox{\Hypertarget{class_b_f_s_a49eae2c37b1083d19f70640f0848b1cd}\label{class_b_f_s_a49eae2c37b1083d19f70640f0848b1cd}} 
+\index{BFS@{BFS}!````~BFS@{$\sim$BFS}}
+\index{````~BFS@{$\sim$BFS}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{$\sim$BFS()}{~BFS()}}
+{\footnotesize\ttfamily BFS\+::$\sim$\+BFS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_f_s_afed0a3770e269cf987e5dc8308f06180}\label{class_b_f_s_afed0a3770e269cf987e5dc8308f06180}} 
+\index{BFS@{BFS}!minBFS@{minBFS}}
+\index{minBFS@{minBFS}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{minBFS()}{minBFS()}}
+{\footnotesize\ttfamily BFS\+::min\+BFS (\begin{DoxyParamCaption}\item[{const int}]{matrix\mbox{[}$\,$\mbox{]}\mbox{[}\+NUMBER\+\_\+\+CITIES\mbox{]},  }\item[{int}]{origin }\end{DoxyParamCaption})}
+
+
+
+perform the \mbox{\hyperlink{class_b_f_s}{BFS}} algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix\mbox{[}$\,$\mbox{]}\mbox{[}\+NUMBER\+\_\+\+CITIES\mbox{]}} & \\
+\hline
+{\em origin} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_b_f_s_aab3cab8cf6f985cfc55909bd60ae8a66}\label{class_b_f_s_aab3cab8cf6f985cfc55909bd60ae8a66}} 
+\index{BFS@{BFS}!setNextLowestIndex@{setNextLowestIndex}}
+\index{setNextLowestIndex@{setNextLowestIndex}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{setNextLowestIndex()}{setNextLowestIndex()}}
+{\footnotesize\ttfamily BFS\+::set\+Next\+Lowest\+Index (\begin{DoxyParamCaption}\item[{int \&}]{low\+\_\+index,  }\item[{const int \&}]{row\+\_\+index,  }\item[{const bool}]{city\+\_\+visited\mbox{[}\+NUMBER\+\_\+\+CITIES\mbox{]},  }\item[{const int}]{city\+\_\+edges\mbox{[}\+NUMBER\+\_\+\+CITIES\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+set the next lowest index 
+
+
+\begin{DoxyParams}{Parameters}
+{\em low\+\_\+index} & \\
+\hline
+{\em row\+\_\+index} & \\
+\hline
+{\em city\+\_\+visited} & \\
+\hline
+{\em city\+\_\+edges} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}\label{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}} 
+\index{BFS@{BFS}!matrix@{matrix}}
+\index{matrix@{matrix}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily int BFS\+::matrix\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}\mbox{[}NUMBER\+\_\+\+CITIES\mbox{]}}
+
+stores all the distance data \mbox{\Hypertarget{class_b_f_s_ac31df19180914d2fe8b5a70daba16e97}\label{class_b_f_s_ac31df19180914d2fe8b5a70daba16e97}} 
+\index{BFS@{BFS}!origin\_vertex@{origin\_vertex}}
+\index{origin\_vertex@{origin\_vertex}!BFS@{BFS}}
+\doxysubsubsection{\texorpdfstring{origin\_vertex}{origin\_vertex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bfs_8h_a5b0b3233244b03599b184ec39148c997}{City}} BFS\+::origin\+\_\+vertex = Los\+\_\+\+Angeles\+\_\+\+Rams}
+
+starting city 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/\mbox{\hyperlink{bfs_8h}{bfs.\+h}}\item 
+C\+:/\+Users/\+User/\+Desktop/testing/\+Project-\/2-\/\+NFL/\+Project-\/2-\/\+NFL/bfs.\+cpp\end{DoxyCompactItemize}

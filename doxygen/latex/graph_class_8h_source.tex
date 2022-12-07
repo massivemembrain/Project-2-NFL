@@ -1,0 +1,287 @@
+\hypertarget{graph_class_8h_source}{}\doxysection{graph\+Class.\+h}
+\label{graph_class_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/graphClass.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/graphClass.h}}
+\mbox{\hyperlink{graph_class_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GRAPHCLASS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GRAPHCLASS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QTextBrowser>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{26 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}}}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36 \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{37 \textcolor{comment}{//  Graph()}}
+\DoxyCodeLine{38 \textcolor{comment}{//    : vertex\_name\_array\{vector<QString>()\}, is\_directed\{false\},}}
+\DoxyCodeLine{39 \textcolor{comment}{//      weight\_matrix\{vector<vector<T>>(0, vector<bool>(0, false))\}, direction\_matrix\{vector<vector<bool>>(0, vector<bool>(0, false))\},}}
+\DoxyCodeLine{40 \textcolor{comment}{//    \{\}}}
+\DoxyCodeLine{41 \textcolor{comment}{//  // Undirected constructor}}
+\DoxyCodeLine{42 \textcolor{comment}{//  Graph(}}
+\DoxyCodeLine{43 \textcolor{comment}{//    vector<QString> vertex\_name\_array,}}
+\DoxyCodeLine{44 \textcolor{comment}{//    vector<vector<T>> weight\_matrix)}}
+\DoxyCodeLine{45 \textcolor{comment}{//    : vertex\_name\_array\{vertex\_name\_array\}, is\_directed\{false\},}}
+\DoxyCodeLine{46 \textcolor{comment}{//      weight\_matrix\{weight\_matrix\}, direction\_matrix\{vector<vector<bool>>(0, vector<bool>(0, false))\}}}
+\DoxyCodeLine{47 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{48 \textcolor{comment}{//        //direction\_matrix = vector<vector<bool>>(0, vector<bool>(0, false));}}
+\DoxyCodeLine{49 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{50 \textcolor{comment}{//  // Directed constructor}}
+\DoxyCodeLine{51 \textcolor{comment}{//  Graph(}}
+\DoxyCodeLine{52 \textcolor{comment}{//    vector<QString> vertex\_name\_array,}}
+\DoxyCodeLine{53 \textcolor{comment}{//    vector<vector<T>> weight\_matrix,}}
+\DoxyCodeLine{54 \textcolor{comment}{//    vector<vector<bool>> direction\_matrix)}}
+\DoxyCodeLine{55 \textcolor{comment}{//    : vertex\_name\_array\{vertex\_name\_array\}, is\_directed\{true\},}}
+\DoxyCodeLine{56 \textcolor{comment}{//      weight\_matrix\{weight\_matrix\}, direction\_matrix\{direction\_matrix\}}}
+\DoxyCodeLine{57 \textcolor{comment}{//    \{\}}}
+\DoxyCodeLine{58   \textcolor{comment}{// DB undirected constructor}}
+\DoxyCodeLine{59   \mbox{\hyperlink{class_graph}{Graph}}(QString sqlTable)}
+\DoxyCodeLine{60       : is\_directed\{\textcolor{keyword}{false}\}, direction\_matrix\{vector<vector<bool>>(0, vector<bool>(0, \textcolor{keyword}{false}))\},}
+\DoxyCodeLine{61         sqlTable\{sqlTable\}}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         vertex\_name\_array = vector<QString>();}
+\DoxyCodeLine{64         weight\_matrix = vector<vector<int>>();}
+\DoxyCodeLine{65         \textcolor{comment}{// init db}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{if}(QSqlDatabase::contains(\textcolor{stringliteral}{"{}qt\_sql\_default\_connection"{}}))}
+\DoxyCodeLine{67         \{}
+\DoxyCodeLine{68             sqlDatabase = QSqlDatabase::database(\textcolor{stringliteral}{"{}qt\_sql\_default\_connection"{}});}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{71         \{}
+\DoxyCodeLine{72             sqlDatabase = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74         sqlDatabase.setDatabaseName(\textcolor{stringliteral}{"{}C:/Users/Trazler McGrath/source/repos/Project-\/2-\/NFL/Project-\/2-\/NFL/NFLProject.db"{}});}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if}(sqlDatabase.open())}
+\DoxyCodeLine{76         \{}
+\DoxyCodeLine{77             qDebug(\textcolor{stringliteral}{"{}Graph: Database opened."{}});}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             qDebug(\textcolor{stringliteral}{"{}Graph: Database not opened."{}});}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         \textcolor{comment}{// PULL IN SQL}}
+\DoxyCodeLine{84         \textcolor{keyword}{const} \textcolor{keywordtype}{int} TEAM\_FIELD = 0;}
+\DoxyCodeLine{85         \textcolor{keyword}{const} \textcolor{keywordtype}{int} ORIGIN\_FIELD = 1;}
+\DoxyCodeLine{86         \textcolor{keyword}{const} \textcolor{keywordtype}{int} DESTINATION\_FIELD = 2;}
+\DoxyCodeLine{87         \textcolor{keyword}{const} \textcolor{keywordtype}{int} DISTANCE\_FIELD = 3;}
+\DoxyCodeLine{88         QSqlQuery query(\textcolor{stringliteral}{"{}SELECT * FROM :table"{}});}
+\DoxyCodeLine{89         query.bindValue(\textcolor{stringliteral}{"{}:table"{}}, sqlTable);}
+\DoxyCodeLine{90         \textcolor{comment}{//}}
+\DoxyCodeLine{91         QString team\_name;}
+\DoxyCodeLine{92         QString stadium\_origin\_name;}
+\DoxyCodeLine{93         QString stadium\_destination\_name;}
+\DoxyCodeLine{94         \textcolor{keywordtype}{int} stadium\_origin\_index = -\/1;}
+\DoxyCodeLine{95         \textcolor{keywordtype}{int} stadium\_destination\_index = -\/1;}
+\DoxyCodeLine{96         query.next();}
+\DoxyCodeLine{97         \textcolor{comment}{// 1st dimension matrix access}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{do}}
+\DoxyCodeLine{99         \{}
+\DoxyCodeLine{100             team\_name = query.value(TEAM\_FIELD).toString();}
+\DoxyCodeLine{101             stadium\_origin\_name = query.value(ORIGIN\_FIELD).toString();}
+\DoxyCodeLine{102             \textcolor{comment}{// if stadium has not yet been added to matrix}}
+\DoxyCodeLine{103             \textcolor{keywordflow}{if}( !contains(stadium\_origin\_name) )}
+\DoxyCodeLine{104             \{}
+\DoxyCodeLine{105                  addVertex(stadium\_origin\_name);}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107             stadium\_origin\_index = getIndexFromValue(stadium\_origin\_name);}
+\DoxyCodeLine{108             \textcolor{comment}{// 2nd dimension matrix access}}
+\DoxyCodeLine{109             \textcolor{keywordflow}{do}}
+\DoxyCodeLine{110             \{}
+\DoxyCodeLine{111                 stadium\_destination\_name = query.value(DESTINATION\_FIELD).toString();}
+\DoxyCodeLine{112                 \textcolor{keywordflow}{if}( !contains(stadium\_destination\_name) )}
+\DoxyCodeLine{113                 \{}
+\DoxyCodeLine{114                     addVertex(stadium\_destination\_name);}
+\DoxyCodeLine{115                 \}}
+\DoxyCodeLine{116                 stadium\_destination\_index = getIndexFromValue(stadium\_destination\_name);}
+\DoxyCodeLine{117                 \textcolor{comment}{// Assign db weight to matrix}}
+\DoxyCodeLine{118                 weight\_matrix[stadium\_origin\_index][stadium\_destination\_index] = query.value(DISTANCE\_FIELD).toInt();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120                 query.next();}
+\DoxyCodeLine{121             \} \textcolor{keywordflow}{while}(query.isValid() \&\& query.value(TEAM\_FIELD).toString() == team\_name);}
+\DoxyCodeLine{122             \textcolor{comment}{//if()}}
+\DoxyCodeLine{123             \textcolor{comment}{//QString country = query.value(0).toString();}}
+\DoxyCodeLine{124             \textcolor{comment}{//doSomething(country);}}
+\DoxyCodeLine{125         \} \textcolor{keywordflow}{while}(query.isValid());}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{comment}{// Destructor}}
+\DoxyCodeLine{129   \mbox{\hyperlink{class_graph}{\string~Graph}}()}
+\DoxyCodeLine{130   \{}
+\DoxyCodeLine{131       sqlDatabase.close();}
+\DoxyCodeLine{132       \textcolor{comment}{// Not needed b/c vectors}}
+\DoxyCodeLine{133 \textcolor{comment}{//    for(int i = 0; i < NUMBER\_VERTICES; i++)}}
+\DoxyCodeLine{134 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{135 \textcolor{comment}{//      delete[] weight\_matrix[i];}}
+\DoxyCodeLine{136 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{137 \textcolor{comment}{//    if(direction\_matrix != nullptr)}}
+\DoxyCodeLine{138 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{139 \textcolor{comment}{//      for(int i = 0; i < NUMBER\_VERTICES; i++)}}
+\DoxyCodeLine{140 \textcolor{comment}{//      \{}}
+\DoxyCodeLine{141 \textcolor{comment}{//          delete[] direction\_matrix[i];}}
+\DoxyCodeLine{142 \textcolor{comment}{//      \}}}
+\DoxyCodeLine{143 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{144   \}}
+\DoxyCodeLine{145 \textcolor{comment}{// Member functions}}
+\DoxyCodeLine{146   \textcolor{keywordtype}{void} modEdge(\textcolor{keyword}{const} \textcolor{keywordtype}{int} start\_vertex, \textcolor{keyword}{const} \textcolor{keywordtype}{int} end\_vertex, \textcolor{keyword}{const} T weight, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} is\_directional = \textcolor{keyword}{false})}
+\DoxyCodeLine{147 \{}
+\DoxyCodeLine{148   weight\_matrix[start\_vertex][end\_vertex] = weight;}
+\DoxyCodeLine{149   \textcolor{comment}{// if is\_directional == false}}
+\DoxyCodeLine{150   weight\_matrix[end\_vertex][end\_vertex] = weight;}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152   \textcolor{comment}{// UPDATE IN SQL}}
+\DoxyCodeLine{153 \}}
+\DoxyCodeLine{154   \textcolor{keywordtype}{void} addVertex(\textcolor{keyword}{const} QString vertex)}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156     qDebug() << vertex;}
+\DoxyCodeLine{157   vertex\_name\_array.push\_back(vertex);}
+\DoxyCodeLine{158   \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} itWeight = weight\_matrix.begin(); itWeight != weight\_matrix.end(); itWeight++)}
+\DoxyCodeLine{159   \{}
+\DoxyCodeLine{160     \textcolor{comment}{// same as .pushback(0), but more efficient}}
+\DoxyCodeLine{161     itWeight-\/>emplace\_back();}
+\DoxyCodeLine{162   \}}
+\DoxyCodeLine{163   weight\_matrix.emplace\_back();}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165   \textcolor{comment}{// CREATE IN SQL}}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{167   \textcolor{keywordtype}{void} displayDFS(\textcolor{keyword}{const} QString start\_vertex)}
+\DoxyCodeLine{168 \{}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{171   \textcolor{keywordtype}{void} displayBFS(\textcolor{keyword}{const} QString start\_vertex)}
+\DoxyCodeLine{172 \{}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \}}
+\DoxyCodeLine{175   \textcolor{keyword}{const} \textcolor{keywordtype}{int} INF = 9999;}
+\DoxyCodeLine{176   \textcolor{keyword}{typedef} pair<int, int> iPair;}
+\DoxyCodeLine{177   QTextBrowser* constructDijkstra(\textcolor{keyword}{const} QString START\_VERTEX)}
+\DoxyCodeLine{178 \{}
+\DoxyCodeLine{179       QTextBrowser* output = \textcolor{keyword}{new} QTextBrowser;}
+\DoxyCodeLine{180       \textcolor{keyword}{const} \textcolor{keywordtype}{int} START\_INDEX = getIndexFromValue(START\_VERTEX);}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182       \textcolor{comment}{// Create a priority queue to store vertices that}}
+\DoxyCodeLine{183       \textcolor{comment}{// are being preprocessed. This is weird syntax in C++.}}
+\DoxyCodeLine{184       priority\_queue<iPair, vector<iPair>, greater<iPair> > pq;}
+\DoxyCodeLine{185       \textcolor{comment}{// Container for every vertice traversed from src to destination}}
+\DoxyCodeLine{186       vector<int> vertices\_to\_destination;}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188       \textcolor{comment}{// Create a vector for distances and initialize all}}
+\DoxyCodeLine{189       \textcolor{comment}{// distances as infinite (INF)}}
+\DoxyCodeLine{190       vector<int> dist(vertex\_name\_array.size(), INF);}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192       \textcolor{comment}{// Insert source itself in priority queue and initialize}}
+\DoxyCodeLine{193       \textcolor{comment}{// its distance as 0.}}
+\DoxyCodeLine{194       pq.push(make\_pair(0, START\_INDEX));}
+\DoxyCodeLine{195       dist[START\_INDEX] = 0;}
+\DoxyCodeLine{196       vertices\_to\_destination.push\_back(START\_INDEX);}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198       \textcolor{comment}{/* Looping till priority queue becomes empty (or all}}
+\DoxyCodeLine{199 \textcolor{comment}{         distances are not finalized) */}}
+\DoxyCodeLine{200       \textcolor{keywordflow}{while} (!pq.empty()) \{}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202           \textcolor{comment}{// The first vertex in pair is the minimum distance}}
+\DoxyCodeLine{203           \textcolor{comment}{// vertex, extract it from priority queue.}}
+\DoxyCodeLine{204           \textcolor{comment}{// vertex label is stored in second of pair (it}}
+\DoxyCodeLine{205           \textcolor{comment}{// has to be done this way to keep the vertices}}
+\DoxyCodeLine{206           \textcolor{comment}{// sorted distance (distance must be first item}}
+\DoxyCodeLine{207           \textcolor{comment}{// in pair)}}
+\DoxyCodeLine{208           \textcolor{keywordtype}{int} u = pq.top().second;}
+\DoxyCodeLine{209           pq.pop();}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211           \textcolor{comment}{// 'i' is used to get all adjacent vertices of a}}
+\DoxyCodeLine{212           \textcolor{comment}{// vertex}}
+\DoxyCodeLine{213           list<pair<int, int> >::iterator i;}
+\DoxyCodeLine{214           \textcolor{keywordtype}{int} save\_v = 0;}
+\DoxyCodeLine{215           \textcolor{keywordflow}{for} (i = weight\_matrix[u].begin(); i != weight\_matrix[u].end(); ++i) \{}
+\DoxyCodeLine{216               \textcolor{comment}{// Get vertex label and weight of current}}
+\DoxyCodeLine{217               \textcolor{comment}{// adjacent of u.}}
+\DoxyCodeLine{218               \textcolor{keywordtype}{int} v = (*i).first;}
+\DoxyCodeLine{219               \textcolor{keywordtype}{int} weight = (*i).second;}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221               \textcolor{comment}{// If there is a shorter path to v through u.}}
+\DoxyCodeLine{222               \textcolor{keywordflow}{if} (dist[v] > dist[u] + weight) \{}
+\DoxyCodeLine{223                   \textcolor{comment}{// Updating distance of v}}
+\DoxyCodeLine{224                   dist[v] = dist[u] + weight;}
+\DoxyCodeLine{225                   pq.push(make\_pair(dist[v], v));}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227                   save\_v = v;}
+\DoxyCodeLine{228               \}}
+\DoxyCodeLine{229           \}}
+\DoxyCodeLine{230           vertices\_to\_destination.push\_back(save\_v);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232       \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234       \textcolor{comment}{// Print shortest distances stored in dist[]}}
+\DoxyCodeLine{235       output-\/>append( \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nCity Distance from "{}} + vertex\_name\_array[START\_INDEX] + \textcolor{stringliteral}{"{} to\(\backslash\)n"{}});}
+\DoxyCodeLine{236       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < vertex\_name\_array.size(); ++i)}
+\DoxyCodeLine{237       \{}
+\DoxyCodeLine{238           output-\/>append(  \textcolor{stringliteral}{"{}\(\backslash\)t"{}} + vertex\_name\_array[i] + \textcolor{stringliteral}{"{}: "{}} + \textcolor{keyword}{static\_cast<}QChar\textcolor{keyword}{>}(dist[i]) + \textcolor{stringliteral}{"{} km\(\backslash\)n"{}});}
+\DoxyCodeLine{239       \}}
+\DoxyCodeLine{240 \textcolor{comment}{//  priority\_queue<int> city\_queue;}}
+\DoxyCodeLine{241 \textcolor{comment}{//  for(int i = 0; i < NUMBER\_VERTICES; i++)}}
+\DoxyCodeLine{242 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{245       \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{246 \}}
+\DoxyCodeLine{247   \textcolor{keywordtype}{void} displayMST(\textcolor{keyword}{const} QString start\_vertex)}
+\DoxyCodeLine{248 \{}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \}}
+\DoxyCodeLine{251   \textcolor{keywordtype}{void} displayASMST(\textcolor{keyword}{const} QString start\_vertex)}
+\DoxyCodeLine{252 \{}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \}}
+\DoxyCodeLine{255   \textcolor{keywordtype}{bool} isStronglyConnected()}
+\DoxyCodeLine{256 \{}
+\DoxyCodeLine{257   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{258 \}}
+\DoxyCodeLine{259   \textcolor{keywordtype}{void} operator()()}
+\DoxyCodeLine{260   \{\}}
+\DoxyCodeLine{261 \textcolor{comment}{// Member vars}}
+\DoxyCodeLine{262 \textcolor{keyword}{private}:}
+\DoxyCodeLine{263   \textcolor{comment}{// implicit: vertex\_name\_array.size()}}
+\DoxyCodeLine{264   \textcolor{comment}{//int NUMBER\_VERTICES;}}
+\DoxyCodeLine{265   vector<QString> vertex\_name\_array;}
+\DoxyCodeLine{266   vector<vector<T>> weight\_matrix;}
+\DoxyCodeLine{267   vector<vector<bool>> direction\_matrix;}
+\DoxyCodeLine{268   \textcolor{keywordtype}{bool} is\_directed;}
+\DoxyCodeLine{269   QSqlDatabase sqlDatabase;}
+\DoxyCodeLine{270   QString sqlTable;}
+\DoxyCodeLine{271 \textcolor{comment}{// Helper functions}}
+\DoxyCodeLine{272   \textcolor{keyword}{const} QString\& getValueFromIndex( \textcolor{keywordtype}{int} index )}
+\DoxyCodeLine{273   \{}
+\DoxyCodeLine{274     \textcolor{keywordflow}{return} vertex\_name\_array[index];}
+\DoxyCodeLine{275   \}}
+\DoxyCodeLine{276   \textcolor{keywordtype}{int} getIndexFromValue( QString value )}
+\DoxyCodeLine{277   \{}
+\DoxyCodeLine{278     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vertex\_name\_array.size(); i++)}
+\DoxyCodeLine{279     \{}
+\DoxyCodeLine{280       \textcolor{keywordflow}{if}(vertex\_name\_array[i] == value)}
+\DoxyCodeLine{281       \{}
+\DoxyCodeLine{282         \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{283       \}}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285     cout << \textcolor{stringliteral}{"{}Value "{}} << value.toStdString() << \textcolor{stringliteral}{"{} not in array."{}};}
+\DoxyCodeLine{286     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{287   \}}
+\DoxyCodeLine{288   \textcolor{keywordtype}{bool} contains(QString\& vertex)}
+\DoxyCodeLine{289   \{}
+\DoxyCodeLine{290       \textcolor{keywordflow}{return} count(vertex\_name\_array.begin(), vertex\_name\_array.end(), vertex);}
+\DoxyCodeLine{291   \}}
+\DoxyCodeLine{292 \};}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// GRAPHCLASS\_H}}
+
+\end{DoxyCode}

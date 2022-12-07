@@ -1,0 +1,57 @@
+\hypertarget{bfs_8h_source}{}\doxysection{bfs.\+h}
+\label{bfs_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/bfs.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/bfs.h}}
+\mbox{\hyperlink{bfs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BFS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BFS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}ui\_bfs.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mst_8h}{mst.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{23 \textcolor{keyword}{enum} \mbox{\hyperlink{bfs_8h_a5b0b3233244b03599b184ec39148c997}{City}} \{}
+\DoxyCodeLine{24     Arizona\_Cardinals, Atlanta\_Falcons, Baltimore\_Ravens, Buffalo\_Bills,}
+\DoxyCodeLine{25     Carolina\_Panthers,   Chicago\_Bears,  Cincinnati\_Bengals, Cleveland\_Browns,}
+\DoxyCodeLine{26     Dallas\_Cowboys,  Denver\_Broncos,      Detroit\_Lions,     Green\_Bay\_Packers,}
+\DoxyCodeLine{27     Houston\_Texans,  Indianapolis\_Colts,  Jacksonville\_Jaguars, Kansas\_City\_Chiefs,}
+\DoxyCodeLine{28     Las\_Vegas\_Raiders, Los\_Angeles\_Chargers, Los\_Angeles\_Rams, Miami\_Dolphins,}
+\DoxyCodeLine{29     Minnesota\_Vikings, New\_England\_Patriots, New\_Orleans\_Saints, New\_York\_Giants,}
+\DoxyCodeLine{30     New\_York\_Jets, Philadelphia\_Eagles, Pittsburgh\_Steelers, San\_Francisco\_49ers,}
+\DoxyCodeLine{31     Seattle\_Seahawks, Tampa\_Bay\_Buccaneers, Tennessee\_Titans, Washington\_Redskins}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39 \textcolor{keyword}{namespace }Ui}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     \textcolor{keyword}{class }\mbox{\hyperlink{class_b_f_s}{BFS}};}
+\DoxyCodeLine{42 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_f_s}{BFS}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     Q\_OBJECT}
+\DoxyCodeLine{52 \textcolor{keyword}{public}:}
+\DoxyCodeLine{53     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_b_f_s}{BFS}}(QWidget *parent = \textcolor{keyword}{nullptr}); }
+\DoxyCodeLine{54     \mbox{\hyperlink{class_b_f_s_a49eae2c37b1083d19f70640f0848b1cd}{\string~BFS}}() \{\} }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_f_s_aab3cab8cf6f985cfc55909bd60ae8a66}{setNextLowestIndex}}(\textcolor{keywordtype}{int}\& low\_index, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& row\_index, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} city\_visited[NUMBER\_CITIES], \textcolor{keyword}{const} \textcolor{keywordtype}{int} city\_edges[NUMBER\_CITIES]);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_f_s_afed0a3770e269cf987e5dc8308f06180}{minBFS}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}{matrix}}[][NUMBER\_CITIES], \textcolor{keywordtype}{int} origin);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \mbox{\hyperlink{bfs_8h_a5b0b3233244b03599b184ec39148c997}{City}} \mbox{\hyperlink{class_b_f_s_ac31df19180914d2fe8b5a70daba16e97}{origin\_vertex}} = Los\_Angeles\_Rams; }
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_b_f_s_a865b1437e9bac50be752b72c1e3b5d67}{matrix}}[NUMBER\_CITIES][NUMBER\_CITIES]; }
+\DoxyCodeLine{79 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} on\_selectTeamButton\_clicked();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{private}:}
+\DoxyCodeLine{83     Ui::BFS *ui; }
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BFS\_H}}
+
+\end{DoxyCode}

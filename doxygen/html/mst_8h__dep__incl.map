@@ -1,0 +1,6 @@
+<map id="C:/Users/User/Desktop/testing/Project&#45;2&#45;NFL/Project&#45;2&#45;NFL/mst.h" name="C:/Users/User/Desktop/testing/Project&#45;2&#45;NFL/Project&#45;2&#45;NFL/mst.h">
+<area shape="rect" id="node1" title="mst object to perform MST algorithm" alt="" coords="121,5,277,60"/>
+<area shape="rect" id="node2" href="$bfs_8h.html" title="bfs object to perform BFS algorithm" alt="" coords="5,108,161,163"/>
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="our MainWindow" alt="" coords="104,211,295,265"/>
+<area shape="rect" id="node4" href="$dijkstra_8h.html" title="dijkstra object to perform Dijkstra algorithm" alt="" coords="237,108,399,163"/>
+</map>

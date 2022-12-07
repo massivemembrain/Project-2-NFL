@@ -1,0 +1,44 @@
+\hypertarget{qsqlfootball_class_8h_source}{}\doxysection{qsqlfootball\+Class.\+h}
+\label{qsqlfootball_class_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/qsqlfootballClass.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/qsqlfootballClass.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef QSQLFOOTBALLCLASS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define QSQLFOOTBALLCLASS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QSqlQueryModel>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_q_sql_football}{QSqlFootball}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     \textcolor{keyword}{static} QSqlDatabase db;}
+\DoxyCodeLine{28     QString team\_list[30];}
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{void} initDB();}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_q_sql_football}{QSqlFootball}}();}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_q_sql_football}{\string~QSqlFootball}}();}
+\DoxyCodeLine{37     \textcolor{keyword}{const} QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_adc907169dcdab8d5ea1d93fec91c7f02}{getTeamInfo}}(\textcolor{keyword}{const} QString TEAM\_NAME) \textcolor{keyword}{const};}
+\DoxyCodeLine{42     QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_ac3e3a0d1631e4b1b72f7d9cba0bfd633}{getTeams}}(\textcolor{keyword}{const} QString SEARCH\_TERM = \textcolor{stringliteral}{"{}*"{}},  \textcolor{keyword}{const} QString FILTER\_TERM = \textcolor{stringliteral}{"{}Team"{}}, \textcolor{keyword}{const} QString SORT\_TERM = \textcolor{stringliteral}{"{}Team"{}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keyword}{const} QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_a0fe8cea8dca2ac7e9509446e0486511b}{getStadiumInfo}}(\textcolor{keyword}{const} QString STADIUM\_NAME) \textcolor{keyword}{const};}
+\DoxyCodeLine{52     QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_ac7100df92d86733985cfdfa95ff1bef7}{getStadiums}}(\textcolor{keyword}{const} QString SEARCH\_TERM = \textcolor{stringliteral}{"{}*"{}},  \textcolor{keyword}{const} QString FILTER\_TERM = \textcolor{stringliteral}{"{}Name"{}}, \textcolor{keyword}{const} QString SORT\_TERM = \textcolor{stringliteral}{"{}Name"{}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{57     QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_a9a7728cf878274d2b924c023ac3a47b5}{getAllTeamsStars}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{62     QSqlQueryModel* \mbox{\hyperlink{class_q_sql_football_a23b696cf2a8030fe785733678d2498ed}{getTeamSouvenirs}}(\textcolor{keyword}{const} QString TEAM\_NAME = \textcolor{stringliteral}{"{}*"{}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// Setters}}
+\DoxyCodeLine{65     \textcolor{comment}{//void addSouvenir(const QString NAME, const QString PRICE = "{}0.00"{}, const QString TEAM = "{}*"{});}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} modifySouvenirPrice(QString NAME, \textcolor{keyword}{const} QString NEW\_PRICE, QString TEAM = \textcolor{stringliteral}{"{}*"{}});}
+\DoxyCodeLine{67     \textcolor{comment}{//void removeSouvenir(const QString NAME, const QString TEAM = "{}*"{});}}
+\DoxyCodeLine{68     \textcolor{comment}{// import}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} importCSV();}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} importCSV(QString path);}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QSQLFOOTBALLCLASS\_H}}
+
+\end{DoxyCode}

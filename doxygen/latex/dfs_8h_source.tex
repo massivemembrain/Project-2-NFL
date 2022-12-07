@@ -1,0 +1,97 @@
+\hypertarget{dfs_8h_source}{}\doxysection{dfs.\+h}
+\label{dfs_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/dfs.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/dfs.h}}
+\mbox{\hyperlink{dfs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DFS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DFS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include<QString>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QSqlQueryModel>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QSqlError>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}ui\_dfs.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{32 \textcolor{keyword}{namespace }Ui}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34      \textcolor{keyword}{class }\mbox{\hyperlink{class_d_f_s}{DFS}};}
+\DoxyCodeLine{35 \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40 \textcolor{keyword}{struct }\mbox{\hyperlink{structnode_edge}{nodeEdge}}}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keywordtype}{string} \mbox{\hyperlink{structnode_edge_ac6d6f6017a412a34ee8a65965ddb72f4}{startCity}}; }
+\DoxyCodeLine{43     \textcolor{keywordtype}{string} \mbox{\hyperlink{structnode_edge_a8d8844ece2b5547657ea998153fedab4}{endCity}}; }
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structnode_edge_a74f5260680cb0ceaca9b16e60aa5252a}{discEdge}}; }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{structnode_edge_a7d54962e6ec74ca4e5baadc68a70de78}{weight}}; }
+\DoxyCodeLine{47     \mbox{\hyperlink{structnode_edge}{nodeEdge}}()}
+\DoxyCodeLine{48    \{}
+\DoxyCodeLine{49          \mbox{\hyperlink{structnode_edge_ac6d6f6017a412a34ee8a65965ddb72f4}{startCity}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{50          \mbox{\hyperlink{structnode_edge_a8d8844ece2b5547657ea998153fedab4}{endCity}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{51          \mbox{\hyperlink{structnode_edge_a74f5260680cb0ceaca9b16e60aa5252a}{discEdge}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{52          \mbox{\hyperlink{structnode_edge_a7d54962e6ec74ca4e5baadc68a70de78}{weight}} = 0;}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 \};}
+\DoxyCodeLine{55 \textcolor{comment}{//================================}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60 \textcolor{keyword}{struct }\mbox{\hyperlink{structnode_vertex}{nodeVertex}}}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     \textcolor{keywordtype}{string} \mbox{\hyperlink{structnode_vertex_a226368c434e88ae7c456a96b96c2bcd7}{city}}; }
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structnode_vertex_ae13ff7c6d374b523ba4996a570390592}{visited}}; }
+\DoxyCodeLine{64     vector<nodeEdge> \mbox{\hyperlink{structnode_vertex_ac9b2cf0ad9c8228868a4e47f87d2ddad}{edgeList}}; }
+\DoxyCodeLine{66     \mbox{\hyperlink{structnode_vertex}{nodeVertex}}()}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{structnode_vertex_a226368c434e88ae7c456a96b96c2bcd7}{city}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{69         \mbox{\hyperlink{structnode_vertex_ae13ff7c6d374b523ba4996a570390592}{visited}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 \textcolor{comment}{//================================}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79 \textcolor{keyword}{class }\mbox{\hyperlink{class_d_f_s}{DFS}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     Q\_OBJECT}
+\DoxyCodeLine{82 \textcolor{keyword}{public}:}
+\DoxyCodeLine{83     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_d_f_s}{DFS}}(QWidget *parent = \textcolor{keyword}{nullptr}); }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_d_f_s}{\string~DFS}}()\{\}; }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_d_f_s_a17045ec18948d58d53831c9fedd66b3a}{insertVertex}}(\textcolor{keywordtype}{string} city);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_d_f_s_a857ca5ebaa6f03fce30bde4d6bbd63d3}{findVertex}}(\textcolor{keywordtype}{string} city);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_d_f_s_a397810ee85ed72d25e2c3659fe9efcae}{insertEdge}}(\textcolor{keywordtype}{string} startCity, \textcolor{keywordtype}{string} endCity, \textcolor{keywordtype}{int} weight);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_d_f_s_a8b5f97f774dc06b1cffe98c73760176b}{DFSFunction}}(\textcolor{keywordtype}{string} startingCity, vector<string> \&dfsGraph);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} on\_pushButton\_clicked();}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keyword}{private}:}
+\DoxyCodeLine{123     Ui::DFS *ui; }
+\DoxyCodeLine{132     \textcolor{keywordtype}{int} smallestEdgeDFS(\textcolor{keywordtype}{int} currVertex, vector<string> \&dfs);}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{int} verticesVisited();}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{149     \textcolor{keywordtype}{int} edgesDiscovered(\textcolor{keywordtype}{int} currVertex);}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     vector<nodeVertex> graph; }
+\DoxyCodeLine{153     \textcolor{keywordtype}{int} dfsDistance; }
+\DoxyCodeLine{163     \textcolor{keywordtype}{string} otherVertex(\mbox{\hyperlink{structnode_edge}{nodeEdge}} currEdge, \textcolor{keywordtype}{string} startingCity);}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{173     \textcolor{keywordtype}{int} distance(\mbox{\hyperlink{structnode_vertex}{nodeVertex}} * v1, \mbox{\hyperlink{structnode_vertex}{nodeVertex}} * v2);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DFS\_H}}
+\DoxyCodeLine{178 }
+
+\end{DoxyCode}

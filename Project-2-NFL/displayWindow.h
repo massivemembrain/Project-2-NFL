@@ -4,21 +4,38 @@
 #include <QWidget>
 #include <QSqlQueryModel>
 
+/*****************************************************************//**
+ * \file   displayWindow.h
+ * \brief  displayWindow object to to display things
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+/**
+ *  \namespace Ui
+ */
 namespace Ui
 {
    class displayWindow;
 }
 
+/**
+ * \class displayWindow
+ * \public QWidget
+ * \brief displayWindow that display all display requirements
+ */
 class displayWindow : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit displayWindow(QWidget *parent = nullptr);
-    ~displayWindow();
+    explicit displayWindow(QWidget *parent = nullptr); /*!< constructor*/
+    ~displayWindow(); /*!< destructor */
+
 
 private:
-    Ui::displayWindow *ui;
+    Ui::displayWindow *ui; /*!< an Ui variable*/
 
 private slots:
     void on_pushButton_selectTeam_clicked();

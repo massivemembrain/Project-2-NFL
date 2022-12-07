@@ -4,19 +4,39 @@
 #include <QWidget>
 #include <QSqlQueryModel>
 
+/*****************************************************************//**
+ * \file   amin.h
+ * \brief  admin object to perform all the featurns for maintenance
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+
+/**
+ *  \namespace Ui
+ */
 namespace Ui {
 class Admin;
 }
 
+/**
+ * \class Admin
+ * \public QWidget
+ * \brief Admin contains all the featurns for maintenance
+ */
 class Admin : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Admin(QWidget *parent = nullptr);
-    ~Admin();
+
+    explicit Admin(QWidget *parent = nullptr); /*!< constructor*/
+    ~Admin(); /*!< destructor */
+
 
 private slots:
+
 
     void on_addButton_clicked();
 
@@ -37,8 +57,8 @@ private slots:
     void on_testingButton_clicked();
 
 private:
-    Ui::Admin *ui;
-    QSqlDatabase myDb;
+    Ui::Admin *ui; /*!< an Ui variable*/
+    QSqlDatabase myDb; /*!< a database variable*/
 };
 
 #endif // ADMIN_H

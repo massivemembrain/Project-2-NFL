@@ -13,8 +13,16 @@ using namespace std;
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
-const int NUMBER_CITIES = 30;
 
+/*****************************************************************//**
+ * \file   mst.h
+ * \brief  mst object to perform MST algorithm
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+const int NUMBER_CITIES = 30;
 
 const QString CityToTeam[NUMBER_CITIES] = {
     "Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills",
@@ -61,24 +69,53 @@ const QString CityToStr[NUMBER_CITIES] =
     "FedExField"                 // i = 29
   };
 
+/**
+ *  \namespace Ui
+ */
 namespace Ui
 {
      class MST;
 }
 
+/**
+ * \class MST
+ * \public QWidget
+ * \brief MST object that perform mst algorithm
+ */
 class MST :  public QWidget
 {
     Q_OBJECT
 public:
-    explicit MST(QWidget *parent = nullptr);
+    explicit MST(QWidget *parent = nullptr); /*!< constructor*/
 
-    ~MST() {}
+    ~MST() {} /*!< destructor */
+
+    /**
+     * \fn minKey.
+     * \brief find the smallest weight
+     * \param key[]
+     * \param set[]
+     * \return minIndex
+     */
     int minKey (int key[], bool set[]);
+
+    /**
+     * \fn printMST.
+     * \brief display the MST
+     * \param parent[]
+     * \param graph[NUMBER_CITIES][NUMBER_CITIES]
+     */
     void printMST(int parent[], int graph[NUMBER_CITIES][NUMBER_CITIES]);
+
+    /**
+     * \fn primMST.
+     * \brief perform the MST algorithm
+     * \param graph[NUMBER_CITIES][NUMBER_CITIES]
+     */
     void primMST(int graph[NUMBER_CITIES][NUMBER_CITIES]);
 
 private:
-    Ui::MST *ui;
+    Ui::MST *ui; /*!< an Ui variable*/
 };
 
 

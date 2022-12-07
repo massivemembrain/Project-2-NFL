@@ -15,17 +15,33 @@
 #include "dijkstra.h"
 #include "selectAlgo.h"
 
+/*****************************************************************//**
+ * \file   mainwindow.h
+ * \brief  our MainWindow
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
 QT_BEGIN_NAMESPACE
+/**
+ *  \namespace Ui
+ */
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/**
+ * \class MainWindow
+ * \public QMainWindow
+ * \brief our main window
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(QWidget *parent = nullptr); /*!< constructor*/
+    ~MainWindow(); /*!< destructor */
 
 //public slots:
 //    void on_login();
@@ -49,23 +65,23 @@ private slots:
     void on_pushButton_dijkstra_clicked();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; /*!< an Ui variable*/
     //Admin* adminWindow = NULL;
-    displayWindow* d = NULL;
+    displayWindow* d = NULL; /*!< displayWindow object*/
 
-    MST* mst= NULL;
-    BFS* bfs = NULL;
-    DFS* dfs = NULL;
+    MST* mst= NULL; /*!< MST object*/
+    BFS* bfs = NULL; /*!< BFS object*/
+    DFS* dfs = NULL; /*!< DFS object*/
 
-    Login* login = NULL;
+    Login* login = NULL; /*!< Login object*/
 
-    QStackedWidget* tripWindow = NULL;
-    TravelPlan* plan = nullptr;
+    QStackedWidget* tripWindow = NULL; /*!< QStackedWidget object*/
+    TravelPlan* plan = nullptr; /*!< TravelPlan object*/
 
-    Dijkstra* dij = NULL;
+    Dijkstra* dij = NULL; /*!< Dijkstra object*/
 
-    selectAlgo* sa = NULL;
+    selectAlgo* sa = NULL; /*!< selectAlgo object*/
 
-    shortestDistance* sh = NULL;
+    shortestDistance* sh = NULL; /*!< shortestDistance object*/
 };
 #endif // MAINWINDOW_H

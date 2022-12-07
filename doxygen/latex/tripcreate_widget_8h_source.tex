@@ -1,0 +1,38 @@
+\hypertarget{tripcreate_widget_8h_source}{}\doxysection{tripcreate\+Widget.\+h}
+\label{tripcreate_widget_8h_source}\index{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/tripcreateWidget.h@{C:/Users/User/Desktop/testing/Project-\/2-\/NFL/Project-\/2-\/NFL/tripcreateWidget.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TRIPCREATEWIDGET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TRIPCREATEWIDGET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QSqlQueryModel>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Ui \{}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_trip_create_widget}{TripCreateWidget}};}
+\DoxyCodeLine{11 \}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_trip_create_widget}{TripCreateWidget}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     Q\_OBJECT}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_trip_create_widget}{TripCreateWidget}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_trip_create_widget}{\string~TripCreateWidget}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} on\_proceedButtons\_accepted();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} on\_proceedButtons\_rejected();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     Ui::TripCreateWidget *ui;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     QSqlDatabase myDb;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TRIPCREATEWIDGET\_H}}
+
+\end{DoxyCode}

@@ -9,6 +9,17 @@
 #include <QDebug>
 #include "mst.h"
 
+/*****************************************************************//**
+ * \file   bfs.h
+ * \brief  bfs object to perform BFS algorithm
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+/** An enum type of City
+* \brief contain all the cities as enum
+*/
 enum City {
     Arizona_Cardinals, Atlanta_Falcons, Baltimore_Ravens, Buffalo_Bills,
     Carolina_Panthers,   Chicago_Bears,  Cincinnati_Bengals, Cleveland_Browns,
@@ -21,27 +32,55 @@ enum City {
 };
 
 
+
+/**
+ *  \namespace Ui
+ */
 namespace Ui
 {
     class BFS;
 }
+
+/**
+ * \class BFS
+ * \public QWidget
+ * \brief BFS class perform BFS algorithm
+ */
 class BFS : public QWidget
 {
     Q_OBJECT
 public:
-    explicit BFS(QWidget *parent = nullptr);
-    ~BFS() {}
-    void setNextLowestIndex(int& low_index, const int& row_index, const bool city_visited[NUMBER_CITIES], const int city_edges[NUMBER_CITIES]);
-    void minBFS(const int matrix[][NUMBER_CITIES], int origin);
-    City origin_vertex = Los_Angeles_Rams;
+    explicit BFS(QWidget *parent = nullptr); /*!< constructor*/
+    ~BFS() {} /*!< destructor */
 
-    int matrix[NUMBER_CITIES][NUMBER_CITIES];
+    /**
+     * \fn setNextLowestIndex.
+     * \brief set the next lowest index
+     * \param low_index
+     * \param row_index
+     * \param city_visited
+     * \param city_edges
+     */
+    void setNextLowestIndex(int& low_index, const int& row_index, const bool city_visited[NUMBER_CITIES], const int city_edges[NUMBER_CITIES]);
+
+    /**
+     * \fn minBFS.
+     * \brief perform the BFS algorithm
+     * \param matrix[][NUMBER_CITIES]
+     * \param origin
+     */
+    void minBFS(const int matrix[][NUMBER_CITIES], int origin);
+
+
+    City origin_vertex = Los_Angeles_Rams; /*!< starting city*/
+
+    int matrix[NUMBER_CITIES][NUMBER_CITIES]; /*!< stores all the distance data*/
 
 private slots:
     void on_selectTeamButton_clicked();
 
 private:
-    Ui::BFS *ui;
+    Ui::BFS *ui; /*!< an Ui variable*/
 
 };
 
