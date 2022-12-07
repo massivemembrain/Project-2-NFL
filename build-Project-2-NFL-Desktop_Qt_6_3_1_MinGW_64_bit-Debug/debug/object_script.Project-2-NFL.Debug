@@ -1,6 +1,7 @@
 debug/admin.o
 debug/bfs.o
 debug/dfs.o
+debug/dijkstra.o
 debug/displayWindow.o
 debug/form.o
 debug/login.o
@@ -9,6 +10,8 @@ debug/mainwindow.o
 debug/mst.o
 debug/ordertrip.o
 debug/qsqlfootballClass.o
+debug/selectAlgo.o
+debug/shortestDistance.o
 debug/travelgraphClass.o
 debug/travelplanClass.o
 debug/tripcreateWidget.o
@@ -17,11 +20,14 @@ debug/tripsummaryWidget.o
 debug/moc_admin.o
 debug/moc_bfs.o
 debug/moc_dfs.o
+debug/moc_dijkstra.o
 debug/moc_displayWindow.o
 debug/moc_form.o
 debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_mst.o
+debug/moc_selectAlgo.o
+debug/moc_shortestDistance.o
 debug/moc_tripcreateWidget.o
 debug/moc_tripprogressWidget.o
 debug/moc_tripsummaryWidget.o

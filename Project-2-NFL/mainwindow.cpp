@@ -75,9 +75,11 @@ void MainWindow::on_pushButton_BFS_clicked()
 
 void MainWindow::on_pushButton_trip_clicked()
 {
-    plan = new TravelPlan;
+    //plan = new TravelPlan;
     //tripWindow = new QStackedWidget;
     //tripWindow->show();
+    sa = new class::selectAlgo;
+    sa->show();
 }
 
 void MainWindow::on_pushButton_DFS_clicked()

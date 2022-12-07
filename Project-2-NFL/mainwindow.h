@@ -13,6 +13,7 @@
 #include "login_mainwindow.h"
 #include "shortestDistance.h"
 #include "dijkstra.h"
+#include "selectAlgo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -63,6 +64,7 @@ private:
 
     Dijkstra* dij = NULL;
 
+    selectAlgo* sa = NULL;
 
     shortestDistance* sh = NULL;
 };
