@@ -31,8 +31,6 @@ BFS:: BFS(QWidget *parent) :
         qDebug().noquote() << "db not found";
     }
 
-    origin_vertex = Los_Angeles_Rams;
-
     for (int i = 0; i < NUMBER_CITIES; i++)
     {
         for (int j = 0; j < NUMBER_CITIES; j++)
@@ -60,7 +58,8 @@ BFS:: BFS(QWidget *parent) :
     {
         for (int j = 0; j < NUMBER_CITIES; j++)
         {
-            qDebug() << matrix[i][j];
+            //qDebug() << matrix[i][j];
+            //cout << "["<< i << "]" << "[" << j << "]" << " = " << matrix[i][j]  << endl;
         }
     }
 
@@ -68,7 +67,8 @@ BFS:: BFS(QWidget *parent) :
     comboquery->setQuery("SELECT Team FROM Teams");
     ui->comboBox->setModel(comboquery);
 
-    // minBFS(matrix, int(origin_vertex));
+    origin_vertex = Los_Angeles_Rams;
+    //minBFS(matrix, int(origin_vertex));
 }
 
 /* setNextLowestIndex
@@ -100,7 +100,7 @@ void BFS::setNextLowestIndex(int& low_index, const int& row_index, const bool ci
   low_index = next_lowest_index;
 }
 
-/** minBFS
+/* minBFS
  * brief: Iterative Breadth-first search for path from an origin city to a
  * destination
  *
@@ -112,8 +112,6 @@ void BFS::setNextLowestIndex(int& low_index, const int& row_index, const bool ci
  *          as well as other search info
  */
 
-
-
 void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], int origin_vertex)
 {
     // Flushed with each level group
@@ -121,15 +119,13 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], i
       std::vector<int> sample_index;
 
       // Persistent throughout loops
-      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] = { {false} };
+      bool adjacencyVisited[NUMBER_CITIES][NUMBER_CITIES] =  {false} ;
       bool city_visited[NUMBER_CITIES] = { false };
       int discovery_distance = 0;
 
       //Initiallize
       parent_index.push_back(origin_vertex);
       city_visited[origin_vertex] = true;
-
-      //Debug: cout << "In Function\n";
 
       int level = 0;
       // For each city entry we need
@@ -155,7 +151,7 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], i
               {
                 adjacencyVisited[parent_index.back()][low_index] = true;
                 adjacencyVisited[low_index][parent_index.back()] = true;
-                //Debug: << "(" << parent_index.back() << ")"
+                //qDebug() << "(" << parent_index.back() << ")";
                 ui -> textBrowser -> append(CityToStr[parent_index.back()] + " - " + CityToStr[low_index]);
                 // **Discovery only
               if(city_visited[low_index] == false)
@@ -196,7 +192,9 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], i
 void BFS::on_selectTeamButton_clicked()
 {
 
-    minBFS(matrix, origin_vertex);
+   //minBFS(matrix, origin_vertex);     // this one starts from hard rock stadium
+   minBFS(matrix, 17);                  // this start from sofi
+
 //    vector<int> parent_index;
 //      vector<int> sample_index;
 

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
@@ -20,15 +21,22 @@ class Ui_MST
 {
 public:
     QTextBrowser *textBrowser;
+    QLabel *label;
 
     void setupUi(QWidget *MST)
     {
         if (MST->objectName().isEmpty())
             MST->setObjectName(QString::fromUtf8("MST"));
-        MST->resize(582, 424);
+        MST->resize(582, 590);
         textBrowser = new QTextBrowser(MST);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(50, 71, 391, 311));
+        textBrowser->setGeometry(QRect(40, 70, 501, 421));
+        label = new QLabel(MST);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(250, 20, 361, 31));
+        QFont font;
+        font.setPointSize(30);
+        label->setFont(font);
 
         retranslateUi(MST);
 
@@ -38,6 +46,7 @@ public:
     void retranslateUi(QWidget *MST)
     {
         MST->setWindowTitle(QCoreApplication::translate("MST", "Form", nullptr));
+        label->setText(QCoreApplication::translate("MST", "M S T ", nullptr));
     } // retranslateUi
 
 };

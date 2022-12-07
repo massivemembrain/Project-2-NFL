@@ -23,7 +23,6 @@ DFS::DFS(QWidget *parent) :
 
 
     myDb.setDatabaseName("../NFLProject.db");
-    //myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";

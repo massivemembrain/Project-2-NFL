@@ -32,7 +32,7 @@ public:
     explicit BFS(QWidget *parent = nullptr);
     ~BFS() {}
     void setNextLowestIndex(int& low_index, const int& row_index, const bool city_visited[NUMBER_CITIES], const int city_edges[NUMBER_CITIES]);
-    void minBFS(const int matrix[][33], int origin);
+    void minBFS(const int matrix[][NUMBER_CITIES], int origin);
     City origin_vertex = Los_Angeles_Rams;
 
     int matrix[NUMBER_CITIES][NUMBER_CITIES];

@@ -1,9 +1,9 @@
 #include "mst.h"
 #include "ui_mst.h"
-#include"bfs.h"
+#include "bfs.h"
 
 #include <QWidget>
-
+#include<iostream>
 
 MST:: MST(QWidget *parent) :
     QWidget(parent),
@@ -11,25 +11,8 @@ MST:: MST(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
-    // Adjacency Matrix
-     // int city_edges_adjacency_matrix[NUMBER_CITIES][NUMBER_CITIES] = {
-    //  /*Seattle*/ {0, 807, 0, 1331, 2097, 0, 0, 0, 0, 0, 0, 0},
-    //  /*SanFran*/ {807, 0, 381, 1267, 0, 0, 0, 0, 0, 0, 0, 0},
-    //  /*LosAnge*/ {0, 381, 0, 1015, 0, 1663, 1435, 0, 0, 0, 0, 0},
-    //  /*Denver */ {1331, 1267, 1015, 0, 1003, 599, 0, 0, 0, 0, 0, 0},
-    //  /*Chicago*/ {2097, 0, 0, 1003, 0, 533, 0, 0, 983, 787, 0, 0},
-    //  /*KansasC*/ {0, 0, 1663, 599, 533, 0, 496, 0, 0, 1260, 864, 0},
-    //  /*Dallas */ {0, 0, 1435, 0, 0, 496, 0, 239, 0, 0, 781, 0},
-    //  /*Houston*/ {0, 0, 0, 0, 0, 0, 239, 0, 0, 0, 810, 1187},
-    //  /*Boston */ {0, 0, 0, 0, 983, 0, 0, 0, 0, 214, 0, 0},
-    // /*NewYork*/ {0, 0, 0, 0, 787, 1260, 0, 0, 214, 0, 888, 0},
-     // /*Atlanta*/ {0, 0, 0, 0, 0, 864, 781, 810, 0, 888, 0, 661},
-     // /*Miami  */ {0, 0, 0, 0, 0, 0, 0, 1187, 0, 0, 661, 0}};
-
-
-       //primMST(city_edges_adjacency_matrix);
-         // primMST(matrix);
+    // declaring our matrix here
+    int matrix2[NUMBER_CITIES][NUMBER_CITIES];
 
     QSqlDatabase myDb;
 
@@ -43,7 +26,6 @@ MST:: MST(QWidget *parent) :
     }
 
     myDb.setDatabaseName("../NFLProject.db");
-    //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/NFLProject.db");
     if (myDb.open())
     {
         qDebug().noquote() << "db found and open";
@@ -74,23 +56,26 @@ MST:: MST(QWidget *parent) :
         end = query.value(1).toInt();
 
         matrix2[start][end] = query.value(2).toInt();
+        //cout << "["<< start << "]" << "[" << end << "]" << " = " << matrix2[start][end]  << endl;
     }
 
     for (int i = 0; i < NUMBER_CITIES; i++)
     {
         for (int j = 0; j < NUMBER_CITIES; j++)
         {
-            qDebug() << matrix2[i][j];
+            //qDebug() << matrix[i][j];
+            //cout << "["<< i << "]" << "[" << j << "]" << " = " << matrix2[i][j]  << endl;
         }
     }
-   // primMST(matrix2);
 
+       // calling the prim mst function
+       primMST(matrix2);
 }
 
 // ********************************
 // search for the min weight
 // ********************************
-int MST:: minKey (int key[], bool set[])
+int MST :: minKey (int key[], bool set[])
 {
     int min = INT_MAX, minIndex;
 
@@ -108,32 +93,35 @@ int MST:: minKey (int key[], bool set[])
 // A utility function to print the
 // constructed MST stored in parent[]
 // ********************************
-void MST:: printMST(int parent[], int graph[NUMBER_CITIES][NUMBER_CITIES])
+
+void MST ::printMST(int parent[], int graph[NUMBER_CITIES][NUMBER_CITIES])
 {
     int total = 0;
 
-    ui -> textBrowser -> append("MINIMUM SPANNING TREE:\n");
     for (int i = 1; i < NUMBER_CITIES; i++)
-    {
+      {
         // converting int(weight) to qstring
         QString s = QString::number(graph[i][parent[i]]);
 
-        ui -> textBrowser -> append(CityToStr[parent[i]] + " --> " + CityToStr[i] + " \t" + s);
+         ui -> textBrowser-> append( CityToStr[parent[i]] + " -> " + CityToStr[i] + " \t" +  s + " \n");
+          total += graph[i][parent[i]];
+      }
+      //converting int(total distance) to qstring
+       QString t = QString::number(total);
 
-        total += graph[i][parent[i]];
-    }
-    // converting int(total distance) to qstring
-    QString t = QString::number(total);
-    ui -> textBrowser -> append("\ntotal distance: " + t);
+      ui -> textBrowser -> append("\n***************************************************************************");
+      ui -> textBrowser-> append( "Total mileage is " + t + " miles.");
+      ui -> textBrowser -> append("***************************************************************************");
 }
+
 // ********************************
 // prim jarnik's MST algorithm
 // ********************************
-void MST:: primMST(int graph[NUMBER_CITIES][NUMBER_CITIES])
+void MST :: primMST(int graph[NUMBER_CITIES][NUMBER_CITIES])
 {
-     int parent[NUMBER_CITIES];
-     int key[NUMBER_CITIES];
-     bool set[NUMBER_CITIES];
+    int parent[NUMBER_CITIES];
+    int key[NUMBER_CITIES];
+    bool set[NUMBER_CITIES];
 
     for (int i =0; i < NUMBER_CITIES; i++)
     {
@@ -159,3 +147,6 @@ void MST:: primMST(int graph[NUMBER_CITIES][NUMBER_CITIES])
     }
     printMST(parent, graph);
 }
+
+
+
