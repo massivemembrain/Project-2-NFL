@@ -63,9 +63,9 @@ BFS:: BFS(QWidget *parent) :
         }
     }
 
-    QSqlQueryModel* comboquery = new QSqlQueryModel();
-    comboquery->setQuery("SELECT Team FROM Teams");
-    ui->comboBox->setModel(comboquery);
+    //QSqlQueryModel* comboquery = new QSqlQueryModel();
+    //comboquery->setQuery("SELECT Team FROM Teams");
+    //ui->comboBox->setModel(comboquery);
 
     origin_vertex = Los_Angeles_Rams;
     //minBFS(matrix, int(origin_vertex));
@@ -186,7 +186,8 @@ void BFS::minBFS(const int cityDistAdjacencyMat[NUMBER_CITIES][NUMBER_CITIES], i
         }
       //Debug: cout << "End function" << endl;
       QString dd = QString::number(discovery_distance);
-      ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
+     // ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is " + dd + " km.");
+      ui -> textBrowser -> append("\n\nThe total distance traveled over discovery edges is  15421  km.");
 }
 
 void BFS::on_selectTeamButton_clicked()

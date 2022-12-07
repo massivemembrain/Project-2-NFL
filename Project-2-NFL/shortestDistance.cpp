@@ -2,6 +2,8 @@
 #include <QStandardItemModel>
 #include <QSql>
 
+#include"dfs.h"
+
 int minFunction2(double arr[], int size, int *index);
 
 //prototype
@@ -15,7 +17,7 @@ shortestDistance::shortestDistance(QWidget *parent) :
                    ui(new Ui::shortestDistance)
 {
         ui->setupUi(this);
-
+/*
         QSqlDatabase myDb;
 
         if(QSqlDatabase::contains("qt_sql_default_connection"))
@@ -28,7 +30,7 @@ shortestDistance::shortestDistance(QWidget *parent) :
         }
 
         //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
-        myDb.setDatabaseName("../NFLProject.db");
+        //myDb.setDatabaseName("../NFLProject.db");
         if (myDb.open())
         {
             qDebug().noquote() << "db found and open";
@@ -37,7 +39,6 @@ shortestDistance::shortestDistance(QWidget *parent) :
         {
             qDebug().noquote() << "db not found";
         }
-
 
 
         QStandardItemModel *model = new QStandardItemModel(0,4);
@@ -49,14 +50,62 @@ shortestDistance::shortestDistance(QWidget *parent) :
              ui->tableView->setModel(model);
              ui->tableView->show();
 
-             QString city = "Lambeau";
+            //QString city = "Lambeau";
+             QString city = "Gillette Stadium";
 
              QVector<QString> Prohibited_City_Names;
              double total_kilometers = 0;
 
              // call to the recursive function
-             travelEfficiently(ui,model,city,29,Prohibited_City_Names,0,0,total_kilometers);
+             travelEfficiently(ui,model,city,12,Prohibited_City_Names,0,0,total_kilometers);
+*/
+             DFS G;
+
+             // code to insert vertices from db
+             QSqlQuery *qry1 = new QSqlQuery();
+             qry1->prepare("select DISTINCT Starting_Stadium from Distances");
+
+             if (qry1->exec())
+             {
+                 while(qry1->next())
+                 {
+                     G.insertVertex(qry1->value(0).toString().toStdString());
+                 }
+             }
+
+             // code to insert edges from db
+             QSqlQuery *qry2 = new QSqlQuery();
+             qry2->prepare("select * from Distances");
+
+             if (qry2->exec())
+             {
+                 while(qry2->next())
+                 {
+                     G.insertEdge(qry2->value(1).toString().toStdString(), // starting stadium
+                                  qry2->value(2).toString().toStdString(), // ending stadium
+                                  qry2->value(3).toInt());                 // distance
+                 }
+             }
+
+
+             vector<string> dfsVertexList; // Will hold the vertecies in the correct order of a DFS
+
+             // Will perform the DFS starting at chosen vertex and store the vertecies
+             // while also calculating the total distance
+             //int totalDistance = G.DFSFunction("U.S. Bank Stadium", dfsVertexList);
+             int totalDistance = G.DFSFunction("Gillette Stadium", dfsVertexList);
+
+
+             // Will loop around the dfsvertexlist vector and display the elements
+             //in the correct order of the dfs
+           for (int i = 0; i < dfsVertexList.size(); i++)
+            {
+               ui -> textBrowser -> append(QString::number(i+1) + " - "  + QString::fromStdString(dfsVertexList.at(i)));
+            }
+
+           ui -> textBrowser -> append("\nTotal distance traveled : " + QString::number(totalDistance));
 }
+/*
 // ===========================================================
 int minFunction2(double arr[], int size, int *index)
 {
@@ -85,8 +134,8 @@ void travelEfficiently(Ui::shortestDistance* ui,QStandardItemModel *model, QStri
                       int row, int column,double total_kilometers)
 {
     QSqlQuery query;
-    QString Ending_City_Names[50];
-    double Kilometers[50];
+    QString Ending_City_Names[30];
+    double Kilometers[30];
     int index = 0;
     QString min_city;
     double min_kilometer;
@@ -95,9 +144,10 @@ void travelEfficiently(Ui::shortestDistance* ui,QStandardItemModel *model, QStri
     int size = 0;
 
     query.exec("SELECT Ending_Stadium, Distance FROM Distances WHERE Starting_Stadium LIKE '%"+city+"%'");
+
                 while(query.next())
                 {
-                    if(count!=29)
+                    if(count!=30)
                     {// not the first time
                         for (int i = 0; i < Prohibited_City_Names.size(); ++i)
                         {
@@ -148,3 +198,4 @@ void travelEfficiently(Ui::shortestDistance* ui,QStandardItemModel *model, QStri
                    ui->tableView->update();
                }
 }
+*/
