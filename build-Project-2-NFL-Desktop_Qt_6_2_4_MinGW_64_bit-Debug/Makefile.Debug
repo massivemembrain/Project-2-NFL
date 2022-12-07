@@ -1167,16 +1167,6 @@ debug/moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlerror.h \
 		ui_dfs.h \
 		../Project-2-NFL/travelplanClass.h \
-		../Project-2-NFL/graphClass.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTextBrowser \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextbrowser.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextedit.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextformat.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
 		../Project-2-NFL/login_mainwindow.h \
 		debug/moc_predefs.h \
 		../../../../Qt/6.2.4/mingw_64/bin/moc.exe
@@ -2775,16 +2765,6 @@ debug/main.o: ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlerror.h \
 		ui_dfs.h \
 		../Project-2-NFL/travelplanClass.h \
-		../Project-2-NFL/graphClass.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTextBrowser \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextbrowser.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextedit.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextformat.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
 		../Project-2-NFL/login_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
@@ -2966,22 +2946,13 @@ debug/mainwindow.o: ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mainwindow.
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlerror.h \
 		ui_dfs.h \
 		../Project-2-NFL/travelplanClass.h \
-		../Project-2-NFL/graphClass.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTextBrowser \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextbrowser.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextedit.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextformat.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
 		../Project-2-NFL/login_mainwindow.h \
 		ui_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTableView \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtableview.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstyleoption.h \
@@ -3131,7 +3102,9 @@ debug/mst.o: ../Project-2-NFL/mst.cpp ../Project-2-NFL/mst.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/qtsql-config.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtSql/QSqlQuery \
-		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlquery.h
+		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlquery.h \
+		../Project-2-NFL/bfs.h \
+		ui_bfs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mst.o ..\Project-2-NFL\mst.cpp
 
 debug/qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsqlfootballClass.h \
@@ -3508,20 +3481,9 @@ debug/travelplanClass.o: ../Project-2-NFL/travelplanClass.cpp ../../../../Qt/6.2
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QStackedWidget \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qstackedwidget.h \
 		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
-		../Project-2-NFL/graphClass.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtSql/QSqlQuery \
-		../../../../Qt/6.2.4/mingw_64/include/QtSql/qsqlquery.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtSql/QSqlDatabase \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/QTextBrowser \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextbrowser.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qtextedit.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextoption.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextcursor.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qtextformat.h \
-		../../../../Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
-		../Project-2-NFL/tripcreateWidget.h
+		../Project-2-NFL/tripcreateWidget.h \
+		../Project-2-NFL/tripprogressWidget.h \
+		../Project-2-NFL/tripsummaryWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\travelplanClass.o ..\Project-2-NFL\travelplanClass.cpp
 
 debug/tripcreateWidget.o: ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripcreateWidget.h \

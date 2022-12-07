@@ -80,7 +80,7 @@ public:
           sqlTable{sqlTable}
       {
           vertex_name_array = vector<QString>();
-          weight_matrix = vector<vector<int>>();
+          matrix2 = vector<vector<int>>();
           // init db
           if(QSqlDatabase::contains("qt_sql_default_connection"))
           {
@@ -134,7 +134,7 @@ public:
                   }
                   stadium_destination_index = getIndexFromValue(stadium_destination_name);
                   // Assign db weight to matrix
-                  weight_matrix[stadium_origin_index][stadium_destination_index] = query.value(DISTANCE_FIELD).toInt();
+                  matrix2[stadium_origin_index][stadium_destination_index] = query.value(DISTANCE_FIELD).toInt();
 
                   query.next();
               } while(query.isValid() && query.value(TEAM_FIELD).toString() == team_name);
@@ -156,12 +156,12 @@ public:
   {
       qDebug() << vertex;
     vertex_name_array.push_back(vertex);
-    for(auto itWeight = weight_matrix.begin(); itWeight != weight_matrix.end(); itWeight++)
+    for(auto itWeight = matrix2.begin(); itWeight != matrix2.end(); itWeight++)
     {
       // same as .pushback(0), but more efficient
       itWeight->emplace_back();
     }
-    weight_matrix.emplace_back();
+    matrix2.emplace_back();
 
     // CREATE IN SQL
   }
@@ -172,7 +172,7 @@ private:
     // implicit: vertex_name_array.size()
     //int NUMBER_VERTICES;
     vector<QString> vertex_name_array;
-    vector<vector<int>> weight_matrix;
+    vector<vector<int>> matrix2;
     vector<vector<bool>> direction_matrix;
     bool is_directed;
     QSqlDatabase sqlDatabase;
