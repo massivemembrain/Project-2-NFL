@@ -13,14 +13,14 @@ selectAlgo::~selectAlgo()
     delete ui;
 }
 
-void selectAlgo::on_pushButton_go_clicked()
-{
-    plan = new TravelPlan;
-}
+//void selectAlgo::on_pushButton_go_clicked()
+//{
+//    plan = new TravelPlan;
+//}
 
-void selectAlgo::on_go_clicked()
-{
-    custom = new TripCreateWidget;
-    custom->show();
-}
+//void selectAlgo::on_go_clicked()
+//{
+//    custom = new TripCreateWidget;
+//    custom->show();
+//}
 

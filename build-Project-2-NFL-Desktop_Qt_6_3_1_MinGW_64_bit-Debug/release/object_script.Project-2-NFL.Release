@@ -9,9 +9,8 @@ release/login.o
 release/main.o
 release/mainwindow.o
 release/mst.o
-release/ordertrip.o
+release/orderedtrip.o
 release/qsqlfootballClass.o
-release/selectAlgo.o
 release/shortestDistance.o
 release/travelgraphClass.o
 release/travelplanClass.o
@@ -27,7 +26,7 @@ release/moc_form.o
 release/moc_login.o
 release/moc_mainwindow.o
 release/moc_mst.o
-release/moc_selectAlgo.o
+release/moc_orderedtrip.o
 release/moc_shortestDistance.o
 release/moc_tripcreateWidget.o
 release/moc_tripprogressWidget.o

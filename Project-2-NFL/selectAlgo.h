@@ -32,9 +32,9 @@ public:
     ~selectAlgo();
 
 private slots:
-    void on_pushButton_go_clicked();
+    //void on_pushButton_go_clicked();
 
-    void on_go_clicked();
+    //void on_go_clicked();
 
 private:
     Ui::selectAlgo *ui;

@@ -9,9 +9,8 @@ debug/login.o
 debug/main.o
 debug/mainwindow.o
 debug/mst.o
-debug/ordertrip.o
+debug/orderedtrip.o
 debug/qsqlfootballClass.o
-debug/selectAlgo.o
 debug/shortestDistance.o
 debug/travelgraphClass.o
 debug/travelplanClass.o
@@ -27,7 +26,7 @@ debug/moc_form.o
 debug/moc_login.o
 debug/moc_mainwindow.o
 debug/moc_mst.o
-debug/moc_selectAlgo.o
+debug/moc_orderedtrip.o
 debug/moc_shortestDistance.o
 debug/moc_tripcreateWidget.o
 debug/moc_tripprogressWidget.o
