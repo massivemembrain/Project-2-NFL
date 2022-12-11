@@ -13,7 +13,6 @@
 #include "login_mainwindow.h"
 #include "shortestDistance.h"
 #include "dijkstra.h"
-#include "selectAlgo.h"
 #include "tripprogressWidget.h"
 #include "orderedtrip.h"
 /*****************************************************************//**
@@ -85,8 +84,6 @@ private:
     TravelPlan* plan = nullptr; /*!< TravelPlan object*/
 
     Dijkstra* dij = NULL; /*!< Dijkstra object*/
-
-    selectAlgo* sa = NULL; /*!< selectAlgo object*/
 
 
     shortestDistance* sh = NULL; /*!< shortestDistance object*/

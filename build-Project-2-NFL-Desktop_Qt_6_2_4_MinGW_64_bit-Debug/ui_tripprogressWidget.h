@@ -17,6 +17,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextBrowser>
@@ -44,12 +45,15 @@ public:
     QLabel *totalExpensePlan;
     QTextBrowser *tripReceipt;
     QLabel *label_receipt;
+    QComboBox *comboBox;
+    QPushButton *pushButton_buy;
+    QSpinBox *spinBox_quantity;
 
     void setupUi(QWidget *TripProgressWidget)
     {
         if (TripProgressWidget->objectName().isEmpty())
             TripProgressWidget->setObjectName(QString::fromUtf8("TripProgressWidget"));
-        TripProgressWidget->resize(640, 480);
+        TripProgressWidget->resize(853, 542);
         teamName = new QLabel(TripProgressWidget);
         teamName->setObjectName(QString::fromUtf8("teamName"));
         teamName->setGeometry(QRect(110, 50, 49, 16));
@@ -58,19 +62,19 @@ public:
         souvenirTable->setGeometry(QRect(20, 110, 241, 301));
         souvenirQuantity = new QSpinBox(TripProgressWidget);
         souvenirQuantity->setObjectName(QString::fromUtf8("souvenirQuantity"));
-        souvenirQuantity->setGeometry(QRect(160, 410, 71, 25));
+        souvenirQuantity->setGeometry(QRect(670, 390, 71, 25));
         souvenirQuantity->setFocusPolicy(Qt::WheelFocus);
         souvenirQuantity->setMaximum(999);
         label_proceed = new QLabel(TripProgressWidget);
         label_proceed->setObjectName(QString::fromUtf8("label_proceed"));
-        label_proceed->setGeometry(QRect(430, 380, 161, 16));
+        label_proceed->setGeometry(QRect(430, 340, 161, 16));
         souvenirOptions = new QComboBox(TripProgressWidget);
         souvenirOptions->setObjectName(QString::fromUtf8("souvenirOptions"));
-        souvenirOptions->setGeometry(QRect(20, 410, 121, 24));
+        souvenirOptions->setGeometry(QRect(120, 420, 121, 24));
         souvenirOptions->setAcceptDrops(false);
         proceedButtons = new QDialogButtonBox(TripProgressWidget);
         proceedButtons->setObjectName(QString::fromUtf8("proceedButtons"));
-        proceedButtons->setGeometry(QRect(280, 410, 341, 32));
+        proceedButtons->setGeometry(QRect(430, 360, 341, 32));
         proceedButtons->setOrientation(Qt::Horizontal);
         proceedButtons->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         totalExpenseCity = new QLabel(TripProgressWidget);
@@ -85,7 +89,7 @@ public:
         label_home->setGeometry(QRect(30, 50, 71, 16));
         label_souvenir_quantity = new QLabel(TripProgressWidget);
         label_souvenir_quantity->setObjectName(QString::fromUtf8("label_souvenir_quantity"));
-        label_souvenir_quantity->setGeometry(QRect(140, 410, 16, 21));
+        label_souvenir_quantity->setGeometry(QRect(240, 420, 16, 21));
         label_souvenir_quantity->setAlignment(Qt::AlignCenter);
         label_city_total = new QLabel(TripProgressWidget);
         label_city_total->setObjectName(QString::fromUtf8("label_city_total"));
@@ -99,7 +103,7 @@ public:
         stadiumName->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         progressBar = new QProgressBar(TripProgressWidget);
         progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setGeometry(QRect(0, 450, 641, 20));
+        progressBar->setGeometry(QRect(0, 470, 641, 20));
         progressBar->setValue(5);
         progressBar->setTextVisible(false);
         label_plan_total = new QLabel(TripProgressWidget);
@@ -116,6 +120,15 @@ public:
         label_receipt->setObjectName(QString::fromUtf8("label_receipt"));
         label_receipt->setGeometry(QRect(310, 90, 81, 16));
         label_receipt->setTextFormat(Qt::MarkdownText);
+        comboBox = new QComboBox(TripProgressWidget);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(10, 420, 103, 32));
+        pushButton_buy = new QPushButton(TripProgressWidget);
+        pushButton_buy->setObjectName(QString::fromUtf8("pushButton_buy"));
+        pushButton_buy->setGeometry(QRect(390, 420, 100, 32));
+        spinBox_quantity = new QSpinBox(TripProgressWidget);
+        spinBox_quantity->setObjectName(QString::fromUtf8("spinBox_quantity"));
+        spinBox_quantity->setGeometry(QRect(260, 420, 42, 22));
 
         retranslateUi(TripProgressWidget);
 
@@ -138,6 +151,7 @@ public:
         label_plan_total->setText(QCoreApplication::translate("TripProgressWidget", "### Plan Expenses:", nullptr));
         totalExpensePlan->setText(QCoreApplication::translate("TripProgressWidget", "$ ", nullptr));
         label_receipt->setText(QCoreApplication::translate("TripProgressWidget", "### My Receipt", nullptr));
+        pushButton_buy->setText(QCoreApplication::translate("TripProgressWidget", "buy", nullptr));
     } // retranslateUi
 
 };

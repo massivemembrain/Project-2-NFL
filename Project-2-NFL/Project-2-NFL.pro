@@ -11,11 +11,9 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     bfs.cpp \
-    customtrip.cpp \
     dfs.cpp \
     dijkstra.cpp \
     displayWindow.cpp \
-    form.cpp \
     login.cpp \
     #login_mainwindow.cpp \
     main.cpp \
@@ -33,11 +31,9 @@ SOURCES += \
 HEADERS += \
     admin.h \
     bfs.h \
-    customtrip.h \
     dfs.h \
     dijkstra.h \
     displayWindow.h \
-    form.h \
     graphClass.h \
     login.h \
     #login_mainwindow.h \
@@ -58,7 +54,6 @@ FORMS += \
     dfs.ui \
     dijkstra.ui \
     displayWindow.ui \
-    form.ui \
     login.ui \
     #login_mainwindow.ui \
     mainwindow.ui \

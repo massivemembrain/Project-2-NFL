@@ -1,25 +1,56 @@
-#ifndef CUSTOMTRIP_H
-#define CUSTOMTRIP_H
-#include "tripcreateWidget.h"
+#ifndef DIJKSTRA_H
+#define DIJKSTRA_H
 
-struct customCity{
-    std::string name;
-    std::vector<int> distances;
-    std::vector<customCity*> city_signs;
-};
+#include <QWidget>
+#include "mst.h"
 
-class CustomTrip
+/*****************************************************************//**
+ * \file   dijkstra.h
+ * \brief  dijkstra object to perform Dijkstra algorithm
+ *
+ *
+ * \date   December 2022
+ *********************************************************************/
+
+/**
+ *  \namespace Ui
+ */
+
+class CustomTrip : public QWidget
 {
+    Q_OBJECT
+
 public:
-    CustomTrip();
+    explicit CustomTrip(); /*!< constructor*/
+    ~CustomTrip(); /*!< destructor */
 
-    void fullMap(QString start, int numberOfCities);
+    int V; /*!< number of vertex */
 
+   list<pair<int, int> >* adj; /*!< list that stores wight for evry edge*/
 
-    std::vector<customCity*> cities;
-    std::vector<customCity> visited;
-    std::vector<int> distances_travelled;
-    int num_of_cities;
+   /**
+    * \fn addEdge.
+    * \brief add new edge
+    * \param int
+    * \param int
+    * \param int
+    */
+   void addEdge(int , int , int);
+
+   /**
+    * \fn shortestPath.
+    * \brief find the shortest path
+    * \param int
+    * \param int
+    */
+   int shortestPath(int, int);
+
+private slots:
+   void on_pushButton_find_clicked();
+
+private:
+
+    int matrix[NUMBER_CITIES][NUMBER_CITIES]; /*!< matrix store all the distance data*/
 };
 
-#endif // CUSTOMTRIP_H
+#endif // DIJKSTRA_H

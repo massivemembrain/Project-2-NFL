@@ -5,7 +5,11 @@
 #include <QString>
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
+#include <map>
+#include "mst.h"
+#include "tripprogressWidget.h"
 
+using namespace std;
 
 
 namespace Ui {
@@ -20,31 +24,51 @@ public:
     explicit TripCreateWidget(QWidget *parent = nullptr);
     ~TripCreateWidget();
 
-    void fullMap(QString start, int numberOfCities);
+    int V; /*!< number of vertex */
 
-    void selectedAlgorithm();
+   list<pair<int, int> >* adj; /*!< list that stores wight for evry edge*/
+
+   /**
+    * \fn addEdge.
+    * \brief add new edge
+    * \param int
+    * \param int
+    * \param int
+    */
+   void addEdge(int , int , int);
+
+   /**
+    * \fn shortestPath.
+    * \brief find the shortest path
+    * \param int
+    * \param int
+    */
+   void shortestPath(int, int);
 
 
-    int count = 1;
-    int addCity = 0;
-    int nextCityCheck;
-    bool notClicked = true;
-    bool customTripNotClicked = true;
+   vector<int> teams;
+   vector<QString> teamNames;
+
+
+   int totalDistance;
+
 
 
 private slots:
-    void on_proceedButtons_accepted();
+   void on_pushButton_done_clicked();
 
-    void on_proceedButtons_rejected();
 
-    void on_pushButton_select_clicked();
+   void on_pushButton_select_clicked();
 
-    void on_pushButton_done_clicked();
 
-    void on_pushButton_delete_clicked();
+   void on_proceedButtons_accepted();
 
 private:
     Ui::TripCreateWidget *ui;
+
+//    TripProgressWidget * souvenir = NULL;
+
+    int matrix[NUMBER_CITIES][NUMBER_CITIES]; /*!< matrix store all the distance data*/
 
     QSqlDatabase myDb;
 };

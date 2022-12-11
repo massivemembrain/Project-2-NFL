@@ -1,9 +1,26 @@
 #include "customtrip.h"
-#include <QSqlQuery>
+#include "mst.h"
+#include <iostream>
+#include <list>
+#include <vector>
+#include <queue>
+#include <QSqlQueryModel>
+
+
+using namespace std;
+
+const int INF = 9999;
+typedef pair<int, int> iPair;
 
 CustomTrip::CustomTrip()
 {
+
     QSqlDatabase myDb;
+
+
+   this->V = NUMBER_CITIES;
+   adj = new list<iPair>[V];
+
 
     if(QSqlDatabase::contains("qt_sql_default_connection"))
     {
@@ -14,7 +31,8 @@ CustomTrip::CustomTrip()
         myDb = QSqlDatabase::addDatabase("QSQLITE");
     }
 
-    //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL/NFLProject.db");
+
+    //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/NFLProject.db");
     myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
@@ -25,176 +43,152 @@ CustomTrip::CustomTrip()
         qDebug().noquote() << "db not found";
     }
 
-    QSqlQueryModel model;//model is readonly access to query results
-    QSqlQuery query(myDb);
-    query.prepare("SELECT City FROM Custom_Trip");
-    std::vector<QString> city_names;
-    qDebug() << query.exec();
-
-    while (query.next())
+    for (int i = 0; i < NUMBER_CITIES; i++)
     {
-        city_names.push_back(query.value(0).toString());
+        for (int j = 0; j < NUMBER_CITIES; j++)
+        {
+            matrix[i][j] = 0;
+        }
     }
-    qDebug().noquote() << "city names fetched";
-    num_of_cities = int(city_names.size());
 
-    for (int i=0;i<num_of_cities;i++)
+    QSqlQuery query;
+    query.prepare("SELECT Start_Number, End_Number, Distance FROM Distances");
+    query.exec();
+
+    int start;
+    int end;
+
+    for (int i = 0; query.next(); i++)
     {
-        customCity* temp = new customCity;
-        cities.push_back(temp);
-        cities[i]->name = city_names[i].toStdString();
-        qDebug().noquote() << QString("city "+QString::fromStdString(cities[i]->name)+" added");
+        start = query.value(0).toInt();
+        end = query.value(1).toInt();
+
+        matrix[start][end] = query.value(2).toInt();
     }
-    qDebug().noquote() << "Cities vector filled";
 
-    for (int i=0;i<num_of_cities;i++)
-    {
-        query.prepare("SELECT Ending_Stadium, Distance FROM Distances WHERE Starting_Stadium = (:cityname) ORDER BY Distance");
-        query.prepare("SELECT Ending_Stadium, Distance FROM Distances INNER JOIN Custom_Trip WHERE Starting_Stadium = (:cityname) AND Ending_Stadium = City ORDER BY Distance");
-        query.bindValue(":cityname",city_names[i]);
-        qDebug() << query.exec();
-        while(query.next()){
-            for (int j=0;j<num_of_cities;j++)
+    QSqlQueryModel* comboquery = new QSqlQueryModel();
+    comboquery->setQuery("SELECT DISTINCT Team FROM Distances");
+    ui->comboBox_start->setModel(comboquery);
+
+    QSqlQueryModel* comboquery2 = new QSqlQueryModel();
+    comboquery2->setQuery("SELECT DISTINCT Team FROM Distances");
+    ui->comboBox_end->setModel(comboquery2);
+
+    for (int u = 0; u < NUMBER_CITIES; u++)
+        {
+          for(int v = u + 1; v < NUMBER_CITIES; v++)
+          {
+            if(matrix[u][v] != 0)
             {
-                if (query.value(0).toString() == city_names[j])
-                {
-                    cities[i]->city_signs.push_back(cities[j]);
-                    cities[i]->distances.push_back(query.value(1).toInt());
-                }
+              addEdge(u, v, matrix[u][v]);
+            }
+          }
+        }
+}
+
+Dijkstra::~Dijkstra()
+{
+    delete ui;
+}
+
+void Dijkstra::addEdge(int u, int v, int w)
+{
+    adj[u].push_back(make_pair(v, w));
+    adj[v].push_back(make_pair(u, w));
+}
+
+int Dijkstra::shortestPath(int src, int end)
+{
+    // Create a priority queue to store vertices that
+    // are being preprocessed. This is weird syntax in C++.
+    priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
+    // Container for every vertice traversed from src to destination
+    vector<int> vertices_to_destination;
+
+    // Create a vector for distances and initialize all
+    // distances as infinite (INF)
+    vector<int> dist(V, INF);
+
+    // Insert source itself in priority queue and initialize
+    // its distance as 0.
+    pq.push(make_pair(0, src));
+    dist[src] = 0;
+    vertices_to_destination.push_back(src);
+
+    /* Looping till priority queue becomes empty (or all
+    distances are not finalized) */
+    while (!pq.empty()) {
+
+        // The first vertex in pair is the minimum distance
+        // vertex, extract it from priority queue.
+        // vertex label is stored in second of pair (it
+        // has to be done this way to keep the vertices
+        // sorted distance (distance must be first item
+        // in pair)
+        int u = pq.top().second;
+        pq.pop();
+
+        // 'i' is used to get all adjacent vertices of a
+        // vertex
+        list<pair<int, int> >::iterator i;
+      int save_v = 0;
+        for (i = adj[u].begin(); i != adj[u].end(); ++i) {
+            // Get vertex label and weight of current
+            // adjacent of u.
+            int v = (*i).first;
+            int weight = (*i).second;
+
+            // If there is a shorter path to v through u.
+            if (dist[v] > dist[u] + weight) {
+                // Updating distance of v
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(dist[v], v));
+
+                save_v = v;
             }
         }
-        qDebug().noquote() << QString::fromStdString(cities[i]->name);
-    }
-    qDebug().noquote() << "All city objects built";
+      vertices_to_destination.push_back(save_v);
 
-    for (int j=0;j<num_of_cities;j++)
-    {
-        qDebug().noquote() << QString::fromStdString(cities[j]->name);
-        for (int i=0;i<num_of_cities-1;i++)
-        {
-            qDebug().noquote() << QString::fromStdString(cities[j]->city_signs[i]->name) << cities[j]->distances[i];
-        }
     }
-    distances_travelled.push_back(0);
+
+   //  Print shortest distances stored in dist[]
+    qDebug() << "\n\nCity Distance from " << CityToTeam[src] << " to\n";
+
+    qDebug() << CityToTeam[end] << ": " << dist[end] << " km\n";
+    QString str = QString::number(dist[end]);
+
+    ui -> textBrowser -> append ("\n\nCity Distance from " + CityToTeam[src] + " to\n");
+    ui -> textBrowser -> append (CityToTeam[end] + ": " + str + " km\n");
 
 }
 
-void CustomTrip::fullMap(QString start, int numberOfCities)
+void Dijkstra::on_pushButton_find_clicked()
 {
-    bool incorrectCity = false;
+    QString startString;
+    QString endString;
 
-    customCity* current = NULL;
-    QSqlDatabase myDb;
-    int distance=0;
-    QString table = start;
+    QSqlQuery query;
+    query.prepare("SELECT Start_Number FROM Distances WHERE Team = :Team");
+    query.bindValue(":Team", ui->comboBox_start->currentText());
+    qDebug() << query.exec();
+    if (query.first())
+        startString = query.value(0).toString();
 
-    QSqlQuery query(myDb);
-    int j = 0;
-    int forLoopCityIteration = 0;
-    int initCity = 0;
+    qDebug() << " start team id here " << startString;
 
+    int start = startString.toInt();
 
-    int citiesVisted = numberOfCities; //added this for generalization for other functions
+    QSqlQuery query2;
+    query2.prepare("SELECT Start_Number FROM Distances WHERE Team = :Team");
+    query2.bindValue(":Team", ui->comboBox_end->currentText());
+    qDebug() << query2.exec();
+    if (query2.first())
+        endString = query2.value(0).toString();
 
-    if(QSqlDatabase::contains("qt_sql_default_connection"))
-    {
-        myDb = QSqlDatabase::database("qt_sql_default_connection");
-    }
-    else
-    {
-        myDb = QSqlDatabase::addDatabase("QSQLITE");
-    }
+    qDebug() << " ending team id here :" << endString;
 
-    myDb.setDatabaseName("./Project.db");
-    if (myDb.open())
-    {
-        qDebug().noquote() << "db found and open";
-    }
-    else
-    {
-        qDebug().noquote() << "db not found";
-    }
+    int end = endString.toInt();
 
-    while (!incorrectCity)
-    {
-        if (QString::fromStdString(cities[initCity] -> name) == start)
-        {
-            current = cities[initCity];
-            incorrectCity = true;
-        }
-        else
-        {
-            initCity++;
-        }
+    shortestPath(start, end);
 
-    }
-
-    std::string temp = current->city_signs[0]->name;
-
-    visited.push_back(*current);
-
-    for (int i = 0; i < numberOfCities - 1; i++)
-    {
-
-        visited.push_back(*current->city_signs[forLoopCityIteration]);
-        distance += current->distances[forLoopCityIteration];
-        distances_travelled.push_back(distance);
-
-        temp = current->city_signs[forLoopCityIteration]->name;
-        incorrectCity = false;
-        j=0;
-        forLoopCityIteration = 0;
-
-        while (!incorrectCity)
-        {
-            if (cities[j]-> name == temp)
-            {
-                current = cities[j]; //setting current to current city on list which
-                                     //is sorted by shortest distance
-                qDebug().noquote() << QString::fromStdString(current->name);
-                incorrectCity = true;
-            }
-            else
-            {
-                qDebug().noquote() << QString(QString::fromStdString(temp) + " does not match " + QString::fromStdString(cities[j]->name));
-                j++;
-            }
-        }
-
-        if (visited.size() != numberOfCities)
-        {
-            for (int visitedTest = 0; visitedTest < int(visited.size()); visitedTest++)
-            {
-
-                if (QString::fromStdString(current->city_signs[forLoopCityIteration] -> name) == QString::fromStdString(visited[visitedTest].name))
-                {
-
-
-                     ++forLoopCityIteration;
-                     visitedTest = 0;
-                }
-                if (QString::fromStdString(current->city_signs[forLoopCityIteration] -> name) == start)
-                {
-                     forLoopCityIteration++;
-                }
-
-                qDebug().noquote() << " FINAL TEST: " << QString::fromStdString(visited[visitedTest].name) << "current: " << QString::fromStdString(current->city_signs[forLoopCityIteration] -> name);
-            }
-
-        }
-        qDebug().noquote() << QString::fromStdString(temp);
-    }
-
-    qDebug().noquote() << "SIZE: "<< int(visited.size());
-    for (int i=0;i<citiesVisted;i++)
-    {
-        query.prepare("INSERT INTO Berlin_Trip VALUES ((:City),(:distance))");
-        query.bindValue(":City",QString::fromStdString(visited[i].name));
-        query.bindValue(":distance",distances_travelled[i]);
-        query.exec();
-        query.next();
-    }
-
-    cities.clear();
-    visited.clear();
 }
