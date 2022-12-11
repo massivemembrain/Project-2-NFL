@@ -21,7 +21,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mst.cpp \
-    ordertrip.cpp \
+    orderedtrip.cpp \
     qsqlfootballClass.cpp \
     selectAlgo.cpp \
     shortestDistance.cpp \
@@ -44,7 +44,7 @@ HEADERS += \
     #login_mainwindow.h \
     mainwindow.h \
     mst.h \
-    ordertrip.h \
+    orderedtrip.h \
     qsqlfootballClass.h \
     selectAlgo.h \
     shortestDistance.h \
@@ -65,6 +65,7 @@ FORMS += \
     #login_mainwindow.ui \
     mainwindow.ui \
     mst.ui \
+    orderedtrip.ui \
     selectAlgo.ui \
     shortestDistance.ui \
     tripcreateWidget.ui \

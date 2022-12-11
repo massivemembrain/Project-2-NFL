@@ -63,7 +63,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		../Project-2-NFL/main.cpp \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
-		../Project-2-NFL/ordertrip.cpp \
+		../Project-2-NFL/orderedtrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
 		../Project-2-NFL/selectAlgo.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
@@ -80,6 +80,7 @@ SOURCES       = ../Project-2-NFL/admin.cpp \
 		moc_login.cpp \
 		moc_mainwindow.cpp \
 		moc_mst.cpp \
+		moc_orderedtrip.cpp \
 		moc_selectAlgo.cpp \
 		moc_shortestDistance.cpp \
 		moc_tripcreateWidget.cpp \
@@ -96,7 +97,7 @@ OBJECTS       = admin.o \
 		main.o \
 		mainwindow.o \
 		mst.o \
-		ordertrip.o \
+		orderedtrip.o \
 		qsqlfootballClass.o \
 		selectAlgo.o \
 		shortestDistance.o \
@@ -114,6 +115,7 @@ OBJECTS       = admin.o \
 		moc_login.o \
 		moc_mainwindow.o \
 		moc_mst.o \
+		moc_orderedtrip.o \
 		moc_selectAlgo.o \
 		moc_shortestDistance.o \
 		moc_tripcreateWidget.o \
@@ -270,7 +272,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/login.h \
 		../Project-2-NFL/mainwindow.h \
 		../Project-2-NFL/mst.h \
-		../Project-2-NFL/ordertrip.h \
+		../Project-2-NFL/orderedtrip.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../Project-2-NFL/selectAlgo.h \
 		../Project-2-NFL/shortestDistance.h \
@@ -289,7 +291,7 @@ DIST          = ../../../../Qt/6.2.4/macos/mkspecs/features/spec_pre.prf \
 		../Project-2-NFL/main.cpp \
 		../Project-2-NFL/mainwindow.cpp \
 		../Project-2-NFL/mst.cpp \
-		../Project-2-NFL/ordertrip.cpp \
+		../Project-2-NFL/orderedtrip.cpp \
 		../Project-2-NFL/qsqlfootballClass.cpp \
 		../Project-2-NFL/selectAlgo.cpp \
 		../Project-2-NFL/shortestDistance.cpp \
@@ -318,7 +320,7 @@ include /Users/nedamohseni/Qt/6.2.4/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Project-2-NFL.app/Contents/MacOS/Project-2-NFL: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h $(OBJECTS)  
+Project-2-NFL.app/Contents/MacOS/Project-2-NFL: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_orderedtrip.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h $(OBJECTS)  
 	@test -d Project-2-NFL.app/Contents/MacOS/ || mkdir -p Project-2-NFL.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -642,9 +644,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/customtrip.h ../Project-2-NFL/dfs.h ../Project-2-NFL/dijkstra.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/ordertrip.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/selectAlgo.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/customtrip.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/dijkstra.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/selectAlgo.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/dijkstra.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/selectAlgo.ui ../Project-2-NFL/shortestDistance.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.h ../Project-2-NFL/bfs.h ../Project-2-NFL/customtrip.h ../Project-2-NFL/dfs.h ../Project-2-NFL/dijkstra.h ../Project-2-NFL/displayWindow.h ../Project-2-NFL/form.h ../Project-2-NFL/graphClass.h ../Project-2-NFL/login.h ../Project-2-NFL/mainwindow.h ../Project-2-NFL/mst.h ../Project-2-NFL/orderedtrip.h ../Project-2-NFL/qsqlfootballClass.h ../Project-2-NFL/selectAlgo.h ../Project-2-NFL/shortestDistance.h ../Project-2-NFL/travelgraphClass.h ../Project-2-NFL/travelplanClass.h ../Project-2-NFL/tripcreateWidget.h ../Project-2-NFL/tripprogressWidget.h ../Project-2-NFL/tripsummaryWidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.cpp ../Project-2-NFL/bfs.cpp ../Project-2-NFL/customtrip.cpp ../Project-2-NFL/dfs.cpp ../Project-2-NFL/dijkstra.cpp ../Project-2-NFL/displayWindow.cpp ../Project-2-NFL/form.cpp ../Project-2-NFL/login.cpp ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mst.cpp ../Project-2-NFL/orderedtrip.cpp ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/selectAlgo.cpp ../Project-2-NFL/shortestDistance.cpp ../Project-2-NFL/travelgraphClass.cpp ../Project-2-NFL/travelplanClass.cpp ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripsummaryWidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project-2-NFL/admin.ui ../Project-2-NFL/bfs.ui ../Project-2-NFL/dfs.ui ../Project-2-NFL/dijkstra.ui ../Project-2-NFL/displayWindow.ui ../Project-2-NFL/form.ui ../Project-2-NFL/login.ui ../Project-2-NFL/mainwindow.ui ../Project-2-NFL/mst.ui ../Project-2-NFL/orderedtrip.ui ../Project-2-NFL/selectAlgo.ui ../Project-2-NFL/shortestDistance.ui ../Project-2-NFL/tripcreateWidget.ui ../Project-2-NFL/tripprogressWidget.ui ../Project-2-NFL/tripsummaryWidget.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -673,9 +675,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+compiler_moc_header_make_all: moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_orderedtrip.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
+	-$(DEL_FILE) moc_admin.cpp moc_bfs.cpp moc_dfs.cpp moc_dijkstra.cpp moc_displayWindow.cpp moc_form.cpp moc_login.cpp moc_mainwindow.cpp moc_mst.cpp moc_orderedtrip.cpp moc_selectAlgo.cpp moc_shortestDistance.cpp moc_tripcreateWidget.cpp moc_tripprogressWidget.cpp moc_tripsummaryWidget.cpp
 moc_admin.cpp: ../Project-2-NFL/admin.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -814,6 +816,9 @@ moc_mainwindow.cpp: ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
 		ui_selectAlgo.h \
 		../Project-2-NFL/tripcreateWidget.h \
+		../Project-2-NFL/tripprogressWidget.h \
+		../Project-2-NFL/orderedtrip.h \
+		ui_orderedtrip.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mainwindow.h -o moc_mainwindow.cpp
 
@@ -831,6 +836,15 @@ moc_mst.cpp: ../Project-2-NFL/mst.h \
 		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/mst.h -o moc_mst.cpp
+
+moc_orderedtrip.cpp: ../Project-2-NFL/orderedtrip.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		ui_orderedtrip.h \
+		../../../../Qt/6.2.4/macos/libexec/moc
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/orderedtrip.h -o moc_orderedtrip.cpp
 
 moc_selectAlgo.cpp: ../Project-2-NFL/selectAlgo.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
@@ -903,6 +917,8 @@ moc_tripcreateWidget.cpp: ../Project-2-NFL/tripcreateWidget.h \
 moc_tripprogressWidget.cpp: ../Project-2-NFL/tripprogressWidget.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		../../../../Qt/6.2.4/macos/libexec/moc
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/nedamohseni/Qt/6.2.4/macos/mkspecs/macx-clang -I/Users/nedamohseni/Documents/GitHub/Project-2-NFL/Project-2-NFL -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtWidgets.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtGui.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtSql.framework/Headers -I/Users/nedamohseni/Qt/6.2.4/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/nedamohseni/Qt/6.2.4/macos/lib ../Project-2-NFL/tripprogressWidget.h -o moc_tripprogressWidget.cpp
 
@@ -916,9 +932,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
+compiler_uic_make_all: ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_orderedtrip.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
+	-$(DEL_FILE) ui_admin.h ui_bfs.h ui_dfs.h ui_dijkstra.h ui_displayWindow.h ui_form.h ui_login.h ui_mainwindow.h ui_mst.h ui_orderedtrip.h ui_selectAlgo.h ui_shortestDistance.h ui_tripcreateWidget.h ui_tripprogressWidget.h ui_tripsummaryWidget.h
 ui_admin.h: ../Project-2-NFL/admin.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/admin.ui -o ui_admin.h
@@ -954,6 +970,10 @@ ui_mainwindow.h: ../Project-2-NFL/mainwindow.ui \
 ui_mst.h: ../Project-2-NFL/mst.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
 	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/mst.ui -o ui_mst.h
+
+ui_orderedtrip.h: ../Project-2-NFL/orderedtrip.ui \
+		../../../../Qt/6.2.4/macos/libexec/uic
+	/Users/nedamohseni/Qt/6.2.4/macos/libexec/uic ../Project-2-NFL/orderedtrip.ui -o ui_orderedtrip.h
 
 ui_selectAlgo.h: ../Project-2-NFL/selectAlgo.ui \
 		../../../../Qt/6.2.4/macos/libexec/uic
@@ -1156,6 +1176,9 @@ main.o: ../Project-2-NFL/main.cpp ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
 		ui_selectAlgo.h \
 		../Project-2-NFL/tripcreateWidget.h \
+		../Project-2-NFL/tripprogressWidget.h \
+		../Project-2-NFL/orderedtrip.h \
+		ui_orderedtrip.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qapplication.h
@@ -1216,6 +1239,9 @@ mainwindow.o: ../Project-2-NFL/mainwindow.cpp ../Project-2-NFL/mainwindow.h \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qobject.h \
 		ui_selectAlgo.h \
 		../Project-2-NFL/tripcreateWidget.h \
+		../Project-2-NFL/tripprogressWidget.h \
+		../Project-2-NFL/orderedtrip.h \
+		ui_orderedtrip.h \
 		ui_mainwindow.h \
 		../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableView \
@@ -1238,9 +1264,32 @@ mst.o: ../Project-2-NFL/mst.cpp ../Project-2-NFL/mst.h \
 		ui_bfs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mst.o ../Project-2-NFL/mst.cpp
 
-ordertrip.o: ../Project-2-NFL/ordertrip.cpp ../Project-2-NFL/ordertrip.h \
-		ui_tripcreateWidget.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ordertrip.o ../Project-2-NFL/ordertrip.cpp
+orderedtrip.o: ../Project-2-NFL/orderedtrip.cpp ../Project-2-NFL/orderedtrip.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		ui_orderedtrip.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableView \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qtableview.h \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QTableWidget \
+		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QItemSelectionModel \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qitemselectionmodel.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QVector \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Project-2-NFL/dijkstra.h \
+		../Project-2-NFL/mst.h \
+		ui_mst.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o orderedtrip.o ../Project-2-NFL/orderedtrip.cpp
 
 qsqlfootballClass.o: ../Project-2-NFL/qsqlfootballClass.cpp ../Project-2-NFL/qsqlfootballClass.h \
 		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
@@ -1360,7 +1409,19 @@ tripcreateWidget.o: ../Project-2-NFL/tripcreateWidget.cpp ../Project-2-NFL/tripc
 tripprogressWidget.o: ../Project-2-NFL/tripprogressWidget.cpp ../Project-2-NFL/tripprogressWidget.h \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt/6.2.4/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_tripprogressWidget.h
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQueryModel \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		ui_tripprogressWidget.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/6.2.4/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/QSqlError \
+		../../../../Qt/6.2.4/macos/lib/QtSql.framework/Headers/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tripprogressWidget.o ../Project-2-NFL/tripprogressWidget.cpp
 
 tripsummaryWidget.o: ../Project-2-NFL/tripsummaryWidget.cpp ../Project-2-NFL/tripsummaryWidget.h \
@@ -1395,6 +1456,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_mst.o: moc_mst.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mst.o moc_mst.cpp
+
+moc_orderedtrip.o: moc_orderedtrip.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_orderedtrip.o moc_orderedtrip.cpp
 
 moc_selectAlgo.o: moc_selectAlgo.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_selectAlgo.o moc_selectAlgo.cpp

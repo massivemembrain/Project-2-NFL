@@ -13,7 +13,6 @@ using namespace std;
 const int INF = 9999;
 typedef pair<int, int> iPair;
 
-
 Dijkstra::Dijkstra(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Dijkstra)
@@ -23,9 +22,9 @@ Dijkstra::Dijkstra(QWidget *parent) :
     QSqlDatabase myDb;
 
 
-
    this->V = NUMBER_CITIES;
    adj = new list<iPair>[V];
+
 
     if(QSqlDatabase::contains("qt_sql_default_connection"))
     {
@@ -37,6 +36,7 @@ Dijkstra::Dijkstra(QWidget *parent) :
     }
 
 
+    //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/NFLProject.db");
     myDb.setDatabaseName("../NFLProject.db");
     if (myDb.open())
     {
@@ -71,11 +71,11 @@ Dijkstra::Dijkstra(QWidget *parent) :
     }
 
     QSqlQueryModel* comboquery = new QSqlQueryModel();
-    comboquery->setQuery("SELECT Team FROM Teams");
+    comboquery->setQuery("SELECT DISTINCT Team FROM Distances");
     ui->comboBox_start->setModel(comboquery);
 
     QSqlQueryModel* comboquery2 = new QSqlQueryModel();
-    comboquery2->setQuery("SELECT Team FROM Teams");
+    comboquery2->setQuery("SELECT DISTINCT Team FROM Distances");
     ui->comboBox_end->setModel(comboquery2);
 
     for (int u = 0; u < NUMBER_CITIES; u++)
@@ -105,8 +105,7 @@ void Dijkstra::shortestPath(int src, int end)
 {
     // Create a priority queue to store vertices that
     // are being preprocessed. This is weird syntax in C++.
-    priority_queue<iPair, vector<iPair>, greater<iPair> >
-        pq;
+    priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
     // Container for every vertice traversed from src to destination
     vector<int> vertices_to_destination;
 
@@ -165,12 +164,10 @@ void Dijkstra::shortestPath(int src, int end)
     ui -> textBrowser -> append ("\n\nCity Distance from " + CityToTeam[src] + " to\n");
     ui -> textBrowser -> append (CityToTeam[end] + ": " + str + " km\n");
 
-
 }
 
 void Dijkstra::on_pushButton_find_clicked()
 {
-
     QString startString;
     QString endString;
 
@@ -181,7 +178,7 @@ void Dijkstra::on_pushButton_find_clicked()
     if (query.first())
         startString = query.value(0).toString();
 
-    qDebug() << startString;
+    qDebug() << " start team id here " << startString;
 
     int start = startString.toInt();
 
@@ -192,10 +189,11 @@ void Dijkstra::on_pushButton_find_clicked()
     if (query2.first())
         endString = query2.value(0).toString();
 
-    qDebug() << endString;
+    qDebug() << " ending team id here :" << endString;
 
     int end = endString.toInt();
 
     shortestPath(start, end);
+
 }
 

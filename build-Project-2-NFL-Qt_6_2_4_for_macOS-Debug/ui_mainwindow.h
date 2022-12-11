@@ -31,6 +31,8 @@ public:
     QPushButton *pushButton_DFS;
     QPushButton *pushButton_shortdist;
     QPushButton *pushButton_dijkstra;
+    QPushButton *pushButton_souvenir;
+    QPushButton *pushButton_orderTrip;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,7 +45,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(510, 160, 111, 31));
+        pushButton->setGeometry(QRect(510, 140, 111, 31));
         QFont font;
         font.setBold(true);
         pushButton->setFont(font);
@@ -105,7 +107,7 @@ public:
 "}"));
         pushButton_shortdist = new QPushButton(centralwidget);
         pushButton_shortdist->setObjectName(QString::fromUtf8("pushButton_shortdist"));
-        pushButton_shortdist->setGeometry(QRect(510, 240, 141, 32));
+        pushButton_shortdist->setGeometry(QRect(510, 210, 141, 32));
         pushButton_shortdist->setFont(font);
         pushButton_shortdist->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "    background-color: rgb(201, 236, 255);\n"
@@ -115,13 +117,19 @@ public:
 "}"));
         pushButton_dijkstra = new QPushButton(centralwidget);
         pushButton_dijkstra->setObjectName(QString::fromUtf8("pushButton_dijkstra"));
-        pushButton_dijkstra->setGeometry(QRect(510, 310, 101, 31));
+        pushButton_dijkstra->setGeometry(QRect(510, 270, 101, 31));
         pushButton_dijkstra->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "    background-color: rgb(201, 236, 255);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
 "    border-color: beige;\n"
 "}"));
+        pushButton_souvenir = new QPushButton(centralwidget);
+        pushButton_souvenir->setObjectName(QString::fromUtf8("pushButton_souvenir"));
+        pushButton_souvenir->setGeometry(QRect(510, 330, 141, 32));
+        pushButton_orderTrip = new QPushButton(centralwidget);
+        pushButton_orderTrip->setObjectName(QString::fromUtf8("pushButton_orderTrip"));
+        pushButton_orderTrip->setGeometry(QRect(510, 380, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -147,6 +155,8 @@ public:
         pushButton_DFS->setText(QCoreApplication::translate("MainWindow", "D F S ", nullptr));
         pushButton_shortdist->setText(QCoreApplication::translate("MainWindow", "shortest Distance", nullptr));
         pushButton_dijkstra->setText(QCoreApplication::translate("MainWindow", "Dijkstra", nullptr));
+        pushButton_souvenir->setText(QCoreApplication::translate("MainWindow", "souvenir shop", nullptr));
+        pushButton_orderTrip->setText(QCoreApplication::translate("MainWindow", "order trip", nullptr));
     } // retranslateUi
 
 };

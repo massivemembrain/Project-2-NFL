@@ -15,7 +15,8 @@
 /**
  *  \namespace Ui
  */
-namespace Ui {
+namespace Ui
+{
 class Dijkstra;
 }
 

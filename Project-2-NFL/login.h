@@ -31,7 +31,7 @@ class Login : public QWidget
 
 public:
     explicit Login(QWidget *parent = nullptr); /*!< constructor*/
-    ~Login(); /*!< destructor */
+     ~Login(); /*!< destructor */
 
 
 private slots:

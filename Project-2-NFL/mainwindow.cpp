@@ -102,3 +102,19 @@ void MainWindow::on_pushButton_dijkstra_clicked()
     dij->show();
 }
 
+
+void MainWindow::on_pushButton_souvenir_clicked()
+{
+    t = new class:: TripProgressWidget;
+    t->show();
+}
+
+
+void MainWindow::on_pushButton_orderTrip_clicked()
+{
+    ordered = new class:: OrderedTrip;
+    ordered->show();
+}
+
+
+

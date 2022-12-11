@@ -2,6 +2,8 @@
 #define TRIPPROGRESSWIDGET_H
 
 #include <QWidget>
+#include <QSqlQueryModel>
+
 
 namespace Ui {
 class TripProgressWidget;
@@ -14,6 +16,9 @@ class TripProgressWidget : public QWidget
 public:
     explicit TripProgressWidget(QWidget *parent = nullptr);
     ~TripProgressWidget();
+
+private slots:
+    void on_pushButton_buy_clicked();
 
 private:
     Ui::TripProgressWidget *ui;

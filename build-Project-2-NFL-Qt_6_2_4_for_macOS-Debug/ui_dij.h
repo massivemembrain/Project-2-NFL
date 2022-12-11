@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,16 +18,12 @@ QT_BEGIN_NAMESPACE
 class Ui_dij
 {
 public:
-    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *dij)
     {
         if (dij->objectName().isEmpty())
             dij->setObjectName(QString::fromUtf8("dij"));
-        dij->resize(603, 419);
-        textBrowser = new QTextBrowser(dij);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(50, 150, 271, 221));
+        dij->resize(634, 439);
 
         retranslateUi(dij);
 

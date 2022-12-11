@@ -14,7 +14,8 @@
 #include "shortestDistance.h"
 #include "dijkstra.h"
 #include "selectAlgo.h"
-
+#include "tripprogressWidget.h"
+#include "orderedtrip.h"
 /*****************************************************************//**
  * \file   mainwindow.h
  * \brief  our MainWindow
@@ -64,6 +65,11 @@ private slots:
 
     void on_pushButton_dijkstra_clicked();
 
+    void on_pushButton_souvenir_clicked();
+
+    void on_pushButton_orderTrip_clicked();
+
+
 private:
     Ui::MainWindow *ui; /*!< an Ui variable*/
     //Admin* adminWindow = NULL;
@@ -82,6 +88,14 @@ private:
 
     selectAlgo* sa = NULL; /*!< selectAlgo object*/
 
+
     shortestDistance* sh = NULL; /*!< shortestDistance object*/
+
+    TripProgressWidget * t = NULL;
+
+    OrderedTrip * ordered = NULL;
+
+
+
 };
 #endif // MAINWINDOW_H
