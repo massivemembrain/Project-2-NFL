@@ -86,7 +86,7 @@
      <x>290</x>
      <y>80</y>
      <width>291</width>
-     <height>271</height>
+     <height>351</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -123,6 +123,9 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QComboBox" name="comboBox_algorithm"/>
     </item>
    </layout>
   </widget>

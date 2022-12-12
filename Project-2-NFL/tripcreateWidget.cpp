@@ -18,6 +18,9 @@ TripCreateWidget::TripCreateWidget(QWidget *parent) :
     adj = new list<iPair>[V];
     totalDistance = 0;
 
+    ui->comboBox_algorithm->addItem("Selective");
+    ui->comboBox_algorithm->addItem("Shortest");
+
 
      if(QSqlDatabase::contains("qt_sql_default_connection"))
      {
@@ -180,6 +183,9 @@ TripCreateWidget::~TripCreateWidget()
 
 void TripCreateWidget::on_pushButton_done_clicked()
 {
+    if (ui->comboBox_algorithm->currentText() == "Selective")
+    {
+
     for (auto i = 1; i < teams.size(); i++)
         shortestPath(teams[i - 1], teams[i]);
 
@@ -193,9 +199,54 @@ void TripCreateWidget::on_pushButton_done_clicked()
         query.bindValue(":Team", teamNames[i]);
         qDebug() << query.exec();
     }
+    }
+    else if (ui->comboBox_algorithm->currentText() == "Shortest")
+    {
+        int smallestDistance[33] = { 0 };
+        int size = teams.size();
+        smallestDistance[0] = teams[0];
+        teams.erase(teams.begin() + 0);
+        for (auto i = 1; !teams.empty(); i++)
+        {
+            smallestDistance[i] = teams[0];
+            for (auto j = 0; j < teams.size(); j++)
+            {
+                if (shortestPathCompare(smallestDistance[i - 1], teams[j]) < shortestPathCompare(smallestDistance[i - 1], smallestDistance[i]))
+                {
+                    smallestDistance[i] = teams[j];
+                }
+            }
 
-    query.prepare("INSERT INTO Custom_Trip (City) VALUES (none)");
-    query.exec();
+            for (auto j = 0; j < teams.size(); j++)
+            {
+                if (smallestDistance[i] == teams[j])
+                {
+                    teams.erase(teams.begin() + j);
+                }
+            }
+
+
+
+        }
+
+        for (auto i = 1; i < size; i++)
+        {
+            shortestPath(smallestDistance[i - 1], smallestDistance[i]);
+        }
+
+        QString intToString = QString::number(totalDistance);
+        ui->textBrowser_team->append("Total Distance: " + intToString);
+
+        QSqlQuery query;
+        for (int i = 0; i < size; i++)
+        {
+            query.prepare("INSERT INTO Custom_Trip (City) VALUES (:Team)");
+            query.bindValue(":Team", teamNames[i]);
+            qDebug() << query.exec();
+        }
+
+    }
+
 }
 
 
@@ -227,6 +278,75 @@ void TripCreateWidget::on_pushButton_select_clicked()
 
 void TripCreateWidget::on_proceedButtons_accepted()
 {
+
+}
+
+int TripCreateWidget::shortestPathCompare(int src, int end)
+{
+ // Create a priority queue to store vertices that
+        // are being preprocessed. This is weird syntax in C++.
+        priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
+        // Container for every vertice traversed from src to destination
+        vector<int> vertices_to_destination;
+
+        // Create a vector for distances and initialize all
+        // distances as infinite (INF)
+        vector<int> dist(V, INF);
+
+        // Insert source itself in priority queue and initialize
+        // its distance as 0.
+        pq.push(make_pair(0, src));
+        dist[src] = 0;
+        vertices_to_destination.push_back(src);
+
+        /* Looping till priority queue becomes empty (or all
+        distances are not finalized) */
+        while (!pq.empty()) {
+
+            // The first vertex in pair is the minimum distance
+            // vertex, extract it from priority queue.
+            // vertex label is stored in second of pair (it
+            // has to be done this way to keep the vertices
+            // sorted distance (distance must be first item
+            // in pair)
+            int u = pq.top().second;
+            pq.pop();
+
+            // 'i' is used to get all adjacent vertices of a
+            // vertex
+            list<pair<int, int> >::iterator i;
+          int save_v = 0;
+            for (i = adj[u].begin(); i != adj[u].end(); ++i) {
+                // Get vertex label and weight of current
+                // adjacent of u.
+                int v = (*i).first;
+                int weight = (*i).second;
+
+                // If there is a shorter path to v through u.
+                if (dist[v] > dist[u] + weight) {
+                    // Updating distance of v
+                    dist[v] = dist[u] + weight;
+                    pq.push(make_pair(dist[v], v));
+
+                    save_v = v;
+                }
+            }
+          vertices_to_destination.push_back(save_v);
+
+        }
+        qDebug() << "I made it this far" << CityToTeam[end];
+
+        return dist[end];
+
+//       //  Print shortest distances stored in dist[]
+//        qDebug() << "\n\nCity Distance from " << CityToTeam[src] << " to\n";
+
+//        qDebug() << CityToTeam[end] << ": " << dist[end] << " km\n";
+//        QString str = QString::number(dist[end]);
+
+//        qDebug -> textBrowser -> append ("\n\nCity Distance from " + CityToTeam[src] + " to\n");
+//        ui -> textBrowser -> append (CityToTeam[end] + ": " + str + " km\n");
+
 
 }
 

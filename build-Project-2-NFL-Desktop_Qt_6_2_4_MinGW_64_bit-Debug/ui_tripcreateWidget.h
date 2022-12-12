@@ -39,6 +39,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QComboBox *comboBox_team;
     QPushButton *pushButton_select;
+    QComboBox *comboBox_algorithm;
     QTableView *teamTable;
 
     void setupUi(QWidget *TripCreateWidget)
@@ -66,7 +67,7 @@ public:
         decor_progress_bar->setTextVisible(false);
         verticalLayoutWidget = new QWidget(TripCreateWidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(290, 80, 291, 271));
+        verticalLayoutWidget->setGeometry(QRect(290, 80, 291, 351));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -100,6 +101,11 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+        comboBox_algorithm = new QComboBox(verticalLayoutWidget);
+        comboBox_algorithm->setObjectName(QString::fromUtf8("comboBox_algorithm"));
+
+        verticalLayout->addWidget(comboBox_algorithm);
 
         teamTable = new QTableView(TripCreateWidget);
         teamTable->setObjectName(QString::fromUtf8("teamTable"));

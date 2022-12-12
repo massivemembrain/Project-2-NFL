@@ -44,6 +44,7 @@ public:
     * \param int
     */
    void shortestPath(int, int);
+   int shortestPathCompare(int, int);
 
 
    vector<int> teams;
