@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <QSqlQueryModel>
 #include "ui_orderedtrip.h"
+#include "dijkstra.h"
 
 namespace Ui
 {
@@ -19,6 +20,11 @@ class OrderedTrip :  public QWidget
 public:
     explicit OrderedTrip(QWidget *parent = nullptr);
     ~OrderedTrip();
+    void addEdge(int,int,int);
+    void shortestPath(int,int);
+
+    int V;
+    list<pair<int,int>> * adj;
 
 
 private slots:
@@ -33,6 +39,15 @@ private slots:
 private:
     Ui::orderedTrip *ui; /*!< an Ui variable*/
 
+    // vector holding teams
+    QVector <QString> myVector;
+
+    // vector holding distances
+    QVector <int> totaldistanceVector;
+
+    int matrix[NUMBER_CITIES][NUMBER_CITIES];
+
 };
 
 #endif // ORDEREDTRIP_H
+

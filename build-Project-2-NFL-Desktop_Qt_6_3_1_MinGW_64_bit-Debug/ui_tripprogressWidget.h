@@ -46,8 +46,8 @@ public:
     QTextBrowser *tripReceipt;
     QLabel *label_receipt;
     QComboBox *comboBox;
-    QComboBox *comboBox_quantity;
     QPushButton *pushButton_buy;
+    QSpinBox *spinBox_quantity;
 
     void setupUi(QWidget *TripProgressWidget)
     {
@@ -123,12 +123,12 @@ public:
         comboBox = new QComboBox(TripProgressWidget);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setGeometry(QRect(10, 420, 103, 32));
-        comboBox_quantity = new QComboBox(TripProgressWidget);
-        comboBox_quantity->setObjectName(QString::fromUtf8("comboBox_quantity"));
-        comboBox_quantity->setGeometry(QRect(270, 420, 103, 32));
         pushButton_buy = new QPushButton(TripProgressWidget);
         pushButton_buy->setObjectName(QString::fromUtf8("pushButton_buy"));
         pushButton_buy->setGeometry(QRect(390, 420, 100, 32));
+        spinBox_quantity = new QSpinBox(TripProgressWidget);
+        spinBox_quantity->setObjectName(QString::fromUtf8("spinBox_quantity"));
+        spinBox_quantity->setGeometry(QRect(260, 420, 42, 22));
 
         retranslateUi(TripProgressWidget);
 

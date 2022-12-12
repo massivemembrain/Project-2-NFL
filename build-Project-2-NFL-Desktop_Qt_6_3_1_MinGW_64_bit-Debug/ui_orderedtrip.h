@@ -39,7 +39,7 @@ public:
     {
         if (orderedTrip->objectName().isEmpty())
             orderedTrip->setObjectName(QString::fromUtf8("orderedTrip"));
-        orderedTrip->resize(888, 612);
+        orderedTrip->resize(1236, 632);
         comboBox = new QComboBox(orderedTrip);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setGeometry(QRect(0, 120, 151, 32));
@@ -60,7 +60,7 @@ public:
         pushButton_done->setGeometry(QRect(400, 20, 141, 32));
         textBrowser = new QTextBrowser(orderedTrip);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(560, 140, 256, 192));
+        textBrowser->setGeometry(QRect(560, 140, 421, 331));
         label_4 = new QLabel(orderedTrip);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(570, 110, 281, 20));
@@ -69,10 +69,10 @@ public:
         pushButton_selectOrigin->setGeometry(QRect(160, 120, 61, 32));
         tableView = new QTableView(orderedTrip);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(240, 60, 141, 491));
+        tableView->setGeometry(QRect(240, 60, 301, 491));
         pushButton_startAnotherTrip = new QPushButton(orderedTrip);
         pushButton_startAnotherTrip->setObjectName(QString::fromUtf8("pushButton_startAnotherTrip"));
-        pushButton_startAnotherTrip->setGeometry(QRect(600, 490, 100, 32));
+        pushButton_startAnotherTrip->setGeometry(QRect(720, 500, 100, 32));
 
         retranslateUi(orderedTrip);
 

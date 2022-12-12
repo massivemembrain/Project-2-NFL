@@ -33,6 +33,7 @@ public:
     QPushButton *pushButton_dijkstra;
     QPushButton *pushButton_souvenir;
     QPushButton *pushButton_orderTrip;
+    QPushButton *pushButton_customTrip;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -130,10 +131,13 @@ public:
         pushButton_orderTrip = new QPushButton(centralwidget);
         pushButton_orderTrip->setObjectName(QString::fromUtf8("pushButton_orderTrip"));
         pushButton_orderTrip->setGeometry(QRect(510, 380, 100, 32));
+        pushButton_customTrip = new QPushButton(centralwidget);
+        pushButton_customTrip->setObjectName(QString::fromUtf8("pushButton_customTrip"));
+        pushButton_customTrip->setGeometry(QRect(510, 430, 80, 24));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 24));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -157,6 +161,7 @@ public:
         pushButton_dijkstra->setText(QCoreApplication::translate("MainWindow", "Dijkstra", nullptr));
         pushButton_souvenir->setText(QCoreApplication::translate("MainWindow", "souvenir shop", nullptr));
         pushButton_orderTrip->setText(QCoreApplication::translate("MainWindow", "order trip", nullptr));
+        pushButton_customTrip->setText(QCoreApplication::translate("MainWindow", "trip", nullptr));
     } // retranslateUi
 
 };

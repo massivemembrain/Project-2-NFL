@@ -135,16 +135,6 @@
     <string>no item selected</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>40</y>
-     <width>381</width>
-     <height>321</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
