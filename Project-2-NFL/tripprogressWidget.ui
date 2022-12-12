@@ -13,106 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="teamName">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>50</y>
-     <width>49</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TEAM</string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="souvenirTable">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>241</width>
-     <height>301</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="souvenirQuantity">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>390</y>
-     <width>71</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::WheelFocus</enum>
-   </property>
-   <property name="specialValueText">
-    <string>Quantity</string>
-   </property>
-   <property name="maximum">
-    <number>999</number>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_proceed">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>340</y>
-     <width>161</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Proceed to next destination?</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="souvenirOptions">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>420</y>
-     <width>121</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
-   <property name="placeholderText">
-    <string>no item selected</string>
-   </property>
-  </widget>
-  <widget class="QDialogButtonBox" name="proceedButtons">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>360</y>
-     <width>341</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="totalExpenseCity">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>90</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>$ </string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_souvenir">
    <property name="geometry">
     <rect>
@@ -129,132 +29,10 @@
     <enum>Qt::MarkdownText</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label_home">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>50</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Home of the</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_souvenir_quantity">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>420</y>
-     <width>16</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>x</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_city_total">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>90</y>
-     <width>71</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>### Subtotal:</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::MarkdownText</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="stadiumName">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>## cityName</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::MarkdownText</enum>
-   </property>
-   <property name="scaledContents">
-    <bool>false</bool>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QProgressBar" name="progressBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>470</y>
-     <width>641</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="value">
-    <number>5</number>
-   </property>
-   <property name="textVisible">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_plan_total">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>330</y>
-     <width>111</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>### Plan Expenses:</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::MarkdownText</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="totalExpensePlan">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>330</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>$ </string>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="tripReceipt">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>110</y>
-     <width>256</width>
-     <height>211</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_receipt">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>460</x>
      <y>90</y>
      <width>81</width>
      <height>16</height>
@@ -267,38 +45,82 @@
     <enum>Qt::MarkdownText</enum>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>420</y>
-     <width>103</width>
-     <height>32</height>
+     <y>110</y>
+     <width>401</width>
+     <height>291</height>
     </rect>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableView" name="souvenirTable"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="comboBox"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_souvenirs">
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="placeholderText">
+         <string>no item selected</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_quantity"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_buy">
+        <property name="text">
+         <string>buy</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_buy">
+  <widget class="QPushButton" name="pushButton_done">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>420</y>
-     <width>100</width>
-     <height>32</height>
+     <x>650</x>
+     <y>430</y>
+     <width>75</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>buy</string>
+    <string>Done</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox_quantity">
+  <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>420</y>
-     <width>42</width>
-     <height>22</height>
+     <x>460</x>
+     <y>110</y>
+     <width>271</width>
+     <height>291</height>
     </rect>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTextBrowser" name="tripReceipt"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_total">
+      <property name="text">
+       <string>Display Total</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

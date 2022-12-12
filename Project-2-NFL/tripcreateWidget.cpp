@@ -6,7 +6,7 @@
 
 const int INF = 9999;
 typedef pair<int, int> iPair;
-int currentTeam = -1;
+int currentTeam;
 int totalCost;
 
 TripCreateWidget::TripCreateWidget(QWidget *parent) :
@@ -162,9 +162,7 @@ TripCreateWidget::~TripCreateWidget()
     qDebug("Database closed.");
     delete ui;
 
-    QSqlQuery query;
-    query.prepare("DELETE FROM Custom_Trip");
-    query.exec();
+
 }
 
 
@@ -177,6 +175,17 @@ void TripCreateWidget::on_pushButton_done_clicked()
 
     QString intToString = QString::number(totalDistance);
     ui->textBrowser_team->append("Total Distance: " + intToString);
+
+    QSqlQuery query;
+    for (int i = 0; i < teamNames.size(); i++)
+    {
+        query.prepare("INSERT INTO Custom_Trip (City) VALUES (:Team)");
+        query.bindValue(":Team", teamNames[i]);
+        qDebug() << query.exec();
+    }
+
+    query.prepare("INSERT INTO Custom_Trip (City) VALUES (none)");
+    query.exec();
 }
 
 
@@ -208,16 +217,6 @@ void TripCreateWidget::on_pushButton_select_clicked()
 
 void TripCreateWidget::on_proceedButtons_accepted()
 {
-    QSqlQuery query;
-    for (int i = 0; i < teamNames.size(); i++)
-    {
-        query.prepare("INSERT INTO Custom_Trip VALUES (:Team)");
-        query.bindValue(":Team", teamNames[i]);
-        qDebug() << query.exec();
-    }
-
-//    souvenir = new class::TripProgressWidget;
-//    souvenir->show();
 
 }
 

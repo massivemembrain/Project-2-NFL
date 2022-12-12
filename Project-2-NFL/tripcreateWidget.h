@@ -7,7 +7,7 @@
 #include <QSqlQueryModel>
 #include <map>
 #include "mst.h"
-#include "tripprogressWidget.h"
+#include "mainwindow.h"
 
 using namespace std;
 
@@ -65,8 +65,6 @@ private slots:
 
 private:
     Ui::TripCreateWidget *ui;
-
-//    TripProgressWidget * souvenir = NULL;
 
     int matrix[NUMBER_CITIES][NUMBER_CITIES]; /*!< matrix store all the distance data*/
 

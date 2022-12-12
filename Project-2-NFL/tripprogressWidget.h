@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QSqlQueryModel>
-#include "tripcreateWidget.h"
 #include "TotalHolder.h"
+#include <list>
+
+using namespace std;
 
 class unordered{
   public:
@@ -34,14 +36,24 @@ public:
     explicit TripProgressWidget(QWidget *parent = nullptr);
     ~TripProgressWidget();
 
-    int teamTotal = 0;
     //iterator that goes through the teams in vector during the souvenir
+
+    double totalCost;
+
+    vector<pair<QString, double>> cityTotal;
+
 
 
 
 
 private slots:
     void on_pushButton_buy_clicked();
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void on_pushButton_done_clicked();
+
+    void on_pushButton_total_clicked();
 
 private:
     Ui::TripProgressWidget *ui;
