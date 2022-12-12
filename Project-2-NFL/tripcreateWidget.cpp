@@ -29,6 +29,8 @@ TripCreateWidget::TripCreateWidget(QWidget *parent) :
      }
 
 
+
+
      //myDb.setDatabaseName("/Users/nedamohseni/Documents/GitHub/Project-2-NFL/NFLProject.db");
      myDb.setDatabaseName("../NFLProject.db");
      if (myDb.open())
@@ -47,6 +49,14 @@ TripCreateWidget::TripCreateWidget(QWidget *parent) :
              matrix[i][j] = 0;
          }
      }
+
+     QSqlQueryModel* qryModel2 = new QSqlQueryModel();
+     ui->teamTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+     ui->teamTable->setAlternatingRowColors(true);
+
+     qryModel2->setQuery("SELECT DISTINCT Team FROM Distances");
+
+     ui->teamTable->setModel(qryModel2);
 
      QSqlQuery query;
      query.prepare("SELECT Start_Number, End_Number, Distance FROM Distances");
