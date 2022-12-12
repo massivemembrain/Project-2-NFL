@@ -20,6 +20,7 @@ SOURCES += \
     mainwindow.cpp \
     mst.cpp \
     orderedtrip.cpp \
+    plantrip.cpp \
     qsqlfootballClass.cpp \
     shortestDistance.cpp \
     travelgraphClass.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     mainwindow.h \
     mst.h \
     orderedtrip.h \
+    plantrip.h \
     qsqlfootballClass.h \
     shortestDistance.h \
     travelgraphClass.h \
@@ -59,6 +61,7 @@ FORMS += \
     mainwindow.ui \
     mst.ui \
     orderedtrip.ui \
+    planTrip.ui \
     shortestDistance.ui \
     tripcreateWidget.ui \
     tripprogressWidget.ui \

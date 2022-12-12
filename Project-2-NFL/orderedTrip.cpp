@@ -3,9 +3,9 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QItemSelectionModel>
-#include<QVector>
-#include<QSqlQueryModel>
-#include"dijkstra.h"
+#include <QVector>
+#include <QSqlQueryModel>
+#include "dijkstra.h"
 //#include"dijkstra.cpp"
 
 // vector definition

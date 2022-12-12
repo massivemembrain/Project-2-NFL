@@ -114,5 +114,10 @@ void MainWindow::on_pushButton_orderTrip_clicked()
     ordered->show();
 }
 
+void MainWindow::on_pushButton_customTrip_clicked()
+{
+    planTrip = new class::planTrip;
+    planTrip->show();
+}
 
 

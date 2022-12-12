@@ -15,6 +15,7 @@
 #include "dijkstra.h"
 #include "tripprogressWidget.h"
 #include "orderedtrip.h"
+#include "plantrip.h"
 /*****************************************************************//**
  * \file   mainwindow.h
  * \brief  our MainWindow
@@ -68,6 +69,8 @@ private slots:
 
     void on_pushButton_orderTrip_clicked();
 
+    void on_pushButton_customTrip_clicked();
+
 
 private:
     Ui::MainWindow *ui; /*!< an Ui variable*/
@@ -91,6 +94,8 @@ private:
     TripProgressWidget * t = NULL;
 
     OrderedTrip * ordered = NULL;
+
+    planTrip* planTrip = NULL;
 
 
 
