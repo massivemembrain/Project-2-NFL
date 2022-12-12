@@ -19,6 +19,8 @@ OrderedTrip::OrderedTrip(QWidget *parent)
 {
     ui->setupUi(this);
 
+    qDebug() << "hellooooooo";
+
     QSqlDatabase myDb;
 
     if(QSqlDatabase::contains("qt_sql_default_connection"))
