@@ -27,6 +27,7 @@ public:
     QPushButton *choose;
     QTableView *rest_tableView;
     QTextBrowser *textBrowser;
+    QPushButton *clear;
 
     void setupUi(QWidget *planTrip)
     {
@@ -45,6 +46,9 @@ public:
         textBrowser = new QTextBrowser(planTrip);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(520, 50, 331, 341));
+        clear = new QPushButton(planTrip);
+        clear->setObjectName(QString::fromUtf8("clear"));
+        clear->setGeometry(QRect(430, 420, 80, 24));
 
         retranslateUi(planTrip);
 
@@ -55,6 +59,7 @@ public:
     {
         planTrip->setWindowTitle(QCoreApplication::translate("planTrip", "Form", nullptr));
         choose->setText(QCoreApplication::translate("planTrip", "Choose", nullptr));
+        clear->setText(QCoreApplication::translate("planTrip", "Clear", nullptr));
     } // retranslateUi
 
 };

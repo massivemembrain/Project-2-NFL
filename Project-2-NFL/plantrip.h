@@ -24,6 +24,8 @@ public:
 private slots:
     void on_pushButton_choose_clicked();
 
+    void on_pushButton_clear_clicked();
+
 private:
     Ui::planTrip *ui;
     QSqlDatabase myDb;

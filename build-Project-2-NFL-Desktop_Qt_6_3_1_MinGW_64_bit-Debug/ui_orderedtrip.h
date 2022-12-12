@@ -69,7 +69,7 @@ public:
         pushButton_selectOrigin->setGeometry(QRect(160, 120, 61, 32));
         tableView = new QTableView(orderedTrip);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(240, 60, 141, 491));
+        tableView->setGeometry(QRect(240, 60, 301, 491));
         pushButton_startAnotherTrip = new QPushButton(orderedTrip);
         pushButton_startAnotherTrip->setObjectName(QString::fromUtf8("pushButton_startAnotherTrip"));
         pushButton_startAnotherTrip->setGeometry(QRect(600, 490, 100, 32));

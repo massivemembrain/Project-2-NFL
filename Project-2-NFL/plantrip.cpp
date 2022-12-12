@@ -65,3 +65,14 @@ void planTrip::on_pushButton_choose_clicked()
    ui->rest_tableView->setAlternatingRowColors(true);
    ui->rest_tableView->horizontalHeader() -> setSectionResizeMode(QHeaderView::Stretch);
 }
+
+void planTrip::on_pushButton_clear_clicked()
+{
+    myV.clear();
+    ui -> textBrowser -> append("content of vector after deleting\n");
+
+    for (int i = 0; i < myV.size(); i ++)
+    {
+         ui -> textBrowser -> append(myV.at(i));
+    }
+}
