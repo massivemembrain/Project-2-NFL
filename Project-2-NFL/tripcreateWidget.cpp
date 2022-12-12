@@ -350,3 +350,18 @@ int TripCreateWidget::shortestPathCompare(int src, int end)
 
 }
 
+
+void TripCreateWidget::on_pushButton_finished_clicked()
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM Custom_Trip");
+    qDebug() << "Delete query" << query.exec();
+
+}
+
+
+void TripCreateWidget::on_comboBox_algorithm_currentTextChanged(const QString &arg1)
+{
+
+}
+

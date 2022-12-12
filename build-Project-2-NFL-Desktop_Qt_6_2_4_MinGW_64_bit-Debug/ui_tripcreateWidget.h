@@ -15,7 +15,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QTextBrowser>
@@ -30,7 +29,6 @@ public:
     QLabel *label_description;
     QLabel *label_team_available;
     QLabel *planName;
-    QProgressBar *decor_progress_bar;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_team_selected;
@@ -41,6 +39,7 @@ public:
     QPushButton *pushButton_select;
     QComboBox *comboBox_algorithm;
     QTableView *teamTable;
+    QPushButton *pushButton_finished;
 
     void setupUi(QWidget *TripCreateWidget)
     {
@@ -60,11 +59,6 @@ public:
         planName->setTextFormat(Qt::MarkdownText);
         planName->setScaledContents(false);
         planName->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        decor_progress_bar = new QProgressBar(TripCreateWidget);
-        decor_progress_bar->setObjectName(QString::fromUtf8("decor_progress_bar"));
-        decor_progress_bar->setGeometry(QRect(0, 450, 641, 20));
-        decor_progress_bar->setValue(0);
-        decor_progress_bar->setTextVisible(false);
         verticalLayoutWidget = new QWidget(TripCreateWidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(290, 80, 291, 351));
@@ -110,6 +104,9 @@ public:
         teamTable = new QTableView(TripCreateWidget);
         teamTable->setObjectName(QString::fromUtf8("teamTable"));
         teamTable->setGeometry(QRect(20, 120, 261, 261));
+        pushButton_finished = new QPushButton(TripCreateWidget);
+        pushButton_finished->setObjectName(QString::fromUtf8("pushButton_finished"));
+        pushButton_finished->setGeometry(QRect(160, 400, 93, 29));
 
         retranslateUi(TripCreateWidget);
 
@@ -123,8 +120,9 @@ public:
         label_team_available->setText(QCoreApplication::translate("TripCreateWidget", "All Teams", nullptr));
         planName->setText(QCoreApplication::translate("TripCreateWidget", "## My Plan", nullptr));
         label_team_selected->setText(QCoreApplication::translate("TripCreateWidget", "### Selected Teams", nullptr));
-        pushButton_done->setText(QCoreApplication::translate("TripCreateWidget", "Done", nullptr));
+        pushButton_done->setText(QCoreApplication::translate("TripCreateWidget", "Find Total", nullptr));
         pushButton_select->setText(QCoreApplication::translate("TripCreateWidget", "Add", nullptr));
+        pushButton_finished->setText(QCoreApplication::translate("TripCreateWidget", "Finish", nullptr));
     } // retranslateUi
 
 };

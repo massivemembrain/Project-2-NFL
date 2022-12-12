@@ -50,11 +50,11 @@ public:
         TripProgressWidget->resize(853, 542);
         label_souvenir = new QLabel(TripProgressWidget);
         label_souvenir->setObjectName(QString::fromUtf8("label_souvenir"));
-        label_souvenir->setGeometry(QRect(30, 90, 71, 16));
+        label_souvenir->setGeometry(QRect(20, 70, 91, 41));
         label_souvenir->setTextFormat(Qt::MarkdownText);
         label_receipt = new QLabel(TripProgressWidget);
         label_receipt->setObjectName(QString::fromUtf8("label_receipt"));
-        label_receipt->setGeometry(QRect(460, 90, 81, 16));
+        label_receipt->setGeometry(QRect(460, 80, 101, 31));
         label_receipt->setTextFormat(Qt::MarkdownText);
         verticalLayoutWidget = new QWidget(TripProgressWidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
@@ -125,7 +125,7 @@ public:
         label_receipt->setText(QCoreApplication::translate("TripProgressWidget", "### My Receipt", nullptr));
         comboBox_souvenirs->setPlaceholderText(QCoreApplication::translate("TripProgressWidget", "no item selected", nullptr));
         pushButton_buy->setText(QCoreApplication::translate("TripProgressWidget", "buy", nullptr));
-        pushButton_done->setText(QCoreApplication::translate("TripProgressWidget", "Done", nullptr));
+        pushButton_done->setText(QCoreApplication::translate("TripProgressWidget", "Finish", nullptr));
         pushButton_total->setText(QCoreApplication::translate("TripProgressWidget", "Display Total", nullptr));
     } // retranslateUi
 

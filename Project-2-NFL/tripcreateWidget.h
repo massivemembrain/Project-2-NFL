@@ -64,6 +64,10 @@ private slots:
 
    void on_proceedButtons_accepted();
 
+   void on_pushButton_finished_clicked();
+
+   void on_comboBox_algorithm_currentTextChanged(const QString &arg1);
+
 private:
     Ui::TripCreateWidget *ui;
 

@@ -381,23 +381,29 @@ void Admin::on_importButton_3_clicked()
         QString startString;
         QString endString;
         QString distanceString;
+        QString startNum;
+        QString endNum;
 
 
 
         while(!inFile.atEnd())
         {
              QSqlQuery query;
-             query.prepare("INSERT INTO Distances(Team, Starting_Stadium, Ending_Stadium, Distance) VALUES (:Team, :Start, :End, :Distance)");
+             query.prepare("INSERT INTO Distances(Team, Starting_Stadium, Ending_Stadium, Distance, Start_Number, End_Number) VALUES (:Team, :Start, :End, :Distance, :StartNum, :EndNum)");
 
              nameString = inFile.readLine();
              startString = inFile.readLine();
              endString = inFile.readLine();
              distanceString = inFile.readLine();
+             startNum = inFile.readLine();
+             endNum = inFile.readLine();
 
              query.bindValue(":Team", nameString);
              query.bindValue(":Start", startString);
              query.bindValue(":End", endString);
              query.bindValue(":Distance", distanceString);
+             query.bindValue(":StartNum", startNum.toInt());
+             query.bindValue(":EndNum", endNum.toInt());
 
              qDebug() << nameString << startString << endString << distanceString;
              query.exec();
