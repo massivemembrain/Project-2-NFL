@@ -3,15 +3,13 @@
 #include <QTableView>
 #include <QTableWidget>
 #include <QItemSelectionModel>
-#include <QVector>
-#include <QSqlQueryModel>
-#include "dijkstra.h"
-//#include"dijkstra.cpp"
+#include<QVector>
+#include<queue>
+#include<QSqlQueryModel>
 
-// vector definition
-QVector<QString> myVector;
-int matrix[NUMBER_CITIES][NUMBER_CITIES];
 
+const int INF = 9999;
+typedef pair<int, int> iPair;
 
 OrderedTrip::OrderedTrip(QWidget *parent)
     :     QWidget(parent),
@@ -19,7 +17,8 @@ OrderedTrip::OrderedTrip(QWidget *parent)
 {
     ui->setupUi(this);
 
-    qDebug() << "hellooooooo";
+    this->V = NUMBER_CITIES;
+    adj = new list<iPair>[V];
 
     QSqlDatabase myDb;
 
@@ -43,6 +42,40 @@ OrderedTrip::OrderedTrip(QWidget *parent)
         qDebug().noquote() << "db not found";
     }
 
+    for (int i = 0; i < NUMBER_CITIES; i++)
+    {
+        for (int j = 0; j < NUMBER_CITIES; j++)
+        {
+            matrix[i][j] = 0;
+        }
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT Start_Number, End_Number, Distance FROM Distances");
+    query.exec();
+
+    int start;
+    int end;
+
+    for (int i = 0; query.next(); i++)
+    {
+        start = query.value(0).toInt();
+        end = query.value(1).toInt();
+
+        matrix[start][end] = query.value(2).toInt();
+    }
+
+    for (int u = 0; u < NUMBER_CITIES; u++)
+        {
+          for(int v = u + 1; v < NUMBER_CITIES; v++)
+          {
+            if(matrix[u][v] != 0)
+            {
+              addEdge(u, v, matrix[u][v]);
+            }
+          }
+        }
+
     // code for combobox options
     QSqlQueryModel* comboquery = new QSqlQueryModel();
     comboquery->setQuery("SELECT DISTINCT Team FROM Distances");
@@ -51,7 +84,9 @@ OrderedTrip::OrderedTrip(QWidget *parent)
 // =============================================================================
  OrderedTrip :: ~ OrderedTrip()
  {
-    // myVector.clear();
+     myVector.clear();
+     totaldistanceVector.clear();
+     ui -> textBrowser -> clear();
  }
 // =============================================================================
 void OrderedTrip::on_pushButton_selectOrigin_clicked()
@@ -61,7 +96,7 @@ void OrderedTrip::on_pushButton_selectOrigin_clicked()
 
     myVector.push_back(originTeam);
 
-     ui -> textBrowser -> insertPlainText("first : " + originTeam + "\n");
+     //ui -> textBrowser -> insertPlainText("start Team : " + originTeam + "\n");
 
     QSqlQueryModel* qryModel = new QSqlQueryModel();
     qryModel->setQuery("SELECT DISTINCT Team FROM Distances WHERE Team NOT LIKE '%"+ originTeam +"%' ");
@@ -82,38 +117,28 @@ void OrderedTrip::on_tableView_clicked(const QModelIndex &index)
 
     myVector.push_back(chosen);
 
-    ui -> textBrowser -> insertPlainText(chosen);
-    ui -> textBrowser -> insertPlainText("\n");
-
-    //ui->tableView->selectRow(index.row());
-
-    //numClicked ++;
-    //qDebug() << "helloooo" << numClicked;
-
+    //ui -> textBrowser -> insertPlainText(chosen);
+    // ui -> textBrowser -> insertPlainText("\n");
 }
 // ======================================================================================
 void OrderedTrip::on_pushButton_done_clicked()
 {
-    ui -> textBrowser -> append("here is my vector values:\n");
+    ui -> textBrowser -> append("order of your trip:\n");
 
     for (int i = 0; i < myVector.size(); i ++)
     {
-         ui -> textBrowser -> append(myVector.at(i));
+         ui -> textBrowser -> append(QString::number(i+1) + " - " + myVector.at(i));
     }
-
-    Dijkstra d ;  // object of dij class
 
     QString startString;
     QString endString;
 
     for (int i = 0; i < myVector.size() - 1  ; i ++)
     {
-        //cout << "cout first" << i << endl;
-
        QSqlQuery query;
        query.prepare("SELECT Start_Number FROM Distances WHERE Team = :Team");
        query.bindValue(":Team", myVector.at(i));
-       qDebug() << query.exec();
+       query.exec();
 
        if (query.first())
            startString = query.value(0).toString();
@@ -125,32 +150,84 @@ void OrderedTrip::on_pushButton_done_clicked()
        QSqlQuery query2;
        query2.prepare("SELECT Start_Number FROM Distances WHERE Team = :Team");
        query2.bindValue(":Team", myVector.at(i+1));
-       qDebug() << query2.exec();
+       query2.exec();
 
        if (query2.first())
            endString = query2.value(0).toString();
 
        int end = endString.toInt();
 
-       qDebug() << "initial :" << myVector.at(i);
-       qDebug() << "final :" << myVector.at(i+1);
+       //qDebug() << "initial :" << myVector.at(i);
+       //qDebug() << "final :" << myVector.at(i+1);
 
-        // calling dij
-       d.shortestPath(start, end);
+       // calling dij function
+       shortestPath(start, end);
   }
+    int totDist = 0;
+
+    for (int i = 0; i < totaldistanceVector.size(); i ++)
+    {
+        totDist += totaldistanceVector.at(i);
+    }
+
+   ui -> textBrowser -> append("\n\n*************************");
+   ui -> textBrowser -> append("total distance: "  + QString::number(totDist));
+   ui -> textBrowser -> append("*************************");
 
 }
-
-
+// =====================================================
 void OrderedTrip::on_pushButton_startAnotherTrip_clicked()
 {
     myVector.clear();
-    ui -> textBrowser -> append("content of vector after deleting\n");
+    totaldistanceVector.clear();
+    ui -> textBrowser -> clear();
+}
+// =============================================
+void OrderedTrip::addEdge(int u, int v, int w)
+{
+    adj[u].push_back(make_pair(v, w));
+    adj[v].push_back(make_pair(u, w));
+}
+// =============================================
+void OrderedTrip::shortestPath(int src, int end)
+{
+    priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
 
-    for (int i = 0; i < myVector.size(); i ++)
+    vector<int> vertices_to_destination;
+
+    vector<int> dist(V, INF);
+
+    pq.push(make_pair(0, src));
+    dist[src] = 0;
+    vertices_to_destination.push_back(src);
+
+    while (!pq.empty())
     {
-         ui -> textBrowser -> append(myVector.at(i));
+        int u = pq.top().second;
+        pq.pop();
+
+        list<pair<int, int> >::iterator i;
+      int save_v = 0;
+        for (i = adj[u].begin(); i != adj[u].end(); ++i)
+        {
+            int v = (*i).first;
+            int weight = (*i).second;
+
+            if (dist[v] > dist[u] + weight)
+            {
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(dist[v], v));
+
+                save_v = v;
+            }
+        }
+      vertices_to_destination.push_back(save_v);
     }
+
+    QString str = QString::number(dist[end]);
+    totaldistanceVector.push_back(dist[end]);
+
+    ui -> textBrowser -> append ( "\n" + CityToTeam[src] + " --> " + CityToTeam[end] + ": " + str + " km");
 
 }
 
