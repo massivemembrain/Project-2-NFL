@@ -24,7 +24,7 @@ class Ui_planTrip
 {
 public:
     QComboBox *starting_comboBox;
-    QPushButton *choose;
+    QPushButton *pushButton_choose;
     QTableView *rest_tableView;
     QTextBrowser *textBrowser;
     QPushButton *clear;
@@ -37,9 +37,9 @@ public:
         starting_comboBox = new QComboBox(planTrip);
         starting_comboBox->setObjectName(QString::fromUtf8("starting_comboBox"));
         starting_comboBox->setGeometry(QRect(100, 50, 301, 31));
-        choose = new QPushButton(planTrip);
-        choose->setObjectName(QString::fromUtf8("choose"));
-        choose->setGeometry(QRect(400, 50, 81, 31));
+        pushButton_choose = new QPushButton(planTrip);
+        pushButton_choose->setObjectName(QString::fromUtf8("pushButton_choose"));
+        pushButton_choose->setGeometry(QRect(400, 50, 81, 31));
         rest_tableView = new QTableView(planTrip);
         rest_tableView->setObjectName(QString::fromUtf8("rest_tableView"));
         rest_tableView->setGeometry(QRect(100, 80, 381, 311));
@@ -58,7 +58,7 @@ public:
     void retranslateUi(QWidget *planTrip)
     {
         planTrip->setWindowTitle(QCoreApplication::translate("planTrip", "Form", nullptr));
-        choose->setText(QCoreApplication::translate("planTrip", "Choose", nullptr));
+        pushButton_choose->setText(QCoreApplication::translate("planTrip", "Choose", nullptr));
         clear->setText(QCoreApplication::translate("planTrip", "Clear", nullptr));
     } // retranslateUi
 

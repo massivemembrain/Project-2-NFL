@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButton_clear_clicked();
 
+    void on_rest_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::planTrip *ui;
     QSqlDatabase myDb;

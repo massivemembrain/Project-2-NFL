@@ -76,3 +76,20 @@ void planTrip::on_pushButton_clear_clicked()
          ui -> textBrowser -> append(myV.at(i));
     }
 }
+
+// ===================================================================================
+void planTrip::on_rest_tableView_clicked(const QModelIndex &index)
+{
+   ui -> rest_tableView -> setSelectionMode(QAbstractItemView::MultiSelection);
+   ui -> rest_tableView -> setSelectionBehavior(QAbstractItemView:: SelectItems);
+
+    // gets the data on the which was cell clicked on & store it in chosen
+    QString chosen = ui -> rest_tableView -> model() -> data(index).toString();
+
+    qDebug() << "selected : " << chosen;
+
+    myV.push_back(chosen);
+
+    ui -> textBrowser -> insertPlainText(chosen);
+     ui -> textBrowser -> insertPlainText("\n");
+}
